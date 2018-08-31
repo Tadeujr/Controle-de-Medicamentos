@@ -1,1 +1,13 @@
-# Controle-de-Medicamentos
+# Controle de Medicamentos da Farmácia do posto 
+
+
+Um posto de saúde deseja otimizar o controle de estoque de sua farmácia para facilitar e agilizar o processo de distribuição de remédios aos clientes, tal posto usa planilhas de papel para armazenar as informações de quantidade de remédios pendentes no estoque.
+
+O cliente requisita um medicamento, ao fazer a requisição o atendente verifica a disponibilidade do produto no sistema e caso o mesmo esteja disponível o atendente dá baixa no sistema e entrega o produto.
+
+O funcionário registra o produto no estoque. Ao chegar um novo remédio, o funcionário registra o mesmo no estoque. Para o posto é fundamental saber o nome do remédio, sua descrição, e a quantidade de remédio disponível. Caso o mesmo já seja cadastrado, é acrescentado a quantidade de remédios adquiridos na compra.
+
+O sistema alerta o funcionário quando há pouco produto no estoque. Para o posto de saúde é de suma importância que nunca falte remédio para seus clientes, para isso, quando se chega a uma baixa quantidade do produto em estoque o posto de saúde deve ser notificado para fazer a solicitação da reposição do mesmo junto a um fornecedor, que também é cadastrado no sistema.
+
+O sistema gera relatório de produtos mais procurados. Para fins de controle, após a baixa no estoque o sistema armazena as informações para gerar um relatório mensal/anual com os produtos mais adquiridos pelos clientes do posto.
+
