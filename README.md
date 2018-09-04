@@ -1,5 +1,16 @@
 # Controle de Medicamentos da Farmácia do posto 
+1. COMPONENTES
 
+Ewerson Vieira: <br>
+Jadson Pereira: <br>
+Leonardo Arpini: <br>
+Tadeu da Penha Moraes Junior: tadeu_junior@outlook.com
+
+2.INTRODUÇÃO E MOTIVAÇAO
+
+Com a necessidade de controlar o estoque da uma farmacia de posto, foi prospoto pela Cliente Monica Ferreira, a criação de um sistema para monitoramentos de remédio.
+
+3.MINI-MUNDO
 
 Um posto de saúde deseja otimizar o controle de estoque de sua farmácia para facilitar e agilizar o processo de distribuição de remédios aos clientes, tal posto usa planilhas de papel para armazenar as informações de quantidade de remédios pendentes no estoque.
 
@@ -11,3 +22,11 @@ O sistema alerta o funcionário quando há pouco produto no estoque. Para o post
 
 O sistema gera relatório de produtos mais procurados. Para fins de controle, após a baixa no estoque o sistema armazena as informações para gerar um relatório mensal/anual com os produtos mais adquiridos pelos clientes do posto.
 
+4.RASCUNHOS BÁSICOS DA INTERFACE (MOCKUPS) <br>
+link Futuro
+
+5. MPC <br> 
+ https://docs.google.com/presentation/d/1yUH-r5BNlOyC_X4O6y9thzoztsveFpB8ChaGlIOkvLA/edit#slide=id.p
+
+6. Diário de Bordo
+<br>https://docs.google.com/document/d/1tRgpuwlMPt-rgHhG-9kocRRMQQI815y7EecFsZM7lPc/edit
