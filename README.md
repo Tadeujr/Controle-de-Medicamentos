@@ -22,8 +22,13 @@ O sistema alerta o funcionário quando há pouco produto no estoque. Para o post
 
 O sistema gera relatório de produtos mais procurados. Para fins de controle, após a baixa no estoque o sistema armazena as informações para gerar um relatório mensal/anual com os produtos mais adquiridos pelos clientes do posto.
 
-4.RASCUNHOS BÁSICOS DA INTERFACE (MOCKUPS) <br>
-link Futuro
+4.Tecnologias utilizadas <br>
+Mockup: Balsamiq
+Gerenciamento de projeto e controle de versão: GitHub
+Modelos do banco de dados: brModelo
+Banco de dados: PostgreSQL, utilizando pgAdmin
+Software: desenvolvido em Java, utilizando NetBeans
+
 
 5. MPC <br> 
  https://docs.google.com/presentation/d/1yUH-r5BNlOyC_X4O6y9thzoztsveFpB8ChaGlIOkvLA/edit#slide=id.p
