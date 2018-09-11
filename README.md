@@ -1,16 +1,16 @@
 # Controle de Medicamentos da Farmácia do posto 
-1.COMPONENTES
+### 1.COMPONENTES
 
 Ewerson Vieira: ewersonv@gmail.com <br>
 Jadson Pereira: <br>
 Leonardo Arpini: leonardoarpini@gmail.com <br>
 Tadeu da Penha Moraes Junior: tadeu_junior@outlook.com
 
-2.INTRODUÇÃO E MOTIVAÇAO
+### 2.INTRODUÇÃO E MOTIVAÇAO
 
 Com a necessidade de controlar o estoque da uma farmacia de posto, foi prospoto pela cliente Monica Ferreira, a criação de um sistema para monitoramentos de remédio.
 
-3.MINI-MUNDO
+### 3.MINI-MUNDO
 
 Um posto de saúde deseja otimizar o controle de estoque de sua farmácia para facilitar e agilizar o processo de distribuição de remédios aos clientes, tal posto usa planilhas de papel para armazenar as informações de quantidade de remédios pendentes no estoque.
 
@@ -22,7 +22,7 @@ O sistema alerta o funcionário quando há pouco produto no estoque. Para o post
 
 O sistema gera relatório de produtos mais procurados. Para fins de controle, após a baixa no estoque o sistema armazena as informações para gerar um relatório mensal/anual com os produtos mais adquiridos pelos clientes do posto.
 
-4.TECNOLOGIAS UTILIZADAS <br>
+### 4.TECNOLOGIAS UTILIZADAS <br>
 
 Mockup: Balsamiq <br>
 Gerenciamento de projeto e controle de versão: GitHub <br>
@@ -31,11 +31,11 @@ Banco de dados: PostgreSQL, utilizando pgAdmin <br>
 Software: desenvolvido em Java, utilizando NetBeans <br>
 
 
-5.MPC <br> 
+### 5.MPC <br> 
 https://docs.google.com/presentation/d/1yUH-r5BNlOyC_X4O6y9thzoztsveFpB8ChaGlIOkvLA/edit#slide=id.p
 
-6.DIÁRIO DE BORDO <br>
+### 6.DIÁRIO DE BORDO <br>
 https://docs.google.com/document/d/1tRgpuwlMPt-rgHhG-9kocRRMQQI815y7EecFsZM7lPc/edit
 
-7.PROTÓTIPO <br>
+### 7.PROTÓTIPO <br>
 https://github.com/Tadeujr/Controle-de-Medicamentos/blob/master/controle%20de%20posto%20de%20saude.pdf
