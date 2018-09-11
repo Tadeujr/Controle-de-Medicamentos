@@ -8,7 +8,7 @@ Tadeu da Penha Moraes Junior: tadeu_junior@outlook.com
 
 2.INTRODUÇÃO E MOTIVAÇAO
 
-Com a necessidade de controlar o estoque da uma farmacia de posto, foi prospoto pela Cliente Monica Ferreira, a criação de um sistema para monitoramentos de remédio.
+Com a necessidade de controlar o estoque da uma farmacia de posto, foi prospoto pela cliente Monica Ferreira, a criação de um sistema para monitoramentos de remédio.
 
 3.MINI-MUNDO
 
