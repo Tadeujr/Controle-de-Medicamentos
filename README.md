@@ -23,11 +23,11 @@ O sistema alerta o funcionário quando há pouco produto no estoque. Para o post
 O sistema gera relatório de produtos mais procurados. Para fins de controle, após a baixa no estoque o sistema armazena as informações para gerar um relatório mensal/anual com os produtos mais adquiridos pelos clientes do posto.
 
 4.Tecnologias utilizadas <br>
-Mockup: Balsamiq
-Gerenciamento de projeto e controle de versão: GitHub
-Modelos do banco de dados: brModelo
-Banco de dados: PostgreSQL, utilizando pgAdmin
-Software: desenvolvido em Java, utilizando NetBeans
+Mockup: Balsamiq <br>
+Gerenciamento de projeto e controle de versão: GitHub <br>
+Modelos do banco de dados: brModelo <br>
+Banco de dados: PostgreSQL, utilizando pgAdmin <br>
+Software: desenvolvido em Java, utilizando NetBeans <br>
 
 
 5. MPC <br> 
