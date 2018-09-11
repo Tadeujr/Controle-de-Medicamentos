@@ -1,7 +1,7 @@
 # Controle de Medicamentos da Farmácia do posto 
 1. COMPONENTES
 
-Ewerson Vieira: <br>
+Ewerson Vieira: ewersonv@gmail.com <br>
 Jadson Pereira: <br>
 Leonardo Arpini: leonardoarpini@gmail.com <br>
 Tadeu da Penha Moraes Junior: tadeu_junior@outlook.com
