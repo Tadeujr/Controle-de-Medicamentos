@@ -1,5 +1,5 @@
 # Controle de Medicamentos da Farmácia do posto 
-1. COMPONENTES
+1.COMPONENTES
 
 Ewerson Vieira: ewersonv@gmail.com <br>
 Jadson Pereira: <br>
