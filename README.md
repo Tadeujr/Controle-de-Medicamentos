@@ -31,11 +31,11 @@ Banco de dados: PostgreSQL, utilizando pgAdmin <br>
 Software: desenvolvido em Java, utilizando NetBeans <br>
 
 
-5. MPC <br> 
- https://docs.google.com/presentation/d/1yUH-r5BNlOyC_X4O6y9thzoztsveFpB8ChaGlIOkvLA/edit#slide=id.p
+5.MPC <br> 
+https://docs.google.com/presentation/d/1yUH-r5BNlOyC_X4O6y9thzoztsveFpB8ChaGlIOkvLA/edit#slide=id.p
 
-6. DIÁRIO DE BORDO
-<br>https://docs.google.com/document/d/1tRgpuwlMPt-rgHhG-9kocRRMQQI815y7EecFsZM7lPc/edit
+6.DIÁRIO DE BORDO <br>
+https://docs.google.com/document/d/1tRgpuwlMPt-rgHhG-9kocRRMQQI815y7EecFsZM7lPc/edit
 
-7. PROTÓTIPO <br>
+7.PROTÓTIPO <br>
 https://github.com/Tadeujr/Controle-de-Medicamentos/blob/master/controle%20de%20posto%20de%20saude.pdf
