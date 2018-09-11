@@ -3,7 +3,7 @@
 
 Ewerson Vieira: <br>
 Jadson Pereira: <br>
-Leonardo Arpini: <br>
+Leonardo Arpini: leonardoarpini@gmail.com
 Tadeu da Penha Moraes Junior: tadeu_junior@outlook.com
 
 2.INTRODUÇÃO E MOTIVAÇAO
