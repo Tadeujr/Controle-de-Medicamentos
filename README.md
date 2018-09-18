@@ -2,7 +2,7 @@
 ### 1.COMPONENTES
 
 Ewerson Vieira: ewersonv@gmail.com <br>
-Jadson Pereira: <br>
+Jadson Pereira: jadsonpereira121@gmail.com <br>
 Leonardo Arpini: leonardoarpini@gmail.com <br>
 Tadeu da Penha Moraes Junior: tadeu_junior@outlook.com
 
