@@ -1,12 +1,14 @@
 
-package postosaude;
+package posto.modelo;
+
+import posto.control.*;
 
 
 public class Main {
 
 
     public static void main(String[] args) {
-        // TODO code application logic here
+
     }
     
 }

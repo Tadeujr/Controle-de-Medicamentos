@@ -1,5 +1,5 @@
 
-package postosaude;
+package posto.modelo;
 
 
 public class Retirada {
@@ -7,7 +7,7 @@ public class Retirada {
     protected String hora;
     protected int qtdRetirada;
     
-    public void armazenarRetirada(){
+    public void armazenarRetirada(){// subir oara i banco de Dados
     
     }
     

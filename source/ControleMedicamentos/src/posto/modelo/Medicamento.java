@@ -1,5 +1,5 @@
 
-package postosaude;
+package posto.modelo;
 
 public class Medicamento {
     protected String descricao;
