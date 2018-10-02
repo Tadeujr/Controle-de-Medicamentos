@@ -38,7 +38,7 @@ https://docs.google.com/presentation/d/1yUH-r5BNlOyC_X4O6y9thzoztsveFpB8ChaGlIOk
 https://docs.google.com/document/d/1tRgpuwlMPt-rgHhG-9kocRRMQQI815y7EecFsZM7lPc/edit
 
 ### 7.PROTÓTIPO <br>
-https://github.com/Tadeujr/Controle-de-Medicamentos/blob/master/controle%20de%20posto%20de%20saude.pdf
+https://github.com/Tadeujr/Controle-de-Medicamentos/blob/master/Controle%20de%20Medicamento.pdf
 
 ### 8. Kanban <br>
 https://github.com/Tadeujr/Controle-de-Medicamentos/projects
