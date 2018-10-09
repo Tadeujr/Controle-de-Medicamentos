@@ -12,4 +12,8 @@ import posto.modelo.Medicamento;
  */
 public class RetirarMedicamento extends Medicamento{
     
+    public RetirarMedicamento(String descricao, String nome, String validade, String lote, int qtdDisponivel) {
+        super(descricao, nome, validade, lote, qtdDisponivel);
+    }
+    
 }
