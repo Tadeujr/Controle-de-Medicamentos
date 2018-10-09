@@ -5,23 +5,10 @@
  */
 package posto.control;
 
-import java.io.IOException;
-
 /**
  *
  * @author tadeu
  */
-public class SalvarBanco implements IPersistencia{
-
-    @Override
-    public void salvarDados(Object nome) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public Object trazerDados(Object dado) throws IOException, ClassNotFoundException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
+public class AtualizarBanco {
     
 }
