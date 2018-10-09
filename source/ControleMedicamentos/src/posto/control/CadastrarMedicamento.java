@@ -5,11 +5,27 @@
  */
 package posto.control;
 
+import java.io.IOException;
+import posto.modelo.Medicamento;
+
 /**
  *
  * @author tadeu
  */
 public class CadastrarMedicamento {
+    
+  public void cadastrarMedicamento(Medicamento novoMedicamento) throws IOException{
+      IPersistencia salvar = new OperacoesArq("dadosfarmacia");
+      salvar.salvarDados(novoMedicamento);
+  }
   
+  public Medicamento buscarMedicamento(Medicamento retorno, String nomeArq) throws IOException, ClassNotFoundException{
+      
+      IPersistencia abrir = new OperacoesArq(nomeArq);
+      
+      retorno = (Medicamento) abrir.trazerDados(retorno);
+      
+      return retorno;
+  }
     
 }

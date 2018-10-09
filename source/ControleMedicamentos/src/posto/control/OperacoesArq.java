@@ -15,11 +15,11 @@ import java.io.ObjectOutputStream;
  *
  * @author tadeu
  */
-public class OperarcoesArq implements IPersistencia{
+public class OperacoesArq implements IPersistencia{
     
     String nomeArq;
 
-    public OperarcoesArq(String nomeArq) {
+    public OperacoesArq(String nomeArq) {
         this.nomeArq = nomeArq;
     }
     
