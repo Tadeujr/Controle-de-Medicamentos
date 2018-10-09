@@ -1,0 +1,4 @@
+Atualizações necessárias:
+- Modelo de classe
+  -> Unidade vinculada na tabela Cliente
+  -> E-mail e Telefone na tabela funcionário/atendente.
