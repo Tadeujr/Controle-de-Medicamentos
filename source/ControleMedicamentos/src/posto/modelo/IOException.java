@@ -3,15 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package posto.control;
-import posto.modelo.Medicamento;
+package posto.modelo;
 
 /**
  *
  * @author tadeu
  */
-public class RetirarMedicamento{
-    
-
+class IOException extends Exception {
     
 }
