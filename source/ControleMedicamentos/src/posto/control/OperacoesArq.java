@@ -35,7 +35,7 @@ public class OperacoesArq implements IPersistencia{
         outputSerializado.writeObject(dado);
         outputSerializado.close();
         
-        System.out.println("Dados Salvo");        
+        System.out.println("Dado Salvo");        
 
     }
 

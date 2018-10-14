@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-<?xml version="1.0" encoding="UTF-8"?>
-<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
-    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
-    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
-    </open-files>
-</project-private>
-=======
 <?xml version="1.0" encoding="UTF-8"?>
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
@@ -15,9 +6,10 @@
             <file>file:/home/tadeu/Documentos/Controle-de-Medicamentos/source/ControleMedicamentos/src/posto/modelo/Medicamento.java</file>
             <file>file:/home/tadeu/Documentos/Controle-de-Medicamentos/source/ControleMedicamentos/src/posto/modelo/Main.java</file>
             <file>file:/home/tadeu/Documentos/Controle-de-Medicamentos/source/ControleMedicamentos/src/posto/control/CadastrarMedicamento.java</file>
+            <file>file:/home/tadeu/Documentos/Controle-de-Medicamentos/source/ControleMedicamentos/src/posto/control/RetirarMedicamento.java</file>
+            <file>file:/home/tadeu/Documentos/Controle-de-Medicamentos/source/ControleMedicamentos/src/posto/control/SalvarBanco.java</file>
             <file>file:/home/tadeu/Documentos/Controle-de-Medicamentos/source/ControleMedicamentos/src/posto/control/OperacoesArq.java</file>
             <file>file:/home/tadeu/Documentos/Controle-de-Medicamentos/source/ControleMedicamentos/src/posto/control/ExibirMedicamentos.java</file>
         </group>
     </open-files>
 </project-private>
->>>>>>> ...

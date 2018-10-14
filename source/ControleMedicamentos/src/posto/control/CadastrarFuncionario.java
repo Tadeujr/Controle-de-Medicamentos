@@ -5,19 +5,28 @@
  */
 package posto.control;
 
+import java.io.IOException;
 import posto.modelo.Funcionario;
+
 
 /**
  *
  * @author tadeu
  */
 public class CadastrarFuncionario{
-    protected Funcionario nFuncionario;
-    
-    
-public void cadastrarFuncionario(String nome, String rg){ // guarda em uma Stream
-    nFuncionario.nome = nome;
-    nFuncionario.rg = rg;
-  } 
+       
+
+public void cadastrarFuncionario(Funcionario nFuncionario) throws IOException{ // guarda em uma Stream
+      IPersistencia salvar = new OperacoesArq("funcionario");
+      salvar.salvarDados(nFuncionario);
+    }
+
+
+public Funcionario buscarFuncionario(Funcionario funcionario, String nomeArq) throws IOException, ClassNotFoundException{
+      IPersistencia abrir = new OperacoesArq(nomeArq);
+      funcionario = (Funcionario) abrir.trazerDados(funcionario);
+      
+      return funcionario;
+    }
     
 }
