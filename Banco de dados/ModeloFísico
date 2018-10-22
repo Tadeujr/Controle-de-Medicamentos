@@ -1,0 +1,32 @@
+/* Lógico_1: */
+
+CREATE TABLE Pessoa (
+    nome VARCHAR,
+    email VARCHAR,
+    telefone VARCHAR,
+    endereco VARCHAR,
+    senha VARCHAR,
+    id_pessoa SERIAL,
+    id_funcionario INT,
+    id_gerente INT,
+    id_cliente INT,
+    Pessoa_TIPO VARCHAR
+);
+
+CREATE TABLE Medicamento (
+    nome VARCHAR,
+    id_medicamento SERIAL,
+    descricao VARCHAR,
+    qtd_disponivel INT,
+    validade VARCHAR,
+    lote VARCHAR
+);
+
+CREATE TABLE Retirada (
+    data DATE,
+    id_retirada SERIAL,
+    qtd_retirada INT
+);
+
+CREATE TABLE Contem (
+);
