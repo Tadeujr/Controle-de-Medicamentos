@@ -1,6 +1,6 @@
-/* Lógico_1: */
+/* LÃ³gico_1: */
 
-CREATE TABLE Pessoa (
+CREATE TABLE if not exists Pessoa (
     nome VARCHAR,
     email VARCHAR,
     telefone VARCHAR,
@@ -13,7 +13,7 @@ CREATE TABLE Pessoa (
     Pessoa_TIPO VARCHAR
 );
 
-CREATE TABLE Medicamento (
+CREATE TABLE if not exists Medicamento (
     nome VARCHAR,
     id_medicamento SERIAL,
     descricao VARCHAR,
@@ -22,11 +22,12 @@ CREATE TABLE Medicamento (
     lote VARCHAR
 );
 
-CREATE TABLE Retirada (
+CREATE TABLE if not exists Retirada (
     data DATE,
     id_retirada SERIAL,
     qtd_retirada INT
 );
 
-CREATE TABLE Contem (
+CREATE TABLE if not exists Contem (
+    
 );
