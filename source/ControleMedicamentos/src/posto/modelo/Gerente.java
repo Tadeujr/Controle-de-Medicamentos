@@ -6,8 +6,8 @@ public class Gerente extends Pessoa{
      
     
 
-public Gerente(String nome, String rg, String senha){
-    super(nome,rg,senha);
+public Gerente(String nome, String rg){
+    super(nome,rg);
 }
     /*Funções
     public void cadastraFuncionario(String nome, String rg){

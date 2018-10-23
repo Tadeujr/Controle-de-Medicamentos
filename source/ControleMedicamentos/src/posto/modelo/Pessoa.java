@@ -1,20 +1,17 @@
 
 package posto.modelo;
 
-import java.io.Serializable;
 
-
-public class Pessoa implements Serializable{
+public class Pessoa {
     public String nome;
     public String rg;
-    protected String senha;
+    //protected String telefone;
     //protected String endereco;
     //protected String email;
 
-    public Pessoa(String nome, String rg,String senha) {
+    public Pessoa(String nome, String rg) {
         this.nome = nome;
         this.rg = rg;
-        this.senha = senha;
     }
 
     

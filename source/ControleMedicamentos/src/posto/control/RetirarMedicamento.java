@@ -10,8 +10,6 @@ import posto.modelo.Medicamento;
  *
  * @author tadeu
  */
-public class RetirarMedicamento{
+/*public class RetirarMedicamento extends Medicamento{
     
-
-    
-}
+}*/
