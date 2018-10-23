@@ -6,7 +6,7 @@ CREATE TABLE if not exists Pessoa (
     telefone VARCHAR,
     endereco VARCHAR,
     senha VARCHAR,
-    id_pessoa INT PRIMARY KEY AUTOINCREMENT,
+    id_pessoa INTEGER PRIMARY KEY AUTOINCREMENT,
     id_funcionario INT,
     id_gerente INT,
     id_cliente INT,
@@ -15,7 +15,7 @@ CREATE TABLE if not exists Pessoa (
 
 CREATE TABLE if not exists Medicamento (
     nome VARCHAR,
-    id_medicamento INT PRIMARY KEY AUTOINCREMENT,
+    id_medicamento INTEGER PRIMARY KEY AUTOINCREMENT,
     descricao VARCHAR,
     qtd_disponivel INT,
     validade VARCHAR,
@@ -24,8 +24,6 @@ CREATE TABLE if not exists Medicamento (
 
 CREATE TABLE if not exists Retirada (
     data DATE,
-    id_retirada INT PRIMARY KEY AUTOINCREMENT,
+    id_retirada INTEGER PRIMARY KEY AUTOINCREMENT,
     qtd_retirada INT
 );
-
-
