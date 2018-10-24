@@ -6,7 +6,10 @@ import java.sql.DriverManager;
 import java.sql.Statement;
 import posto.modelo.Medicamento;
 
-
+/*
+    DELETE FROM table_name
+    WHERE conditions;
+*/
 public class deletaMedicmaneto {
     //Deleta medicamento pelo nome.
     public  void deleteMedicamento(String nomeMedicamento) {
@@ -17,7 +20,7 @@ public class deletaMedicmaneto {
             c = DriverManager.getConnection("jdbc:sqlite:controlePosto.db");            
             System.out.println("Opened database successfully");
             stmt = c.createStatement();
-            String sql = "DELETE from Medicamento where nome=" + nomeMedicamento +";";
+            String sql = "DELETE FROM Medicamento where nome= '"  + nomeMedicamento + "' ;";
             stmt.executeUpdate(sql);            
             stmt.close();
             c.close();
@@ -26,10 +29,10 @@ public class deletaMedicmaneto {
                     e.getMessage());            
         }
         System.out.println(
-                "Operation done successfully");
+                "Medicamento excluido com sucesso.");
     }   
     //deleta o medicamento pelo ID
-    public  void deleteMedicamento(int id) {
+    public  void deleteMedicamentoId(int id) {
         Connection c = null;
         Statement stmt = null;
         try {
@@ -37,7 +40,7 @@ public class deletaMedicmaneto {
             c = DriverManager.getConnection("jdbc:sqlite:controlePosto.db");            
             System.out.println("Opened database successfully");
             stmt = c.createStatement();
-            String sql = "DELETE from Medicamento where ID=" + id +";";
+            String sql = "DELETE FROM Medicamento where id_medicamento=" + id +";";
             stmt.executeUpdate(sql);            
             stmt.close();
             c.close();
@@ -46,6 +49,6 @@ public class deletaMedicmaneto {
                     e.getMessage());            
         }
         System.out.println(
-                "Operation done successfully");
+                "Medicamento excluido com sucesso.");
     }
 }

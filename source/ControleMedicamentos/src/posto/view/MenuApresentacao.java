@@ -7,9 +7,9 @@ package posto.view;
 
 import java.io.IOException;
 import javax.swing.JOptionPane;
-import posto.control.CadastrarFuncionario;
-import posto.control.CadastrarMedicamento;
-import posto.control.ExibirDados;
+import posto.control.cadastrarFuncionario;
+import posto.control.cadastrarMedicamento;
+import posto.control.exibirDados;
 import posto.modelo.Funcionario;
 import posto.modelo.Medicamento;
 
@@ -28,15 +28,15 @@ public class MenuApresentacao {
          int opcao = Integer.parseInt(menu);
          
          while(opcao != 0){
-            CadastrarMedicamento cad = new CadastrarMedicamento();
-            CadastrarFuncionario cadF = new CadastrarFuncionario();
+            cadastrarMedicamento cad = new cadastrarMedicamento();
+            cadastrarFuncionario cadF = new cadastrarFuncionario();
              
                 //Opções Menu
             if(opcao == 1){
                  String nome = JOptionPane.showInputDialog("Nome");
                  String rg = JOptionPane.showInputDialog("Rg");
                  String senha = JOptionPane.showInputDialog("Senha");
-                 Funcionario nFuncionario = new Funcionario(nome ,rg,senha); // pesquisa metodo de crptografia
+                 Funcionario nFuncionario = new Funcionario(nome ,rg); // pesquisa metodo de crptografia
                  cadF.cadastrarFuncionario(nFuncionario);
              
             }
@@ -54,25 +54,25 @@ public class MenuApresentacao {
                  Medicamento nMedicamento = new Medicamento(descricao,medicamento,validade ,lote ,qtd);
                  
                                         /*enviando objeto para cadastrar*/
-                cad.cadastrarMedicamento(nMedicamento);
+                //cad.cadastrarMedicamento(nMedicamento);
                  
             }           
             
             if(opcao == 3){
 
-                ExibirDados saida1 = new ExibirDados();
+                exibirDados saida1 = new exibirDados();
                 Medicamento aMedicamento = null;
                         /*Abrindo  arquivo*/
-                aMedicamento = (Medicamento)cad.buscarMedicamento(aMedicamento, "dadosfarmacia");        
+                //aMedicamento = (Medicamento)cad.buscarMedicamento(aMedicamento, "dadosfarmacia");        
                 /*Mostrando na tela*/
                 saida1.exibirMedicamentos(aMedicamento);
             } 
             
             if(opcao == 4){
                 Funcionario mFuncionario = null;
-                ExibirDados saida = new ExibirDados();
-                mFuncionario = (Funcionario)cadF.buscarFuncionario(mFuncionario,"funcionario");
-                saida.exibirFuncionario(mFuncionario);
+                exibirDados saida = new exibirDados();
+                //mFuncionario = (Funcionario)cadF.buscarFuncionario(mFuncionario,"funcionario");
+                //saida.exibirFuncionario(mFuncionario);
             }
             menu = JOptionPane.showInputDialog("Cadastra Fucionário: 1 "
                              + "\nCadastrar Medicamento: 2"
