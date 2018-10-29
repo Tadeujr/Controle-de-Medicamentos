@@ -22,11 +22,11 @@ public class ExibirDados {
             );
     }
     
-    
+    /*
     public void exibirFuncionario(Funcionario funcionario){
             
         System.out.println("Nome: " + funcionario.getNome()+
             "\nRg: " + funcionario.getRg()+ "\nSenha: " + funcionario.getSenha());
             
-    }
+    }*/
 }

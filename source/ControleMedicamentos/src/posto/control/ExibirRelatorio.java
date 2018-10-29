@@ -5,16 +5,10 @@
  */
 package posto.control;
 
-import java.io.IOException;
-
 /**
  *
  * @author tadeu
  */
-public interface IPersistencia {
-    
-    public void salvarDados(Object nome)throws IOException;
-    
-    public Object trazerDados(Object dado)throws IOException,ClassNotFoundException;
+public class ExibirRelatorio {
     
 }

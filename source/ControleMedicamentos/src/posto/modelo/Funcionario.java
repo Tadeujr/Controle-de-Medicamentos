@@ -5,8 +5,8 @@ package posto.modelo;
 public class Funcionario extends Pessoa {
     
     
-    public Funcionario(String nome, String rg){
-        super(nome,rg);
+    public Funcionario(String nome, String rg, String senha){
+        super(nome,rg, senha);
     }
 
     public String getNome() {
@@ -23,6 +23,10 @@ public class Funcionario extends Pessoa {
 
     public void setRg(String rg) {
         this.rg = rg;
+    }
+
+    public String getSenha() {
+        return this.senha;
     }
     
     

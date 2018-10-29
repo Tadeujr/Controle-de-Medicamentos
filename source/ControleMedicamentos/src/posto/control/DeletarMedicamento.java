@@ -4,13 +4,13 @@ package posto.control;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.Statement;
-import posto.modelo.Medicamento;
+
 
 /*
     DELETE FROM table_name
     WHERE conditions;
 */
-public class deletaMedicmaneto {
+public class DeletarMedicamento {
     //Deleta medicamento pelo nome.
     public  void deleteMedicamento(String nomeMedicamento) {
         Connection c = null;
