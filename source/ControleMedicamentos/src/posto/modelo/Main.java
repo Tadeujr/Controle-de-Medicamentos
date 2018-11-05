@@ -10,8 +10,8 @@ public class Main {
     public static void main(String[] args) {
         Medicamento drugs = new Medicamento("Allahi akbar","Teste","17-10-1992", "0014",14);
         //exemplo inserção
-        //insereMedicamento tst = new insereMedicamento();
-        //tst.InsereMedicamentos(drugs);
+        CadastrarMedicamento tst = new CadastrarMedicamento();
+        tst.InsereMedicamentos(drugs);
         
         //exemplo delete
         //deletaMedicmaneto del = new deletaMedicmaneto();

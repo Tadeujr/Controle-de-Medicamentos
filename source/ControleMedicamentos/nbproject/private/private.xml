@@ -2,24 +2,6 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group>
-            <file>file:/C:/Users/20142bsi0429/Downloads/ControleMedicamentos/src/posto/view/telaMedicamento.java</file>
-            <file>file:/C:/Users/20142bsi0429/Downloads/ControleMedicamentos/src/posto/view/telaPaciente.java</file>
-            <file>file:/C:/Users/20142bsi0429/Downloads/ControleMedicamentos/src/posto/view/telaListarPaciente.java</file>
-            <file>file:/C:/Users/20142bsi0429/Downloads/ControleMedicamentos/src/posto/view/telaGerenteFuncionario.java</file>
-            <file>file:/C:/Users/20142bsi0429/Downloads/ControleMedicamentos/src/posto/view/telaGerenteRelatorio.java</file>
-            <file>file:/C:/Users/20142bsi0429/Downloads/ControleMedicamentos/src/posto/control/InsereMedicamento.java</file>
-            <file>file:/C:/Users/20142bsi0429/Downloads/ControleMedicamentos/src/posto/view/telaItensEmBaixa.java</file>
-            <file>file:/C:/Users/20142bsi0429/Downloads/ControleMedicamentos/src/posto/modelo/Main.java</file>
-            <file>file:/C:/Users/20142bsi0429/Downloads/ControleMedicamentos/src/posto/control/RetirarMedicamento.java</file>
-            <file>file:/C:/Users/20142bsi0429/Downloads/ControleMedicamentos/src/posto/view/ExibirRelatorio.java</file>
-            <file>file:/C:/Users/20142bsi0429/Downloads/ControleMedicamentos/src/posto/view/telaGerente.java</file>
-            <file>file:/C:/Users/20142bsi0429/Downloads/ControleMedicamentos/src/posto/modelo/Medicamento.java</file>
-            <file>file:/C:/Users/20142bsi0429/Downloads/ControleMedicamentos/src/posto/view/telaListarMedicamento.java</file>
-            <file>file:/C:/Users/20142bsi0429/Downloads/ControleMedicamentos/src/posto/view/telaGerenteListarFuncionarios.java</file>
-            <file>file:/C:/Users/20142bsi0429/Downloads/ControleMedicamentos/src/posto/control/CadastrarMedicamento.java</file>
-            <file>file:/C:/Users/20142bsi0429/Downloads/ControleMedicamentos/src/posto/view/telaFuncionario.java</file>
-            <file>file:/C:/Users/20142bsi0429/Downloads/ControleMedicamentos/controlePosto.db</file>
-        </group>
+        <group/>
     </open-files>
 </project-private>
