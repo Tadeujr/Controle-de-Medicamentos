@@ -1,4 +1,4 @@
-/* Lógico_1: */
+/* LÃ³gico_1: */
 
 CREATE TABLE Pessoa_Cliente_Funcionario (
     nome VARCHAR,
@@ -26,7 +26,8 @@ CREATE TABLE Medicamento (
 );
 
 CREATE TABLE Retirada (
-    data DATE,
+    dataRetirada VARCHAR,
+    horaRetirada VARCHAR,
     id_retirada INTEGER PRIMARY KEY,
     qtd_retirada INTEGER,
     cpf_cliente VARCHAR,
