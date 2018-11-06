@@ -1,19 +1,26 @@
 /* Lógico_1: */
 
-CREATE TABLE Pessoa_Cliente_Funcionario (
+CREATE TABLE Pessoa (
     nome VARCHAR,
     email VARCHAR,
     telefone VARCHAR,
     endereco VARCHAR,
-    id_pessoa INTEGER,
-    cpf VARCHAR,
-    cartao_sus VARCHAR,
-    id_cliente INTEGER,
+    id_pessoa INTEGER PRIMARY KEY,
+    cpf VARCHAR
+);
+
+CREATE TABLE Funcionario (
     login VARCHAR,
     senha VARCHAR,
-    id_funcionario INTEGER,
+    id_funcionario INTEGER PRIMARY KEY,
     tipo INTEGER,
-    PRIMARY KEY (id_pessoa, id_cliente, id_funcionario)
+    fk_Pessoa_id_pessoa INTEGER
+);
+
+CREATE TABLE Cliente (
+    cartao_sus VARCHAR,
+    id_cliente INTEGER PRIMARY KEY,
+    fk_Pessoa_id_pessoa INTEGER
 );
 
 CREATE TABLE Medicamento (
@@ -26,30 +33,35 @@ CREATE TABLE Medicamento (
 );
 
 CREATE TABLE Retirada (
-    dataRetirada VARCHAR,
-    horaRetirada VARCHAR,
+    dataRetirada TEXT,
+    horaRetirada INTEGER,
     id_retirada INTEGER PRIMARY KEY,
     qtd_retirada INTEGER,
     cpf_cliente VARCHAR,
-    fk_Pessoa_Cliente_Funcionario_id_pessoa INTEGER
-);
-
-CREATE TABLE Contem (
-    fk_Medicamento_id_medicamento INTEGER,
-    fk_Retirada_id_retirada INTEGER
+    fk_Medicamento_id_medicamento INTEGER PRIMARY KEY,
+    fk_Pessoa_id_cliente INTEGER,
+    fk_Pessoa_id_funcionario INTEGER
 );
  
-ALTER TABLE Retirada ADD CONSTRAINT FK_Retirada_2
-    FOREIGN KEY (fk_Pessoa_Cliente_Funcionario_id_pessoa, ???)
-    REFERENCES Pessoa_Cliente_Funcionario (id_pessoa, ???)
-    ON DELETE CASCADE;
- 
-ALTER TABLE Contem ADD CONSTRAINT FK_Contem_1
-    FOREIGN KEY (fk_Medicamento_id_medicamento)
-    REFERENCES Medicamento (id_medicamento)
+ALTER TABLE Retirada ADD CONSTRAINT FK_Retirada
+    FOREIGN KEY (fk_Cliente_id_cliente, ???)
+    REFERENCES Cliente (id_cliente, ???)
     ON DELETE RESTRICT;
- 
-ALTER TABLE Contem ADD CONSTRAINT FK_Contem_2
-    FOREIGN KEY (fk_Retirada_id_retirada)
-    REFERENCES Retirada (id_retirada)
-    ON DELETE SET NULL;
+
+
+ALTER TABLE Retirada ADD CONSTRAINT FK_Retirada
+    FOREIGN KEY (fk_Funcionario_id_funcionario, ???)
+    REFERENCES Cliente (id_funcionario, ???)
+    ON DELETE RESTRICT;
+
+
+ALTER TABLE Cliente ADD CONSTRAINT FK_Cliente
+    FOREIGN KEY (fk_Pessoa_id_pessoa, ???)
+    REFERENCES Pessoa (id_pessoa, ???)
+    ON DELETE RESTRICT;
+
+
+ALTER TABLE Funcionario ADD CONSTRAINT FK_Funcionario
+    FOREIGN KEY (fk_Pessoa_id_pessoa, ???)
+    REFERENCES Pessoa (id_pessoa, ???)
+    ON DELETE RESTRICT;
