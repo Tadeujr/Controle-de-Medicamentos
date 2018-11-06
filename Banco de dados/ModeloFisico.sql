@@ -14,13 +14,13 @@ CREATE TABLE Funcionario (
     senha VARCHAR,
     id_funcionario INTEGER PRIMARY KEY,
     tipo INTEGER,
-    fk_Pessoa_id_pessoa INTEGER
+    fk_id_pessoa INTEGER REFERENCES Pessoa(id_pessoa) ON UPDATE CASCADE
 );
 
 CREATE TABLE Cliente (
     cartao_sus VARCHAR,
     id_cliente INTEGER PRIMARY KEY,
-    fk_Pessoa_id_pessoa INTEGER
+    fk_id_pessoa INTEGER REFERENCES Pessoa(id_pessoa) ON DELETE CASCADE
 );
 
 CREATE TABLE Medicamento (
@@ -38,11 +38,12 @@ CREATE TABLE Retirada (
     id_retirada INTEGER PRIMARY KEY,
     qtd_retirada INTEGER,
     cpf_cliente VARCHAR,
-    fk_Medicamento_id_medicamento INTEGER PRIMARY KEY,
-    fk_Pessoa_id_cliente INTEGER,
-    fk_Pessoa_id_funcionario INTEGER
+    fk_id_medicamento INTEGER REFERENCES Medicamento(id_medicamento) ON DELETE RESTRICT,
+    fk_id_cliente INTEGER REFERENCES Cliente(id_cliente) ON DELETE RESTRICT,
+    fk_id_funcionario INTEGER REFERENCES Funcionario(id_funcionario) ON DELETE RESTRICT
 );
- 
+
+/* 
 ALTER TABLE Retirada ADD CONSTRAINT FK_Retirada
     FOREIGN KEY (fk_Cliente_id_cliente, ???)
     REFERENCES Cliente (id_cliente, ???)
@@ -65,3 +66,4 @@ ALTER TABLE Funcionario ADD CONSTRAINT FK_Funcionario
     FOREIGN KEY (fk_Pessoa_id_pessoa, ???)
     REFERENCES Pessoa (id_pessoa, ???)
     ON DELETE RESTRICT;
+*/
