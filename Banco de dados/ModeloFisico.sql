@@ -35,8 +35,7 @@ CREATE TABLE Retirada (
     horaRetirada INTEGER,
     id_retirada INTEGER PRIMARY KEY,
     qtd_retirada INTEGER,
-    cpf_cliente VARCHAR,
     fk_id_medicamento INTEGER REFERENCES Medicamento(id_medicamento) ON DELETE RESTRICT,
-    fk_id_cliente INTEGER REFERENCES Cliente(id_cliente) ON DELETE RESTRICT,
+    fk_id_cliente VARCHAR REFERENCES Cliente(id_cliente) ON DELETE RESTRICT,
     fk_id_funcionario INTEGER REFERENCES Funcionario(id_funcionario) ON DELETE RESTRICT
 );
