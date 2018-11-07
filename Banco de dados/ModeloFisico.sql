@@ -12,7 +12,7 @@ CREATE TABLE Funcionario (
     senha VARCHAR,
     id_funcionario INTEGER PRIMARY KEY,
     tipo INTEGER,
-    fk_id_pessoa INTEGER REFERENCES Pessoa(id_pessoa) ON UPDATE CASCADE
+    fk_id_pessoa INTEGER REFERENCES Pessoa(id_pessoa) ON DELETE CASCADE
 );
 
 CREATE TABLE Cliente (
