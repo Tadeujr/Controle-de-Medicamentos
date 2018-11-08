@@ -2,6 +2,7 @@
 package posto.modelo;
 
 public class Medicamento {
+    protected int id_medicamento;
     protected String descricao;
     protected String nome;
     protected String validade;
