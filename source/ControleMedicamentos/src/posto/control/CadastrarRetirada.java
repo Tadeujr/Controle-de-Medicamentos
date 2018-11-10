@@ -16,15 +16,9 @@ import posto.modelo.Retirada;
 public class CadastrarRetirada {
     public  void cadastrarRetirada(Retirada retirada) {
 
-        Connection c = null;
-        Statement stmt = null;
         try {
-            Class.forName("org.sqlite.JDBC");
-            c = DriverManager.getConnection("jdbc:sqlite:controlePosto.db");            
-            System.out.println("Conexão Aberta");                        
-            stmt = c.createStatement();
-            
-            String sql = "INSERT INTO retirada (dataRetirada,horaRetirada,qtd_retirada,fk_id_medicamento,id_cliente,id_funcionario)"
+            OperarBd conexao = new OperarBd();
+            conexao.sql = "INSERT INTO retirada (dataRetirada,horaRetirada,qtd_retirada,fk_id_medicamento,id_cliente,id_funcionario)"
                     + "VALUES ('" + 
                         retirada.getData() + 
                     "','" + 
@@ -36,13 +30,10 @@ public class CadastrarRetirada {
                     ",'" +
                         retirada.getFuncionarioRetirada().getId_funcionario() + 
                     "');";                        
-            stmt.executeUpdate(sql);
-            stmt.close();
-            //c.commit();
-            c.close();
+
         } catch (Exception e) {
             System.err.println(e.getClass().getName() + ": " + e.getMessage());            
         }
-        System.out.println("Dados salvos com sucesso.");
+
     }    
 }

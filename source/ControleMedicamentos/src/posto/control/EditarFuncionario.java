@@ -8,25 +8,19 @@ import java.sql.Statement;
 
 public class EditarFuncionario {
     public void alteraLogin(String loginAtual,String loginAntigo){
-        Connection c = null;
-        Statement stmt = null;
+
         try {
-            Class.forName("org.sqlite.JDBC");
-            c = DriverManager.getConnection("jdbc:sqlite:controlePosto.db");            
-            System.out.println("Base de dados aberta");                        
-            stmt = c.createStatement();
-            String sql = "UPDATE Funcionario "+
+            OperarBd conexao = new OperarBd();
+
+            conexao.sql = "UPDATE Funcionario "+
                          "SET login = '"+loginAtual+"' "+
                          "Where login='"+loginAntigo+"';";
                         
-            stmt.executeUpdate(sql);
-            stmt.close();
-            //c.commit();
-            c.close();
+
         } catch (Exception e) {
             System.err.println(e.getClass().getName() + ": " + e.getMessage());            
         }
-        System.out.println("Dados alterados com sucesso.");
+  
     }     
     
     public void alteraSenha(String login,String senha){

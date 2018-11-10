@@ -23,26 +23,17 @@ public class OperarBd {
         this.sql = sql;
     }
     public void conetarBanco() throws SQLException, ClassNotFoundException{
-        try{
-            Class.forName("org.sqlite.JDBC");
-            this.c = DriverManager.getConnection("jdbc:sqlite:controlePosto.db");            
-            System.out.println("Opened database successfully");
-            stmt.executeUpdate(this.sql); 
-            this.stmt = c.createStatement();
-            System.out.println("Operação realizada com sucesso.");
         
-        }catch(Exception e){
-            System.err.println(e.getClass().getName() + ": " + 
-             e.getMessage()); 
-        }
+        Class.forName("org.sqlite.JDBC");
+        this.c = DriverManager.getConnection("jdbc:sqlite:controlePosto.db");            
+        System.out.println("Opened database successfully");
+        stmt.executeUpdate(this.sql); 
+        this.stmt = c.createStatement();
+        this.stmt.close();
+        this.c.close();
+            
+        System.out.println("Operação realizada com sucesso.");
+        
   }    
-    
-   public void desconectarBanco() throws SQLException{
-      this.stmt.close();
-      this.c.close();
-    }   
-
-    
-    
     
 }

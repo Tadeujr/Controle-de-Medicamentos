@@ -1,30 +1,19 @@
 
 package posto.control;
 
-import posto.modelo.*;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.Statement;
+import posto.modelo.Medicamento;
 
 
-/*
-    INSERT INTO table_name (variaveis)
-    VALUES (values);
-    
-*/
+
 
 public class CadastrarMedicamento {
 
     public  void cadastrarMedicamento(Medicamento medicamento) {
 
-        Connection c = null;
-        Statement stmt = null;
         try {
-            Class.forName("org.sqlite.JDBC");
-            c = DriverManager.getConnection("jdbc:sqlite:controlePosto.db");            
-            System.out.println("Conexão Aberta");                        
-            stmt = c.createStatement();
-            String sql = "INSERT INTO Medicamento (NOME,DESCRICAO,QTD_DISPONIVEL,VALIDADE,LOTE)"
+            OperarBd conexao = new OperarBd();
+
+            conexao.sql = "INSERT INTO Medicamento (NOME,DESCRICAO,QTD_DISPONIVEL,VALIDADE,LOTE)"
                     + "VALUES ('" + medicamento.getNome() + 
                     "','" + 
                         medicamento.getDescricao() + 
@@ -35,13 +24,10 @@ public class CadastrarMedicamento {
                     "','" +
                         medicamento.getLote() + 
                     "');";                        
-            stmt.executeUpdate(sql);
-            stmt.close();
-            //c.commit();
-            c.close();
+
         } catch (Exception e) {
             System.err.println(e.getClass().getName() + ": " + e.getMessage());            
         }
-        System.out.println("Dados salvos com sucesso.");
+
     }
 }
