@@ -4,17 +4,12 @@ package posto.control;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.Statement;
-import posto.modelo.Cliente;
-import posto.modelo.Funcionario;
 import posto.modelo.Medicamento;
+import posto.modelo.Pessoa;
 
 
-public class CadastrarFuncionario{
-    protected Funcionario nFuncionario;
-    
-    
-    public void cadastrarFuncionario(Funcionario funcionario){ // guarda em uma Stream
-
+public class CadastrarPessoa {
+    public  void cadastrarPessoa(Pessoa pessoa) {
         Connection c = null;
         Statement stmt = null;
         try {
@@ -22,14 +17,16 @@ public class CadastrarFuncionario{
             c = DriverManager.getConnection("jdbc:sqlite:controlePosto.db");            
             System.out.println("Conexão Aberta");                        
             stmt = c.createStatement();
-            String sql = "INSERT INTO Funcionario (login,senha,tipo,fk_id_pessoa)"
-                    + "VALUES ('" + funcionario.getLogin() + 
+            String sql = "INSERT INTO Pessoa (NOME,EMAIL,TELEFONE,ENDERECO,CPF)"
+                    + "VALUES ('" + pessoa.getNome() + 
+                    "','" + 
+                        pessoa.getEmail() + 
                     "'," +
-                                    funcionario.getSenha() + 
+                        pessoa.getTelefone() + 
                     ",'" +
-                                    funcionario.getTipo() +
+                        pessoa.getEndereco() +
                     "','" +
-                                    funcionario.getId_pessoa() + 
+                        pessoa.getCpf() + 
                     "');";                        
             stmt.executeUpdate(sql);
             stmt.close();
@@ -38,6 +35,6 @@ public class CadastrarFuncionario{
         } catch (Exception e) {
             System.err.println(e.getClass().getName() + ": " + e.getMessage());            
         }
-            System.out.println("Dados salvos com sucesso.");
-    }    
+        System.out.println("Dados salvos com sucesso.");
+    }   
 }

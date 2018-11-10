@@ -3,31 +3,52 @@ package posto.modelo;
 
 
 public class Funcionario extends Pessoa {
+    protected int id_funcionario;
+    protected String login;
+    protected String senha;
+    protected String tipo;
     
-    
-    public Funcionario(String nome, String rg, String senha){
-        super(nome,rg, senha);
+    public Funcionario(String nome,String email,String telefone,String endereco,String cpf,String login,String senha,String tipo){
+        super( nome, email, telefone, endereco, cpf);
+        this.login = login;
+        this.senha = senha;
+        this.tipo = tipo;
     }
 
-    public String getNome() {
-        return nome;
+    public int getId_funcionario() {
+        return id_funcionario;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
+    public String getLogin() {
+        return login;
     }
 
-    public String getRg() {
-        return rg;
-    }
-
-    public void setRg(String rg) {
-        this.rg = rg;
+    public void setLogin(String login) {
+        this.login = login;
     }
 
     public String getSenha() {
-        return this.senha;
+        return senha;
+    }
+
+    public void setSenha(String senha) {
+        this.senha = senha;
+    }
+
+    public String getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
     }
     
+    
+    
+    public void setId_funcionario(int id_funcionario) {
+        this.id_funcionario = id_funcionario;
+    }
+
+  
     
 }

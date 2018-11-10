@@ -1,19 +1,19 @@
-
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package posto.control;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.Statement;
 import posto.modelo.Cliente;
-import posto.modelo.Funcionario;
-import posto.modelo.Medicamento;
+import posto.modelo.Pessoa;
 
 
-public class CadastrarFuncionario{
-    protected Funcionario nFuncionario;
-    
-    
-    public void cadastrarFuncionario(Funcionario funcionario){ // guarda em uma Stream
+public class CadastrarCliente {
+       public  void cadastrarCliente(Cliente cliente) {
 
         Connection c = null;
         Statement stmt = null;
@@ -22,14 +22,10 @@ public class CadastrarFuncionario{
             c = DriverManager.getConnection("jdbc:sqlite:controlePosto.db");            
             System.out.println("Conexão Aberta");                        
             stmt = c.createStatement();
-            String sql = "INSERT INTO Funcionario (login,senha,tipo,fk_id_pessoa)"
-                    + "VALUES ('" + funcionario.getLogin() + 
-                    "'," +
-                                    funcionario.getSenha() + 
-                    ",'" +
-                                    funcionario.getTipo() +
+            String sql = "INSERT INTO Cliente (cartao_sus,fk_id_pessoa)"
+                    + "VALUES ('" + cliente.getCartaoSUS() + 
                     "','" +
-                                    funcionario.getId_pessoa() + 
+                                    cliente.getId_pessoa() + 
                     "');";                        
             stmt.executeUpdate(sql);
             stmt.close();
@@ -38,6 +34,8 @@ public class CadastrarFuncionario{
         } catch (Exception e) {
             System.err.println(e.getClass().getName() + ": " + e.getMessage());            
         }
-            System.out.println("Dados salvos com sucesso.");
-    }    
+        System.out.println("Dados salvos com sucesso.");
+    }     
 }
+
+

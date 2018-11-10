@@ -1,6 +1,12 @@
 
 package posto.modelo;
 
+import java.sql.Date;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+
+
 
 public class Retirada {
     protected String data;
@@ -9,6 +15,7 @@ public class Retirada {
     Cliente clienteRetirada;
     Funcionario funcionarioRetirada;
     Medicamento medicamento;
+<<<<<<< HEAD
 
     public Retirada(String data, String hora, int qtdRetirada, Cliente clienteRetirada, Funcionario funcionarioRetirada, Medicamento medicamento) {
         this.data = data;
@@ -17,8 +24,58 @@ public class Retirada {
         this.clienteRetirada = clienteRetirada;
         this.funcionarioRetirada = funcionarioRetirada;
         this.medicamento = medicamento;
+=======
+    
+    public Retirada(int qtdRetirada, Cliente clienteRetirada, Funcionario funcionarioRetirada, Medicamento medicamento){
+        String dataFormatada = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss")
+                                        .format(System.currentTimeMillis());
+
+
+        String dataAtual = dataFormatada.substring(0,10);
+
+        String horarioAtual = dataFormatada.substring(11,19);    
+        
+        this.data = dataAtual; // Arrumar um jeito de pegar automaticamente e armazenar separadamente.
+        this.hora = horarioAtual;
+        this.qtdRetirada = qtdRetirada;
+        this.clienteRetirada = clienteRetirada;
+        this.funcionarioRetirada = funcionarioRetirada;
+        this.medicamento = medicamento;        
+    }
+    
+
+    
+    public void armazenarRetirada(){// subir oara i banco de Dados
+    
+>>>>>>> 70b89cc10f5863ec6905232fcd672e70835aff3b
     }
 
+    public Cliente getClienteRetirada() {
+        return clienteRetirada;
+    }
+
+    public void setClienteRetirada(Cliente clienteRetirada) {
+        this.clienteRetirada = clienteRetirada;
+    }
+
+    public Funcionario getFuncionarioRetirada() {
+        return funcionarioRetirada;
+    }
+
+    public void setFuncionarioRetirada(Funcionario funcionarioRetirada) {
+        this.funcionarioRetirada = funcionarioRetirada;
+    }
+
+    public Medicamento getMedicamento() {
+        return medicamento;
+    }
+
+    public void setMedicamento(Medicamento medicamento) {
+        this.medicamento = medicamento;
+    }
+    
+    
+    
     public String getData() {
         return data;
     }

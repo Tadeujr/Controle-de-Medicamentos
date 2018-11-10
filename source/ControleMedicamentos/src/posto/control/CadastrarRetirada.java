@@ -8,8 +8,9 @@ import posto.modelo.Medicamento;
 import posto.modelo.Retirada;
 
 /*
-    INSERT INTO medicamento () 
+    INSERT INTO medicamento (Data,qtd_retirada,cpf_cliente,fk_Pessoa_Cliente_Funcionario_id_pessoa) 
     VALUES ()
+
 */
 
 public class CadastrarRetirada {
@@ -22,16 +23,18 @@ public class CadastrarRetirada {
             c = DriverManager.getConnection("jdbc:sqlite:controlePosto.db");            
             System.out.println("Conexão Aberta");                        
             stmt = c.createStatement();
-            String sql = "INSERT INTO retirada (data,qtd_retirada,id_Medicamento,id_pessoa)"
-                    + "VALUES ('" + retirada.getData() + 
+            
+            String sql = "INSERT INTO retirada (dataRetirada,horaRetirada,qtd_retirada,fk_id_medicamento,id_cliente,id_funcionario)"
+                    + "VALUES ('" + 
+                        retirada.getData() + 
                     "','" + 
+                        retirada.getHora()+ 
+                    "','" +
                         retirada.getQtdRetirada() + 
                     "'," +
-                        medicamento.getQtdDisponivel() + 
+                        retirada.getClienteRetirada().getId_cliente()+ 
                     ",'" +
-                        medicamento.getValidade() +
-                    "','" +
-                        medicamento.getLote() + 
+                        retirada.getFuncionarioRetirada().getId_funcionario() + 
                     "');";                        
             stmt.executeUpdate(sql);
             stmt.close();

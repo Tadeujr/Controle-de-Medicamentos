@@ -5,14 +5,9 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.Statement;
 
-/*
-    UPDATE table_name
-    SET column1 = value1, column2 = value2, ...
-    WHERE condition;
-*/
 
-public class EditarMedicamento {
-    public void alteraMedicamentoNome(String nomeAtual,String nomeAntigo){
+public class EditarFuncionario {
+    public void alteraLogin(String loginAtual,String loginAntigo){
         Connection c = null;
         Statement stmt = null;
         try {
@@ -20,9 +15,9 @@ public class EditarMedicamento {
             c = DriverManager.getConnection("jdbc:sqlite:controlePosto.db");            
             System.out.println("Base de dados aberta");                        
             stmt = c.createStatement();
-            String sql = "UPDATE Medicamento "+
-                         "SET nome = '"+nomeAtual+"' "+
-                         "Where nome='"+nomeAntigo+"';";
+            String sql = "UPDATE Funcionario "+
+                         "SET login = '"+loginAtual+"' "+
+                         "Where login='"+loginAntigo+"';";
                         
             stmt.executeUpdate(sql);
             stmt.close();
@@ -32,9 +27,9 @@ public class EditarMedicamento {
             System.err.println(e.getClass().getName() + ": " + e.getMessage());            
         }
         System.out.println("Dados alterados com sucesso.");
-    }        
+    }     
     
-        public void alteraMedicamentoDescricao(String nomeAtual,String descricaoAtual){
+    public void alteraSenha(String login,String senha){
         Connection c = null;
         Statement stmt = null;
         try {
@@ -42,9 +37,9 @@ public class EditarMedicamento {
             c = DriverManager.getConnection("jdbc:sqlite:controlePosto.db");            
             System.out.println("Base de dados aberta");                        
             stmt = c.createStatement();
-            String sql = "UPDATE Medicamento "+
-                         "SET descricao = '"+descricaoAtual+"' "+
-                         "Where nome='"+nomeAtual+"';";
+            String sql = "UPDATE Funcionario "+
+                         "SET senha = '"+senha+"' "+
+                         "Where login='"+login+"';";
                         
             stmt.executeUpdate(sql);
             stmt.close();
@@ -54,10 +49,9 @@ public class EditarMedicamento {
             System.err.println(e.getClass().getName() + ": " + e.getMessage());            
         }
         System.out.println("Dados alterados com sucesso.");
-    }    
+    }  
     
-        
-    public void alteraMedicamentoQtd(String nomeAtual,int qtdAtual){
+    public void alteraTipo(String login,String tipo){
         Connection c = null;
         Statement stmt = null;
         try {
@@ -65,9 +59,9 @@ public class EditarMedicamento {
             c = DriverManager.getConnection("jdbc:sqlite:controlePosto.db");            
             System.out.println("Base de dados aberta");                        
             stmt = c.createStatement();
-            String sql = "UPDATE Medicamento "+
-                         "SET qtd_disponivel = '"+qtdAtual+"' "+
-                         "Where nome='"+nomeAtual+"';";
+            String sql = "UPDATE Funcionario "+
+                         "SET tipo = '"+tipo+"' "+
+                         "Where login='"+login+"';";
                         
             stmt.executeUpdate(sql);
             stmt.close();
@@ -77,5 +71,6 @@ public class EditarMedicamento {
             System.err.println(e.getClass().getName() + ": " + e.getMessage());            
         }
         System.out.println("Dados alterados com sucesso.");
-    }    
+    }     
+    
 }
