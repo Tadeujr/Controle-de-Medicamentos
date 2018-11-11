@@ -1,7 +1,6 @@
 
 package posto.control;
 
-import posto.modelo.Funcionario;
 import posto.modelo.Medicamento;
 
 
@@ -15,11 +14,5 @@ public class ExibirDados {
             );
     }
     
-    /*
-    public void exibirFuncionario(Funcionario funcionario){
-            
-        System.out.println("Nome: " + funcionario.getNome()+
-            "\nRg: " + funcionario.getRg()+ "\nSenha: " + funcionario.getSenha());
-            
-    }*/
+
 }

@@ -11,8 +11,8 @@ public class CadastrarMedicamento {
     public  void cadastrarMedicamento(Medicamento medicamento) {
 
         try {
-            OperarBd conexao = new OperarBd();
 
+            OperarBd conexao = new OperarBd();
             conexao.sql = "INSERT INTO Medicamento (NOME,DESCRICAO,QTD_DISPONIVEL,VALIDADE,LOTE)"
                     + "VALUES ('" + medicamento.getNome() + 
                     "','" + 
@@ -23,7 +23,9 @@ public class CadastrarMedicamento {
                         medicamento.getValidade() +
                     "','" +
                         medicamento.getLote() + 
-                    "');";                        
+                    "');";
+            
+            conexao.conectarBanco();
 
         } catch (Exception e) {
             System.err.println(e.getClass().getName() + ": " + e.getMessage());            

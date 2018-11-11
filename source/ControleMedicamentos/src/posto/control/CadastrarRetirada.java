@@ -1,10 +1,6 @@
 
 package posto.control;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.Statement;
-import posto.modelo.Medicamento;
 import posto.modelo.Retirada;
 
 /*
@@ -14,8 +10,10 @@ import posto.modelo.Retirada;
 */
 
 public class CadastrarRetirada {
+    // vai receber a id do funcionario no banco 
+    private int id_funcionario;
     public  void cadastrarRetirada(Retirada retirada) {
-
+        
         try {
             OperarBd conexao = new OperarBd();
             conexao.sql = "INSERT INTO retirada (dataRetirada,horaRetirada,qtd_retirada,fk_id_medicamento,id_cliente,id_funcionario)"
@@ -28,7 +26,7 @@ public class CadastrarRetirada {
                     "'," +
                         retirada.getClienteRetirada().getId_cliente()+ 
                     ",'" +
-                        retirada.getFuncionarioRetirada().getId_funcionario() + 
+                        id_funcionario + 
                     "');";                        
 
         } catch (Exception e) {

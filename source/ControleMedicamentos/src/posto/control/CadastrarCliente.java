@@ -8,15 +8,15 @@ import posto.modelo.Cliente;
 
 public class CadastrarCliente {
        public  void cadastrarCliente(Cliente cliente) {
-
+          
         try {
-            OperarBd conexao = new OperarBd();
+            OperarBd conexao = new OperarBd(); 
             conexao.sql = "INSERT INTO Cliente (cartao_sus,fk_id_pessoa)"
                     + "VALUES ('" + cliente.getCartaoSUS() + 
                     "','" +
                                     cliente.getId_pessoa() + 
                     "');";                        
-
+            conexao.conectarBanco();
         } catch (Exception e) {
             System.err.println(e.getClass().getName() + ": " + e.getMessage());            
         }

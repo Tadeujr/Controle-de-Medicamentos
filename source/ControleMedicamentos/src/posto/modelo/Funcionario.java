@@ -3,7 +3,6 @@ package posto.modelo;
 
 
 public class Funcionario extends Pessoa {
-    protected int id_funcionario;
     protected String login;
     protected String senha;
     protected String tipo;
@@ -13,10 +12,6 @@ public class Funcionario extends Pessoa {
         this.login = login;
         this.senha = senha;
         this.tipo = tipo;
-    }
-
-    public int getId_funcionario() {
-        return id_funcionario;
     }
 
     public String getLogin() {
@@ -42,13 +37,6 @@ public class Funcionario extends Pessoa {
     public void setTipo(String tipo) {
         this.tipo = tipo;
     }
-    
-    
-    
-    public void setId_funcionario(int id_funcionario) {
-        this.id_funcionario = id_funcionario;
-    }
-
   
     
 }
