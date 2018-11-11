@@ -5,6 +5,9 @@
  */
 package posto.view;
 
+import posto.control.*;
+import posto.modelo.*;
+
 /**
  *
  * @author 20142bsi0429
@@ -16,6 +19,8 @@ public class telaGerenteFuncionario extends javax.swing.JFrame {
      */
     public telaGerenteFuncionario() {
         initComponents();
+        jMenu1.setEnabled(false);
+        setLocationRelativeTo(null);
     }
 
     /**
@@ -37,7 +42,7 @@ public class telaGerenteFuncionario extends javax.swing.JFrame {
         jTextField4 = new javax.swing.JTextField();
         jTextField5 = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        registrar = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
@@ -71,11 +76,27 @@ public class telaGerenteFuncionario extends javax.swing.JFrame {
 
         jLabel4.setText("Senha");
 
+        jTextField4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField4ActionPerformed(evt);
+            }
+        });
+
         jLabel5.setText("RG");
 
-        jButton1.setText("Registrar");
+        registrar.setText("Registrar");
+        registrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                registrarActionPerformed(evt);
+            }
+        });
 
         jButton2.setText("Limpar");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jButton3.setText("Listar Funcionario");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
@@ -89,12 +110,39 @@ public class telaGerenteFuncionario extends javax.swing.JFrame {
         jLabel7.setText("Telefone");
 
         jMenu6.setText("Relatorio");
+        jMenu6.addMenuListener(new javax.swing.event.MenuListener() {
+            public void menuCanceled(javax.swing.event.MenuEvent evt) {
+            }
+            public void menuDeselected(javax.swing.event.MenuEvent evt) {
+            }
+            public void menuSelected(javax.swing.event.MenuEvent evt) {
+                jMenu6MenuSelected(evt);
+            }
+        });
         jMenuBar1.add(jMenu6);
 
         jMenu1.setText("Funcionario");
+        jMenu1.addMenuListener(new javax.swing.event.MenuListener() {
+            public void menuCanceled(javax.swing.event.MenuEvent evt) {
+            }
+            public void menuDeselected(javax.swing.event.MenuEvent evt) {
+            }
+            public void menuSelected(javax.swing.event.MenuEvent evt) {
+                jMenu1MenuSelected(evt);
+            }
+        });
         jMenuBar1.add(jMenu1);
 
         jMenu5.setText("Itens em Baixa");
+        jMenu5.addMenuListener(new javax.swing.event.MenuListener() {
+            public void menuCanceled(javax.swing.event.MenuEvent evt) {
+            }
+            public void menuDeselected(javax.swing.event.MenuEvent evt) {
+            }
+            public void menuSelected(javax.swing.event.MenuEvent evt) {
+                jMenu5MenuSelected(evt);
+            }
+        });
         jMenuBar1.add(jMenu5);
 
         setJMenuBar(jMenuBar1);
@@ -128,7 +176,7 @@ public class telaGerenteFuncionario extends javax.swing.JFrame {
                                     .addComponent(jTextField7))))
                         .addContainerGap(58, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButton1)
+                        .addComponent(registrar)
                         .addGap(51, 51, 51)
                         .addComponent(jButton2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -172,7 +220,7 @@ public class telaGerenteFuncionario extends javax.swing.JFrame {
                             .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jButton1)
+                            .addComponent(registrar)
                             .addComponent(jButton2)
                             .addComponent(jButton3)))
                     .addComponent(jLabel7))
@@ -191,8 +239,44 @@ public class telaGerenteFuncionario extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField3ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
+        telaGerenteFuncionario.this.setVisible(false);
+        telaGerenteListarFuncionarios abrir = new telaGerenteListarFuncionarios();
+        abrir.setVisible(true);
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jMenu6MenuSelected(javax.swing.event.MenuEvent evt) {//GEN-FIRST:event_jMenu6MenuSelected
+        telaGerenteFuncionario.this.setVisible(false);
+        telaGerenteRelatorio abrir = new telaGerenteRelatorio();
+        abrir.setVisible(true);
+    }//GEN-LAST:event_jMenu6MenuSelected
+
+    private void jMenu5MenuSelected(javax.swing.event.MenuEvent evt) {//GEN-FIRST:event_jMenu5MenuSelected
+        telaGerenteFuncionario.this.setVisible(false);
+        telaItensEmBaixa abrir = new telaItensEmBaixa();
+        abrir.setVisible(true);
+    }//GEN-LAST:event_jMenu5MenuSelected
+
+    private void jMenu1MenuSelected(javax.swing.event.MenuEvent evt) {//GEN-FIRST:event_jMenu1MenuSelected
+        telaGerenteFuncionario.this.setVisible(true);
+    }//GEN-LAST:event_jMenu1MenuSelected
+
+    private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField4ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        jTextField1.setText("");
+        jTextField2.setText("");
+        jTextField3.setText("");
+        jTextField4.setText("");
+        jTextField5.setText("");
+        jTextField6.setText("");
+        jTextField7.setText("");
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void registrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registrarActionPerformed
+                
+    }//GEN-LAST:event_registrarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -231,7 +315,6 @@ public class telaGerenteFuncionario extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
@@ -252,5 +335,6 @@ public class telaGerenteFuncionario extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField5;
     private javax.swing.JTextField jTextField6;
     private javax.swing.JTextField jTextField7;
+    private javax.swing.JButton registrar;
     // End of variables declaration//GEN-END:variables
 }
