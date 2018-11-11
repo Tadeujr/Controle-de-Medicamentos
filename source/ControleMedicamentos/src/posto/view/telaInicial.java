@@ -5,17 +5,26 @@
  */
 package posto.view;
 
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+import posto.control.OperarBd;
+//import posto.control.ConexaoBanco;
+
 /**
  *
  * @author 20142bsi0429
  */
 public class telaInicial extends javax.swing.JFrame {
 
-    /**
-     * Creates new form telaInicial
-     */
+    OperarBd objCon;
     public telaInicial() {
         initComponents();
+        
+        setLocationRelativeTo(null);
+        
+        objCon = new OperarBd();
     }
 
     /**
@@ -35,6 +44,7 @@ public class telaInicial extends javax.swing.JFrame {
         jPasswordField1 = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
         jTextField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -54,8 +64,11 @@ public class telaInicial extends javax.swing.JFrame {
         });
 
         Sair.setLabel("Sair");
-
-        jPasswordField1.setText("jPasswordField1");
+        Sair.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SairActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -102,8 +115,37 @@ public class telaInicial extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField1ActionPerformed
 
     private void EntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EntrarActionPerformed
-        // TODO add your handling code here:
+        try{
+            boolean existe = false;
+            objCon.conectarBanco();
+            objCon.stmt = objCon.c.createStatement();
+            objCon.rs = objCon.stmt.executeQuery("SELECT * FROM LOGIN;");
+            while(objCon.rs.next()){
+                if(jTextField1.getText().equals(objCon.rs.getString("LOGIN")) && jPasswordField1.getText().equals(objCon.rs.getString("SENHA"))){
+                    if(objCon.rs.getInt("TIPO") == 1){
+                        telaInicial.this.setVisible(false);
+                        telaGerente abrir = new telaGerente();
+                        abrir.setVisible(true);
+                        existe = true;
+                    }else{
+                        telaInicial.this.setVisible(false);
+                        telaFuncionario abrir = new telaFuncionario();
+                        abrir.setVisible(true);
+                        existe = true;
+                    }
+                }
+            }
+            if(existe == false){
+                JOptionPane.showMessageDialog(null, "Usuário ou Senha Incorretos");
+            }
+        }catch (ClassNotFoundException | SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Alguma coisa aconteceu de errado");
+        }
     }//GEN-LAST:event_EntrarActionPerformed
+
+    private void SairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SairActionPerformed
+        System.exit(0);
+    }//GEN-LAST:event_SairActionPerformed
 
     /**
      * @param args the command line arguments
