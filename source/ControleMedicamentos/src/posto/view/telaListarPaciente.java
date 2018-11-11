@@ -16,6 +16,7 @@ public class telaListarPaciente extends javax.swing.JFrame {
      */
     public telaListarPaciente() {
         initComponents();
+        setLocationRelativeTo(null);
     }
 
     /**
@@ -50,11 +51,34 @@ public class telaListarPaciente extends javax.swing.JFrame {
         jButton1.setText("Excluir");
 
         jButton2.setText("Cadastrar");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jMenu1.setText("Paciente");
+        jMenu1.addMenuListener(new javax.swing.event.MenuListener() {
+            public void menuCanceled(javax.swing.event.MenuEvent evt) {
+            }
+            public void menuDeselected(javax.swing.event.MenuEvent evt) {
+            }
+            public void menuSelected(javax.swing.event.MenuEvent evt) {
+                jMenu1MenuSelected(evt);
+            }
+        });
         jMenuBar1.add(jMenu1);
 
         jMenu2.setText("Medicamento\n");
+        jMenu2.addMenuListener(new javax.swing.event.MenuListener() {
+            public void menuCanceled(javax.swing.event.MenuEvent evt) {
+            }
+            public void menuDeselected(javax.swing.event.MenuEvent evt) {
+            }
+            public void menuSelected(javax.swing.event.MenuEvent evt) {
+                jMenu2MenuSelected(evt);
+            }
+        });
         jMenuBar1.add(jMenu2);
 
         setJMenuBar(jMenuBar1);
@@ -91,6 +115,24 @@ public class telaListarPaciente extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jMenu1MenuSelected(javax.swing.event.MenuEvent evt) {//GEN-FIRST:event_jMenu1MenuSelected
+        telaListarPaciente.this.setVisible(false);
+        telaPaciente abrir = new telaPaciente();
+        abrir.setVisible(true);
+    }//GEN-LAST:event_jMenu1MenuSelected
+
+    private void jMenu2MenuSelected(javax.swing.event.MenuEvent evt) {//GEN-FIRST:event_jMenu2MenuSelected
+        telaListarPaciente.this.setVisible(false);
+        telaMedicamento abrir = new telaMedicamento();
+        abrir.setVisible(true);
+    }//GEN-LAST:event_jMenu2MenuSelected
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        telaListarPaciente.this.setVisible(false);
+        telaPaciente abrir = new telaPaciente();
+        abrir.setVisible(true);
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
