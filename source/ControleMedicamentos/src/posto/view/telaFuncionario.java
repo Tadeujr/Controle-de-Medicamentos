@@ -16,6 +16,7 @@ public class telaFuncionario extends javax.swing.JFrame {
      */
     public telaFuncionario() {
         initComponents();
+        setLocationRelativeTo(null);
     }
 
     /**
@@ -33,10 +34,28 @@ public class telaFuncionario extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jMenu2.setText("Medicamento\n");
+        jMenu2.setText("Medicamento ");
+        jMenu2.addMenuListener(new javax.swing.event.MenuListener() {
+            public void menuCanceled(javax.swing.event.MenuEvent evt) {
+            }
+            public void menuDeselected(javax.swing.event.MenuEvent evt) {
+            }
+            public void menuSelected(javax.swing.event.MenuEvent evt) {
+                jMenu2MenuSelected(evt);
+            }
+        });
         jMenuBar1.add(jMenu2);
 
         jMenu1.setText("Paciente");
+        jMenu1.addMenuListener(new javax.swing.event.MenuListener() {
+            public void menuCanceled(javax.swing.event.MenuEvent evt) {
+            }
+            public void menuDeselected(javax.swing.event.MenuEvent evt) {
+            }
+            public void menuSelected(javax.swing.event.MenuEvent evt) {
+                jMenu1MenuSelected(evt);
+            }
+        });
         jMenuBar1.add(jMenu1);
 
         setJMenuBar(jMenuBar1);
@@ -54,6 +73,18 @@ public class telaFuncionario extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jMenu2MenuSelected(javax.swing.event.MenuEvent evt) {//GEN-FIRST:event_jMenu2MenuSelected
+        telaFuncionario.this.setVisible(false);
+        telaMedicamento abrir = new telaMedicamento();
+        abrir.setVisible(true);
+    }//GEN-LAST:event_jMenu2MenuSelected
+
+    private void jMenu1MenuSelected(javax.swing.event.MenuEvent evt) {//GEN-FIRST:event_jMenu1MenuSelected
+        telaFuncionario.this.setVisible(false);
+        telaPaciente abrir = new telaPaciente();
+        abrir.setVisible(true);
+    }//GEN-LAST:event_jMenu1MenuSelected
 
     /**
      * @param args the command line arguments

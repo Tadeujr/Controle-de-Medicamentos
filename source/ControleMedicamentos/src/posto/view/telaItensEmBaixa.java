@@ -16,6 +16,8 @@ public class telaItensEmBaixa extends javax.swing.JFrame {
      */
     public telaItensEmBaixa() {
         initComponents();
+        jMenu5.setEnabled(false);
+        setLocationRelativeTo(null);
     }
 
     /**
@@ -44,12 +46,39 @@ public class telaItensEmBaixa extends javax.swing.JFrame {
         jScrollPane1.setViewportView(jList1);
 
         jMenu6.setText("Relatorio");
+        jMenu6.addMenuListener(new javax.swing.event.MenuListener() {
+            public void menuCanceled(javax.swing.event.MenuEvent evt) {
+            }
+            public void menuDeselected(javax.swing.event.MenuEvent evt) {
+            }
+            public void menuSelected(javax.swing.event.MenuEvent evt) {
+                jMenu6MenuSelected(evt);
+            }
+        });
         jMenuBar1.add(jMenu6);
 
         jMenu1.setText("Funcionario");
+        jMenu1.addMenuListener(new javax.swing.event.MenuListener() {
+            public void menuCanceled(javax.swing.event.MenuEvent evt) {
+            }
+            public void menuDeselected(javax.swing.event.MenuEvent evt) {
+            }
+            public void menuSelected(javax.swing.event.MenuEvent evt) {
+                jMenu1MenuSelected(evt);
+            }
+        });
         jMenuBar1.add(jMenu1);
 
         jMenu5.setText("Itens em Baixa");
+        jMenu5.addMenuListener(new javax.swing.event.MenuListener() {
+            public void menuCanceled(javax.swing.event.MenuEvent evt) {
+            }
+            public void menuDeselected(javax.swing.event.MenuEvent evt) {
+            }
+            public void menuSelected(javax.swing.event.MenuEvent evt) {
+                jMenu5MenuSelected(evt);
+            }
+        });
         jMenuBar1.add(jMenu5);
 
         setJMenuBar(jMenuBar1);
@@ -73,6 +102,22 @@ public class telaItensEmBaixa extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jMenu6MenuSelected(javax.swing.event.MenuEvent evt) {//GEN-FIRST:event_jMenu6MenuSelected
+        telaItensEmBaixa.this.setVisible(false);
+        telaGerenteRelatorio abrir = new telaGerenteRelatorio();
+        abrir.setVisible(true);
+    }//GEN-LAST:event_jMenu6MenuSelected
+
+    private void jMenu1MenuSelected(javax.swing.event.MenuEvent evt) {//GEN-FIRST:event_jMenu1MenuSelected
+        telaItensEmBaixa.this.setVisible(false);
+        telaGerenteFuncionario abrir = new telaGerenteFuncionario();
+        abrir.setVisible(true);
+    }//GEN-LAST:event_jMenu1MenuSelected
+
+    private void jMenu5MenuSelected(javax.swing.event.MenuEvent evt) {//GEN-FIRST:event_jMenu5MenuSelected
+        telaItensEmBaixa.this.setVisible(true);
+    }//GEN-LAST:event_jMenu5MenuSelected
 
     /**
      * @param args the command line arguments

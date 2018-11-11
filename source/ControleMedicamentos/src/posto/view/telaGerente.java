@@ -16,6 +16,8 @@ public class telaGerente extends javax.swing.JFrame {
      */
     public telaGerente() {
         initComponents();
+        
+        setLocationRelativeTo(null);
     }
 
     /**
@@ -27,35 +29,47 @@ public class telaGerente extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jMenuItem9 = new javax.swing.JMenuItem();
-        jMenu3 = new javax.swing.JMenu();
-        jMenuItem10 = new javax.swing.JMenuItem();
-        jMenu4 = new javax.swing.JMenu();
-        jMenuItem11 = new javax.swing.JMenuItem();
         jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu6 = new javax.swing.JMenu();
+        Relatorio = new javax.swing.JMenu();
         jMenu1 = new javax.swing.JMenu();
         jMenu5 = new javax.swing.JMenu();
 
-        jMenuItem9.setText("jMenuItem9");
-
-        jMenu3.setText("jMenu3");
-
-        jMenuItem10.setText("jMenuItem10");
-
-        jMenu4.setText("jMenu4");
-
-        jMenuItem11.setText("jMenuItem11");
-
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jMenu6.setText("Relatorio");
-        jMenuBar1.add(jMenu6);
+        Relatorio.setText("Relatorio");
+        Relatorio.addMenuListener(new javax.swing.event.MenuListener() {
+            public void menuCanceled(javax.swing.event.MenuEvent evt) {
+            }
+            public void menuDeselected(javax.swing.event.MenuEvent evt) {
+            }
+            public void menuSelected(javax.swing.event.MenuEvent evt) {
+                RelatorioMenuSelected(evt);
+            }
+        });
+        jMenuBar1.add(Relatorio);
 
         jMenu1.setText("Funcionario");
+        jMenu1.addMenuListener(new javax.swing.event.MenuListener() {
+            public void menuCanceled(javax.swing.event.MenuEvent evt) {
+            }
+            public void menuDeselected(javax.swing.event.MenuEvent evt) {
+            }
+            public void menuSelected(javax.swing.event.MenuEvent evt) {
+                jMenu1MenuSelected(evt);
+            }
+        });
         jMenuBar1.add(jMenu1);
 
         jMenu5.setText("Itens em Baixa");
+        jMenu5.addMenuListener(new javax.swing.event.MenuListener() {
+            public void menuCanceled(javax.swing.event.MenuEvent evt) {
+            }
+            public void menuDeselected(javax.swing.event.MenuEvent evt) {
+            }
+            public void menuSelected(javax.swing.event.MenuEvent evt) {
+                jMenu5MenuSelected(evt);
+            }
+        });
         jMenuBar1.add(jMenu5);
 
         setJMenuBar(jMenuBar1);
@@ -73,6 +87,24 @@ public class telaGerente extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void RelatorioMenuSelected(javax.swing.event.MenuEvent evt) {//GEN-FIRST:event_RelatorioMenuSelected
+        telaGerente.this.setVisible(false);
+        telaGerenteRelatorio abrir = new telaGerenteRelatorio();
+        abrir.setVisible(true);
+    }//GEN-LAST:event_RelatorioMenuSelected
+
+    private void jMenu1MenuSelected(javax.swing.event.MenuEvent evt) {//GEN-FIRST:event_jMenu1MenuSelected
+        telaGerente.this.setVisible(false);
+        telaGerenteFuncionario abrir = new telaGerenteFuncionario();
+        abrir.setVisible(true);
+    }//GEN-LAST:event_jMenu1MenuSelected
+
+    private void jMenu5MenuSelected(javax.swing.event.MenuEvent evt) {//GEN-FIRST:event_jMenu5MenuSelected
+        telaGerente.this.setVisible(false);
+        telaItensEmBaixa abrir = new telaItensEmBaixa();
+        abrir.setVisible(true);
+    }//GEN-LAST:event_jMenu5MenuSelected
 
     /**
      * @param args the command line arguments
@@ -111,14 +143,9 @@ public class telaGerente extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenu Relatorio;
     private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu3;
-    private javax.swing.JMenu jMenu4;
     private javax.swing.JMenu jMenu5;
-    private javax.swing.JMenu jMenu6;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem10;
-    private javax.swing.JMenuItem jMenuItem11;
-    private javax.swing.JMenuItem jMenuItem9;
     // End of variables declaration//GEN-END:variables
 }

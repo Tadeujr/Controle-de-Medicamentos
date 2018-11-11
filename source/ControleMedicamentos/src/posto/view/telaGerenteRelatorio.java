@@ -5,17 +5,36 @@
  */
 package posto.view;
 
+/*import banco.ConexaoBanco;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.*;*/
+
 /**
  *
  * @author 20142bsi0429
  */
 public class telaGerenteRelatorio extends javax.swing.JFrame {
-
-    /**
-     * Creates new form telaGerenteRelatorio
-     */
+    
     public telaGerenteRelatorio() {
         initComponents();
+        jButton1.setEnabled(false);
+        jMenu6.setEnabled(false);
+        /*try{
+            ConexaoBanco objCon = new ConexaoBanco();
+            objCon.abrirConexaoBanco();
+            objCon.stmt = objCon.con.createStatement();
+            objCon.rs = objCon.stmt.executeQuery("SELECT * FROM LOGIN;");
+            DefaultListModel listModel = new DefaultListModel();
+            while (objCon.rs.next()) {
+                String  login = objCon.rs.getString("LOGIN");
+                listModel.addElement(login);
+            }
+            jList1.setModel(listModel);
+        } catch (SQLException ex) {
+            Logger.getLogger(telaGerenteRelatorio.class.getName()).log(Level.SEVERE, null, ex);
+        }*/
     }
 
     /**
@@ -33,6 +52,7 @@ public class telaGerenteRelatorio extends javax.swing.JFrame {
         jCheckBox2 = new javax.swing.JCheckBox();
         jCheckBox3 = new javax.swing.JCheckBox();
         jCheckBox4 = new javax.swing.JCheckBox();
+        jButton1 = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu6 = new javax.swing.JMenu();
         jMenu1 = new javax.swing.JMenu();
@@ -40,11 +60,6 @@ public class telaGerenteRelatorio extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jList1.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
-        });
         jScrollPane1.setViewportView(jList1);
 
         jCheckBox1.setText("Dia");
@@ -55,13 +70,30 @@ public class telaGerenteRelatorio extends javax.swing.JFrame {
         });
 
         jCheckBox2.setText("Mês");
+        jCheckBox2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBox2ActionPerformed(evt);
+            }
+        });
 
         jCheckBox3.setText("Ano");
+        jCheckBox3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBox3ActionPerformed(evt);
+            }
+        });
 
         jCheckBox4.setText("Semana");
         jCheckBox4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jCheckBox4ActionPerformed(evt);
+            }
+        });
+
+        jButton1.setText("Gerar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
             }
         });
 
@@ -88,7 +120,8 @@ public class telaGerenteRelatorio extends javax.swing.JFrame {
                     .addComponent(jCheckBox1)
                     .addComponent(jCheckBox2)
                     .addComponent(jCheckBox3)
-                    .addComponent(jCheckBox4))
+                    .addComponent(jCheckBox4)
+                    .addComponent(jButton1))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -104,6 +137,8 @@ public class telaGerenteRelatorio extends javax.swing.JFrame {
                         .addComponent(jCheckBox2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jCheckBox3)
+                        .addGap(27, 27, 27)
+                        .addComponent(jButton1)
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 257, Short.MAX_VALUE))
                 .addContainerGap())
@@ -113,12 +148,36 @@ public class telaGerenteRelatorio extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox1ActionPerformed
-        // TODO add your handling code here:
+        boolean index = jList1.isSelectionEmpty();
+        if(index == false){
+            jButton1.setEnabled(true);
+        }
     }//GEN-LAST:event_jCheckBox1ActionPerformed
 
     private void jCheckBox4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox4ActionPerformed
-        // TODO add your handling code here:
+        boolean index = jList1.isSelectionEmpty();
+        if(index == false){
+            jButton1.setEnabled(true);
+        }
     }//GEN-LAST:event_jCheckBox4ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+       
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jCheckBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox2ActionPerformed
+        boolean index = jList1.isSelectionEmpty();
+        if(index == false){
+            jButton1.setEnabled(true);
+        }
+    }//GEN-LAST:event_jCheckBox2ActionPerformed
+
+    private void jCheckBox3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox3ActionPerformed
+        boolean index = jList1.isSelectionEmpty();
+        if(index == false){
+            jButton1.setEnabled(true);
+        }
+    }//GEN-LAST:event_jCheckBox3ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -156,6 +215,7 @@ public class telaGerenteRelatorio extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
     private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JCheckBox jCheckBox2;
     private javax.swing.JCheckBox jCheckBox3;

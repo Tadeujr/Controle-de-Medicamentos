@@ -16,6 +16,7 @@ public class telaGerenteListarFuncionarios extends javax.swing.JFrame {
      */
     public telaGerenteListarFuncionarios() {
         initComponents();
+        setLocationRelativeTo(null);
     }
 
     /**
@@ -51,6 +52,11 @@ public class telaGerenteListarFuncionarios extends javax.swing.JFrame {
         jButton1.setText("Excluir");
 
         jButton2.setText("Cadastrar");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jMenu6.setText("Relatorio");
         jMenuBar1.add(jMenu6);
@@ -95,6 +101,12 @@ public class telaGerenteListarFuncionarios extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        telaGerenteListarFuncionarios.this.setVisible(false);
+        telaGerenteFuncionario abrir = new telaGerenteFuncionario();
+        abrir.setVisible(true);
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
