@@ -7,6 +7,7 @@ import java.text.SimpleDateFormat;
 
 public class Retirada {
     protected String data;
+    protected int id_Retirada; 
     protected String hora;
     protected int qtdRetirada;
     Cliente clienteRetirada;

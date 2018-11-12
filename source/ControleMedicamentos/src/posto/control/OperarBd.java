@@ -7,17 +7,19 @@ package posto.control;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
 /**
- *
+ *this.rs = this.stmt.executeQuery(sql);
  * @author tadeu
  */
 
 public class OperarBd {
-    private Connection c;
-    private Statement stmt;
+    public Connection c;
+    public Statement stmt;
+    public ResultSet rs; 
     String sql;
 
     public void OperarBd(String sql){
@@ -30,13 +32,24 @@ public class OperarBd {
         this.c = DriverManager.getConnection("jdbc:sqlite:controlePosto.db");            
         System.out.println("Conexão aberta");
         this.stmt = c.createStatement();
-        stmt.executeUpdate(this.sql);
+        
+        
+    } 
+    
+    
+    public void atualizarBanco() throws SQLException, ClassNotFoundException{
+        this.conectarBanco();
+        stmt.executeUpdate(sql);
+        this.fecharBanco();
+        
+    }
+    
+            
+    public void fecharBanco() throws SQLException{
         this.stmt.close();
         this.c.close();
-            
         System.out.println("Operação realizada com sucesso.");
-        
-  }    
+    }
     
 }
 

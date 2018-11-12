@@ -25,7 +25,7 @@ public class CadastrarMedicamento {
                         medicamento.getLote() + 
                     "');";
             
-            conexao.conectarBanco();
+            conexao.atualizarBanco();
 
         } catch (Exception e) {
             System.err.println(e.getClass().getName() + ": " + e.getMessage());            
