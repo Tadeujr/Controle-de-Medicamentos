@@ -34,6 +34,7 @@ public class OperarBd {
         this.stmt = c.createStatement();
         
         
+        
     } 
     
     

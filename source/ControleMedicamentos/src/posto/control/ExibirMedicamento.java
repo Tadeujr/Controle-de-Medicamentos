@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package posto.control;
+import java.sql.SQLException;
 
 /**
  *
@@ -11,10 +12,21 @@ package posto.control;
  */
 public class ExibirMedicamento {
     
-    public void exibirMedicamento(){
-        OperarBd conexao = new OperarBd();
+    public void exibirMedicamento() throws SQLException, ClassNotFoundException{
         
-        conexao.rs = conexao.stmt.executeQuery(string)
+        OperarBd conexao = new OperarBd();
+        conexao.conectarBanco();
+        conexao.rs = conexao.stmt.executeQuery("select * from Medicamento;");
+        System.out.println("id:\t"+" Nome do Medicamento:\t\t" + "Quatidade ");
+        while(conexao.rs.next()) {
+            
+            String nome = conexao.rs.getString("nome");
+            String id = conexao.rs.getString("id_medicamento");
+            String qtd = conexao.rs.getString("qtd_disponivel");
+            System.out.println(id+"\t\t " + nome +"\t\t\t "+qtd);
+        }
+            
+        conexao.fecharBanco();
     }
     
 }
