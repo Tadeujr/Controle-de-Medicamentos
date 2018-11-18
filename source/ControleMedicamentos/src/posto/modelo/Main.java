@@ -9,20 +9,34 @@ public class Main {
 
     public static void main(String[] args) {
         //Variaveis teste.
-        Cliente ppl = new Cliente("João Teste","joao.teste@hotmail.com","999595959","rua dos vales","475.885.777-30",1122);
-        ppl.setId_pessoa(1);
-        Medicamento drugs = new Medicamento("Remedio diferenrte","Teste","1992-02-01", "0014",(int)14);
-        Funcionario func = new Funcionario("Maria Teste","maria.teste@hotmail.com","4444444","Rua testera","555.555.555-55","maria123","11222","Atendente");
-        func.setId_pessoa(2);
-        CadastrarMedicamento m = new CadastrarMedicamento();
-        
-        m.cadastrarMedicamento(drugs);
-        
-        
+
         try{
-            ExibirMedicamento n = new ExibirMedicamento();
-            n.exibirMedicamento();
-        
+            /*
+            // criando Funcionario
+            Funcionario novoFuncionario = new Funcionario("tadeujunior","1234","gerente","Tadeu jr","tadeu_junior@outlook.com","3254331","rua 14 casa 35 Antonio Ferreira Borges","12345678900");
+            FuncionarioSql cadFuncionario = new FuncionarioSql();
+            cadFuncionario.cadastrarFuncionario(novoFuncionario);
+           
+           
+           // CRIANDO MEDICAMENTO / INSERINDO NO BANCO E BUSCANDO NO BANCO
+           Medicamento nm = new Medicamento();
+           MedicamentoSql m  = new MedicamentoSql();
+           nm.setNome("Rivotril");
+           nm.setDescricao("Remedio de Jadson");
+           nm.setLote("10/02/1989");
+           nm.setValidade("00014");
+           nm.setQtdDisponivel(16);
+           
+           
+           
+           m.cadastrarMedicamento(nm);
+           
+           m.exibirMedicamento();
+            nm = m.selecionarMedicamento("Rivotril");
+            System.out.println("Esse Medicamento vem do banco de dados: " + nm.getValidade());
+           */
+            
+            
         }catch(Exception  e){
             System.err.println(e.getClass().getName() + ": " + e.getMessage());            
         }

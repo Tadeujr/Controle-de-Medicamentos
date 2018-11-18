@@ -30,11 +30,37 @@ public class Retirada {
         this.funcionarioRetirada = funcionarioRetirada;
         this.medicamento = medicamento;        
     }
-    
 
-    
-    public void armazenarRetirada(){// subir oara i banco de Dados
-    
+    public String getData() {
+        return data;
+    }
+
+    public void setData(String data) {
+        this.data = data;
+    }
+
+    public int getId_Retirada() {
+        return id_Retirada;
+    }
+
+    public void setId_Retirada(int id_Retirada) {
+        this.id_Retirada = id_Retirada;
+    }
+
+    public String getHora() {
+        return hora;
+    }
+
+    public void setHora(String hora) {
+        this.hora = hora;
+    }
+
+    public int getQtdRetirada() {
+        return qtdRetirada;
+    }
+
+    public void setQtdRetirada(int qtdRetirada) {
+        this.qtdRetirada = qtdRetirada;
     }
 
     public Cliente getClienteRetirada() {
@@ -61,30 +87,7 @@ public class Retirada {
         this.medicamento = medicamento;
     }
     
+
     
-    
-    public String getData() {
-        return data;
-    }
-
-    public void setData(String data) {
-        this.data = data;
-    }
-
-    public String getHora() {
-        return hora;
-    }
-
-    public void setHora(String hora) {
-        this.hora = hora;
-    }
-
-    public int getQtdRetirada() {
-        return qtdRetirada;
-    }
-
-    public void setQtdRetirada(int qtdRetirada) {
-        this.qtdRetirada = qtdRetirada;
-    }
     
 }

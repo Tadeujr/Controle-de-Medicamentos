@@ -28,6 +28,36 @@ public class Cliente extends Pessoa{
         this.cartaoSUS = cartaoSUS;
     }
 
+    @Override
+    public int getId_pessoa() {
+        return id_pessoa;
+    }
+
+    @Override
+    public String getNome() {
+        return nome;
+    }
+
+    @Override
+    public String getEmail() {
+        return email;
+    }
+
+    @Override
+    public String getTelefone() {
+        return telefone;
+    }
+
+    @Override
+    public String getEndereco() {
+        return endereco;
+    }
+
+    @Override
+    public String getCpf() {
+        return cpf;
+    }
+
     
     
 }

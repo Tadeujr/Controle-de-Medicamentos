@@ -6,7 +6,6 @@
 package posto.control;
 
 import java.sql.SQLException;
-import java.util.ArrayList;
 import posto.modelo.Medicamento;
 
 /**
@@ -105,41 +104,53 @@ public class MedicamentoSql {
     }   
     
     //deleta o medicamento pelo ID
-    public  void deleteMedicamentoId(int id) {
+    public  void deleteMedicamentoId(int id) throws SQLException, ClassNotFoundException {
 
-        try {
-            OperarBd conexao = new OperarBd();
-            conexao.sql = "DELETE FROM Medicamento where id_medicamento=" + id +";";
 
-        } catch (Exception e) {
-            System.err.println(e.getClass().getName() + ": " + 
-                    e.getMessage());            
-        }
+        OperarBd conexao = new OperarBd();
+        conexao.conectarBanco();
+        conexao.rs = conexao.stmt.executeQuery("DELETE FROM Medicamento where id_medicamento=" + id +";");
+
+
 
     }
     
     /* EXIBIR */
-    public synchronized ArrayList selecionarMedicamento() throws SQLException, ClassNotFoundException{
-        ArrayList listaMedicamento = new ArrayList();
-        try{
-            OperarBd conexao = new OperarBd();
-            conexao.conectarBanco();
-            conexao.rs = conexao.stmt.executeQuery("Select * from medicamento;");
-            while(conexao.rs.next()){
-                Medicamento drugs = new Medicamento();
-                drugs.setId_medicamento(conexao.rs.getInt("ID_MEDICAMENTO"));
-                drugs.setDescricao(conexao.rs.getString("DESCRICAO"));
-                drugs.setNome(conexao.rs.getString("NOME"));
-                drugs.setValidade(conexao.rs.getString("VALIDADE"));
-                drugs.setLote(conexao.rs.getString("LOTE"));
-                drugs.setQtdDisponivel(conexao.rs.getInt("QTD_DISPONIVEL"));
-                listaMedicamento.add(drugs);
-            }
-            conexao.fecharBanco();
-            return listaMedicamento;
-        }catch(ClassNotFoundException | SQLException ex){
-            System.out.println("Não foi possível conectar ao DB");
-            return listaMedicamento;
-        }  
+    public void exibirMedicamento() throws SQLException, ClassNotFoundException{
+        
+        OperarBd conexao = new OperarBd();
+        conexao.conectarBanco();
+        conexao.rs = conexao.stmt.executeQuery("select * from Medicamento;");
+        System.out.println("id:\t"+" Nome do Medicamento:\t\t" + "Quatidade ");
+        while(conexao.rs.next()) {
+            
+            String nome = conexao.rs.getString("nome");
+            String id = conexao.rs.getString("id_medicamento");
+            String qtd = conexao.rs.getString("qtd_disponivel");
+            System.out.println(id+"\t\t " + nome +"\t\t\t "+qtd);
+        }
+            
+        conexao.fecharBanco();
     }
+    
+    // selecionar Medicamento escolhido 
+    public Medicamento selecionarMedicamento(String nomeMedicamento) throws SQLException, ClassNotFoundException{
+        
+        OperarBd conexao = new OperarBd();
+        conexao.conectarBanco();
+        conexao.rs = conexao.stmt.executeQuery("select * from Medicamento where nome ='" + nomeMedicamento+"'");
+        Medicamento drugs = new Medicamento();
+
+        drugs.setDescricao(conexao.rs.getString("DESCRICAO"));
+        drugs.setNome(conexao.rs.getString("NOME"));
+        drugs.setValidade(conexao.rs.getString("VALIDADE"));
+        drugs.setLote(conexao.rs.getString("LOTE"));
+        drugs.setQtdDisponivel(conexao.rs.getInt("QTD_DISPONIVEL"));    
+        conexao.fecharBanco();
+
+        return drugs;        
+
+    }
+    
+
 }

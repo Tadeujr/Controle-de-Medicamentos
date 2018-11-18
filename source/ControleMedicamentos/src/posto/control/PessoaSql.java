@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package posto.control;
-
+import java.sql.SQLException;
 import posto.modelo.Pessoa;
 
 /**
@@ -13,26 +13,23 @@ import posto.modelo.Pessoa;
  */
 public class PessoaSql {
     /* CADASTRAR */
-    public  void cadastrarPessoa(Pessoa pessoa) {
+    public  void cadastrarPessoa(Pessoa pessoa) throws SQLException, ClassNotFoundException {
 
-        try {
-            
-            OperarBd conexao = new OperarBd();
-            conexao.sql = "INSERT INTO Pessoa (NOME,EMAIL,TELEFONE,ENDERECO,CPF)"
-                    + "VALUES ('" + pessoa.getNome() + 
-                    "','" + 
-                        pessoa.getEmail() + 
-                    "'," +
-                        pessoa.getTelefone() + 
-                    ",'" +
-                        pessoa.getEndereco() +
-                    "','" +
-                        pessoa.getCpf() + 
-                    "');";                        
+        OperarBd conexao = new OperarBd();
+        conexao.conectarBanco();
+        conexao.sql = "INSERT INTO Pessoa (NOME,EMAIL,TELEFONE,ENDERECO,CPF)"
+                + "VALUES ('" + pessoa.getNome() + 
+                "','" + 
+                    pessoa.getEmail() + 
+                "'," +
+                    pessoa.getTelefone() + 
+                ",'" +
+                    pessoa.getEndereco() +
+                "','" +
+                    pessoa.getCpf() + 
+                "');";                        
+        conexao.atualizarBanco();
 
-        } catch (Exception e) {
-            System.err.println(e.getClass().getName() + ": " + e.getMessage());            
-        }
 
     }
     
@@ -138,7 +135,17 @@ public class PessoaSql {
         }
 
     }
+   
+    public int buscarIdPessoa (String cpf) throws SQLException, ClassNotFoundException{
+        int id;
+        OperarBd conexao = new OperarBd();
+        conexao.conectarBanco();
+        conexao.rs = conexao.stmt.executeQuery("SELECT * FROM PESSOA WHERE cpf='"+ cpf +"';");        
+        id = conexao.rs.getInt("id_pessoa");
+        conexao.fecharBanco();
+        return id;
     
+    }
     /*
     / EXIBIR /
     public synchronized ArrayList selecionarMedicamento() throws SQLException, ClassNotFoundException{

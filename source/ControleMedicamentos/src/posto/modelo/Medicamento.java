@@ -2,20 +2,11 @@
 package posto.modelo;
 
 public class Medicamento {
-    protected int id_medicamento;
     protected String descricao;
     protected String nome;
     protected String validade;
     protected String lote;
     protected int qtdDisponivel;
-    
-    public Medicamento(String nome,String descricao, String validade, String lote,int qtdDisponivel){
-        this.nome = nome;
-        this.descricao = descricao;
-        this.validade = validade;
-        this.lote = lote;
-        this.qtdDisponivel = qtdDisponivel;
-    }
     
     public String getDescricao() {
         return descricao;
@@ -56,6 +47,9 @@ public class Medicamento {
     public void setQtdDisponivel(int qtdDisponivel) {
         this.qtdDisponivel = qtdDisponivel;
     }
+
+
+
     
     
     
