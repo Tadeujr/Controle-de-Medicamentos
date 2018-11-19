@@ -27,7 +27,7 @@ public class AdicionaCliente {
     @Test
     public void adicionaCliente() {
         
-        Cliente cliente = new Cliente("Luiz Correia","luizoliveiracorreia@cuvox.de","(35)8053-7658","Rua Trinta e Um 644, Poços de Caldas, MG, 37704-252","225.618.339-41",781223877040003L);
+        Cliente cliente = new Cliente("Luiz Correia","luizoliveiracorreia@cuvox.de","(35)8053-7658","Rua Trinta e Um 644, Poços de Caldas, MG, 37704-252","225.618.339-41","781223877040003");
         ClienteSql cadastra = new ClienteSql();
         cadastra.cadastrarCliente(cliente);
         
