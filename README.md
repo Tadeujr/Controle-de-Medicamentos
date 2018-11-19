@@ -31,7 +31,7 @@ Banco de dados: PostgreSQL, utilizando pgAdmin <br>
 Software: desenvolvido em Java, utilizando NetBeans <br>
 
 
-### 5.PMC <br> 
+### 5.MPC <br> 
 https://docs.google.com/presentation/d/1yUH-r5BNlOyC_X4O6y9thzoztsveFpB8ChaGlIOkvLA/edit#slide=id.p
 
 ### 6.DIÁRIO DE BORDO <br>
