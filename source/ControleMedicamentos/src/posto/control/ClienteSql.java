@@ -5,6 +5,7 @@
  */
 package posto.control;
 
+import java.sql.SQLException;
 import posto.modelo.Cliente;
 
 /**
@@ -72,31 +73,38 @@ public class ClienteSql {
 
     }
     
-    /*
-    / EXIBIR /
-    public synchronized ArrayList selecionarMedicamento() throws SQLException, ClassNotFoundException{
-        ArrayList listaMedicamento = new ArrayList();
-        try{
+    /* EXIBIR */
+    public void exibirCliente() throws SQLException, ClassNotFoundException{
             OperarBd conexao = new OperarBd();
             conexao.conectarBanco();
-            conexao.rs = conexao.stmt.executeQuery("Select * from medicamento;");
+            conexao.rs = conexao.stmt.executeQuery("Select * from Cliente;");
             while(conexao.rs.next()){
-                Medicamento drugs = new Medicamento();
-                drugs.setId_medicamento(conexao.rs.getInt("ID_MEDICAMENTO"));
-                drugs.setDescricao(conexao.rs.getString("DESCRICAO"));
-                drugs.setNome(conexao.rs.getString("NOME"));
-                drugs.setValidade(conexao.rs.getString("VALIDADE"));
-                drugs.setLote(conexao.rs.getString("LOTE"));
-                drugs.setQtdDisponivel(conexao.rs.getInt("QTD_DISPONIVEL"));
-                listaMedicamento.add(drugs);
+                String nome = conexao.rs.getString("nome");
+                String email = conexao.rs.getString("email");
+                String telefone = conexao.rs.getString("telefone");
+                String endereco = conexao.rs.getString("endereco");
+                String cpf = conexao.rs.getString("cpf");
+                long cartaoSUS = conexao.rs.getLong("cartaoSus");
+                System.out.println("nome:" + nome + "\n email: " + email + "\n telefone: " + telefone + "\n endereço: " + endereco + "\n cpf: " + cpf + "\n cartãoSUS" + cartaoSUS);
             }
-            conexao.fecharBanco();
-            return listaMedicamento;
-        }catch(ClassNotFoundException | SQLException ex){
-            System.out.println("Não foi possível conectar ao DB");
-            return listaMedicamento;
-        }  
+            conexao.fecharBanco();  
     }
     
-    */
+    /* SELECIONAR O CLIENTE DESEJADO*/
+    public String selecionarCliente(String nomeCliente) throws SQLException, ClassNotFoundException{
+        OperarBd conexao = new OperarBd();
+        conexao.conectarBanco();
+        conexao.rs = conexao.stmt.executeQuery("select * from Cliente where nome ='" + nomeCliente+"'");
+            while(conexao.rs.next()){
+                String nome = conexao.rs.getString("nome");
+                String email = conexao.rs.getString("email");
+                String telefone = conexao.rs.getString("telefone");
+                String endereco = conexao.rs.getString("endereco");
+                String cpf = conexao.rs.getString("cpf");
+                long cartaoSUS = conexao.rs.getLong("cartaoSus");
+                //System.out.println("nome: " + nome + "\n email: " + email + "\n telefone: " + telefone + "\n endereço: " + endereco + "\n cpf: " + cpf + "\n cartãoSUS" + cartaoSUS);
+            }
+        return conexao.rs.getString("nome");
+    }
+     
 }
