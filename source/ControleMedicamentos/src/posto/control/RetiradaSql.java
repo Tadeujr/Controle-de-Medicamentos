@@ -19,10 +19,10 @@ public class RetiradaSql {
     
     public  void cadastrarRetirada(Retirada retirada) throws SQLException, ClassNotFoundException {
         
-
-        OperarBd conexao = new OperarBd();
-        conexao.conectarBanco();
-        conexao.sql = "INSERT INTO retirada (dataRetirada,horaRetirada,qtd_retirada,fk_id_medicamento,id_cliente,id_funcionario)"
+        try{
+            OperarBd conexao = new OperarBd();
+            conexao.conectarBanco();
+            conexao.sql = "INSERT INTO retirada (dataRetirada,horaRetirada,qtd_retirada,fk_id_medicamento,id_cliente,id_funcionario)"
                 + "VALUES ('" + 
                     retirada.getData() + 
                 "','" + 
@@ -34,7 +34,11 @@ public class RetiradaSql {
                 ",'" +
                     retirada.getFuncionarioRetirada().getId_Funcionario()+
                 "');";
-        conexao.atualizarBanco();
+            conexao.atualizarBanco();
+        }catch(Exception  e){
+            System.err.println("ERRO: Método Cadastrar Retirada"  +e.getClass().getName() + ": " + e.getMessage()); 
+        }
+
 
 
     }

@@ -7,6 +7,7 @@ package posto.control;
 
 import java.sql.SQLException;
 import posto.modelo.Cliente;
+import posto.modelo.Pessoa;
 
 /**
  *
@@ -17,42 +18,54 @@ public class ClienteSql {
     public  void cadastrarCliente(Cliente cliente) {
           
         try {
-            OperarBd conexao = new OperarBd(); 
+            
+            Pessoa nPessoa = new Pessoa(cliente.getNome(),cliente.getEmail(),cliente.getTelefone(),cliente.getEndereco(),cliente.getCpf());
+            PessoaSql cadPessoa = new PessoaSql();
+            cadPessoa.cadastrarPessoa(nPessoa);
+            
+            int idPessoa = cadPessoa.buscarIdPessoa(cliente.getCpf());
+            OperarBd conexao = new OperarBd();
             conexao.sql = "INSERT INTO Cliente (cartao_sus,fk_id_pessoa)"
                     + "VALUES ('" + cliente.getCartaoSUS() + 
                     "','" +
-                                    cliente.getId_pessoa() + 
+                                    idPessoa + 
                     "');";                        
             conexao.conectarBanco();
+            
         } catch (Exception e) {
             System.err.println(e.getClass().getName() + ": " + e.getMessage());            
         }
         
     }
     
-    /* ALTERAR */
+    /* ALTERAR  acho qe esse metodo e inutil*/
     public void alteraClienteCartaoSUS(int SUSatual,String SUSantigo){
 
         try {
+            
             OperarBd conexao = new OperarBd();
-
+            conexao.conectarBanco();
             conexao.sql = "UPDATE Funcionario "+
                          "SET tipo = '"+SUSatual+"' "+
                          "Where login='"+SUSantigo+"';";
-                        
+            conexao.atualizarBanco();
+            
         } catch (Exception e) {
             System.err.println(e.getClass().getName() + ": " + e.getMessage());            
         }
 
     }
     
-    /* DELETAR */
+    /* DELETAR acho que tambem nao tem necessidade */
     public  void deleteId(int id_cliente) {
 
         try {
+            
             OperarBd conexao = new OperarBd();
+            conexao.conectarBanco();
             conexao.sql  = "DELETE FROM Cliente where id_cliente=" + id_cliente +";";
-
+            conexao.atualizarBanco();
+            
         } catch (Exception e) {
             System.err.println(e.getClass().getName() + ": " + 
                     e.getMessage());            
@@ -60,12 +73,13 @@ public class ClienteSql {
 
     } 
     
-    public  void deleteCartaoSUS(int cartao_sus) {
+    public  void deleteCliente(int cartao_sus) {
         
         try {
             OperarBd conexao = new OperarBd();
+            conexao.conectarBanco();
             conexao.sql = "DELETE FROM Cliente where cartao_sus=" + cartao_sus +";";
-
+            conexao.atualizarBanco();
         } catch (Exception e) {
             System.err.println(e.getClass().getName() + ": " + 
                     e.getMessage());            
@@ -73,38 +87,21 @@ public class ClienteSql {
 
     }
     
-    /* EXIBIR */
-    public void exibirCliente() throws SQLException, ClassNotFoundException{
-            OperarBd conexao = new OperarBd();
-            conexao.conectarBanco();
-            conexao.rs = conexao.stmt.executeQuery("Select * from Cliente;");
-            while(conexao.rs.next()){
-                String nome = conexao.rs.getString("nome");
-                String email = conexao.rs.getString("email");
-                String telefone = conexao.rs.getString("telefone");
-                String endereco = conexao.rs.getString("endereco");
-                String cpf = conexao.rs.getString("cpf");
-                long cartaoSUS = conexao.rs.getLong("cartaoSus");
-                System.out.println("nome:" + nome + "\n email: " + email + "\n telefone: " + telefone + "\n endereço: " + endereco + "\n cpf: " + cpf + "\n cartãoSUS" + cartaoSUS);
-            }
-            conexao.fecharBanco();  
-    }
-    
-    /* SELECIONAR O CLIENTE DESEJADO*/
-    public String selecionarCliente(String nomeCliente) throws SQLException, ClassNotFoundException{
+
+    public Cliente selecionarCliente(String cpf) throws SQLException, ClassNotFoundException{
+
+        
         OperarBd conexao = new OperarBd();
         conexao.conectarBanco();
-        conexao.rs = conexao.stmt.executeQuery("select * from Cliente where nome ='" + nomeCliente+"'");
-            while(conexao.rs.next()){
-                String nome = conexao.rs.getString("nome");
-                String email = conexao.rs.getString("email");
-                String telefone = conexao.rs.getString("telefone");
-                String endereco = conexao.rs.getString("endereco");
-                String cpf = conexao.rs.getString("cpf");
-                long cartaoSUS = conexao.rs.getLong("cartaoSus");
-                //System.out.println("nome: " + nome + "\n email: " + email + "\n telefone: " + telefone + "\n endereço: " + endereco + "\n cpf: " + cpf + "\n cartãoSUS" + cartaoSUS);
-            }
-        return conexao.rs.getString("nome");
+        
+        conexao.rs = conexao.stmt.executeQuery("select * from CLIENTE inner join PESSOA on (CLIENTE.fk_id_pessoa = PESSOA.id_pessoa) where cpf ='" + cpf +"'");
+        Cliente cliente = new Cliente(conexao.rs.getNString("NOME"),conexao.rs.getNString("EMAIL"),
+        conexao.rs.getNString("TELEFONE"),conexao.rs.getNString("ENDERECO"),conexao.rs.getNString("CPF"),
+        conexao.rs.getNString("CARTAO_SUS"));
+
+        return cliente;        
+
     }
+
      
 }
