@@ -3,9 +3,9 @@ package posto.modelo;
 
 
 public class Cliente extends Pessoa{
-    protected int cartaoSUS;
+    protected long cartaoSUS;
     protected int id_cliente;
-    public Cliente(String nome,String email,String telefone,String endereco,String cpf,int cartaoSUS){  
+    public Cliente(String nome,String email,String telefone,String endereco,String cpf,long cartaoSUS){  
         super(nome, email, telefone, endereco, cpf);
         this.cartaoSUS = cartaoSUS;
     }
@@ -20,7 +20,7 @@ public class Cliente extends Pessoa{
 
 
     
-    public int getCartaoSUS() {
+    public long getCartaoSUS() {
         return cartaoSUS;
     }
 
