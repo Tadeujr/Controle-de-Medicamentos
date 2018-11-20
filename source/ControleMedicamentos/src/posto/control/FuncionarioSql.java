@@ -101,22 +101,18 @@ public class FuncionarioSql {
     
     }
     
-    public String selecionarFuncionario(String nomeFuncionario) throws SQLException, ClassNotFoundException{
+    public Funcionario selecionarFuncionario(String cpf) throws SQLException, ClassNotFoundException{
+        
         OperarBd conexao = new OperarBd();
         conexao.conectarBanco();
-        conexao.rs = conexao.stmt.executeQuery("select * from Funcionario where nome ='" + nomeFuncionario + "'");
-            while(conexao.rs.next()){
-                String login = conexao.rs.getString("login");
-                String senha = conexao.rs.getString("senha");
-                String tipo = conexao.rs.getString("tipo");
-                String nome = conexao.rs.getString("nome");
-                String email = conexao.rs.getString("email");
-                String telefone = conexao.rs.getString("telefone");
-                String endereco = conexao.rs.getString("endereco");
-                String cpf = conexao.rs.getString("cpf");
-                //System.out.println("login: " + login + "\n senha: " + senha + "\n tipo: " + tipo + "\n nome: " + nome + "\n email: " + email + "\n telefone: " + telefone + "\n endereço: " + endereco + "\n cpf: " + cpf);
-            }
-        return conexao.rs.getString("login");
+         
+        conexao.rs = conexao.stmt.executeQuery("select * from CLIENTE inner join PESSOA on (CLIENTE.fk_id_pessoa = PESSOA.id_pessoa) where cpf ='" + cpf +"'");
+        Funcionario funcionario = new Funcionario(conexao.rs.getNString("LOGIN"),conexao.rs.getNString("SENHA"),conexao.rs.getNString("TIPO"),conexao.rs.getNString("NOME"),
+        conexao.rs.getNString("EMAIL"),conexao.rs.getNString("TELEFONE"),conexao.rs.getNString("ENDERECO"),conexao.rs.getNString("CPF"));
+
+        return funcionario;        
+
+       
     }
 
 }
