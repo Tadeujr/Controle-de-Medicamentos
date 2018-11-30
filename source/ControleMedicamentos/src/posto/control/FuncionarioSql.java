@@ -110,6 +110,7 @@ public class FuncionarioSql {
         conexao.rs.getString("EMAIL"),conexao.rs.getString("TELEFONE"),conexao.rs.getString("ENDERECO"),conexao.rs.getString("CPF"));
         
         conexao.fecharBanco();
+
         return funcionario;        
 
        
