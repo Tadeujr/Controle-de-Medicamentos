@@ -9,6 +9,14 @@ public class Medicamento {
     protected int qtdDisponivel;
     protected int id_medicamento;
     
+    public Medicamento(String descricao,String nome,String validade,String lote,int qtdDisponivel){
+        this.descricao = descricao;
+        this.nome = nome;
+        this.validade = validade;
+        this.lote = lote;
+        this.qtdDisponivel = qtdDisponivel;
+    }
+    
     public String getDescricao() {
         return descricao;
     }
