@@ -94,22 +94,22 @@ public class FuncionarioSql {
         int id;
         OperarBd conexao = new OperarBd();
         conexao.conectarBanco();
-        conexao.rs = conexao.stmt.executeQuery("SELECT id_funcionario FROM FUNCIONARIO WHERE login ='"+ login +"';");
-        id = conexao.rs.getInt("id_funcionario");
+        conexao.rs = conexao.stmt.executeQuery("SELECT fk_id_pessoa FROM FUNCIONARIO WHERE login ='"+ login +"';");
+        id = conexao.rs.getInt("fk_id_pessoa");
         conexao.fecharBanco();
         return id;
     
     }
     
-    public Funcionario selecionarFuncionario(String cpf) throws SQLException, ClassNotFoundException{
+    public Funcionario selecionarFuncionario(String login) throws SQLException, ClassNotFoundException{
         
         OperarBd conexao = new OperarBd();
         conexao.conectarBanco();
-         
-        conexao.rs = conexao.stmt.executeQuery("select * from CLIENTE inner join PESSOA on (CLIENTE.fk_id_pessoa = PESSOA.id_pessoa) where cpf ='" + cpf +"'");
-        Funcionario funcionario = new Funcionario(conexao.rs.getNString("LOGIN"),conexao.rs.getNString("SENHA"),conexao.rs.getNString("TIPO"),conexao.rs.getNString("NOME"),
-        conexao.rs.getNString("EMAIL"),conexao.rs.getNString("TELEFONE"),conexao.rs.getNString("ENDERECO"),conexao.rs.getNString("CPF"));
-
+        conexao.rs = conexao.stmt.executeQuery("select * from Funcionario inner join PESSOA on (FUNCIONARIO.fk_id_pessoa = PESSOA.id_pessoa) where fk_id_pessoa = " + buscarIdFuncionario(login));
+        Funcionario funcionario = new Funcionario(conexao.rs.getString("LOGIN"),conexao.rs.getString("SENHA"),conexao.rs.getString("TIPO"),conexao.rs.getString("NOME"),
+        conexao.rs.getString("EMAIL"),conexao.rs.getString("TELEFONE"),conexao.rs.getString("ENDERECO"),conexao.rs.getString("CPF"));
+        
+        conexao.fecharBanco();
         return funcionario;        
 
        

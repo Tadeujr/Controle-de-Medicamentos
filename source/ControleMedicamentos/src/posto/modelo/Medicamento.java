@@ -7,6 +7,7 @@ public class Medicamento {
     protected String validade;
     protected String lote;
     protected int qtdDisponivel;
+    protected int id_medicamento;
     
     public String getDescricao() {
         return descricao;
@@ -46,6 +47,14 @@ public class Medicamento {
 
     public void setQtdDisponivel(int qtdDisponivel) {
         this.qtdDisponivel = qtdDisponivel;
+    }
+
+    public int getId_medicamento() {
+        return id_medicamento;
+    }
+
+    public void setId_medicamento(int id_medicamento) {
+        this.id_medicamento = id_medicamento;
     }
 
 

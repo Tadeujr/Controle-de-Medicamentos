@@ -11,12 +11,25 @@ public class Main {
         //Variaveis teste.
 
         try{
-            /*
+            
             // criando Funcionario
-            Funcionario novoFuncionario = new Funcionario("tadeujunior","1234","gerente","Tadeu jr","tadeu_junior@outlook.com","3254331","rua 14 casa 35 Antonio Ferreira Borges","12345678900");
+            //Funcionario novoFuncionario = new Funcionario("tadeujunior","1234","gerente","Tadeu jr","tadeu_junior@outlook.com","3254331","rua 14 casa 35 Antonio Ferreira Borges","12345678900");
             FuncionarioSql cadFuncionario = new FuncionarioSql();
-            cadFuncionario.cadastrarFuncionario(novoFuncionario);
-           
+            Funcionario novo;
+            //cadFuncionario.cadastrarFuncionario(novoFuncionario);
+            novo = cadFuncionario.selecionarFuncionario("tadeujunior");
+            
+            System.out.println(novo.getCpf());
+            System.out.println(novo.getEmail());
+            System.out.println(novo.getEndereco());
+            System.out.println(novo.getId_Funcionario());
+            System.out.println(novo.getId_pessoa());
+            System.out.println(novo.getLogin());
+            System.out.println(novo.getNome());
+            System.out.println(novo.getSenha());
+            System.out.println(novo.getTelefone());
+            System.out.println(novo.getTipo());
+           /*
            
            // CRIANDO MEDICAMENTO / INSERINDO NO BANCO E BUSCANDO NO BANCO
            Medicamento nm = new Medicamento();
