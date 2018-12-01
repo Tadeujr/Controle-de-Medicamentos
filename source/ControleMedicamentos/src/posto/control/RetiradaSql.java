@@ -6,6 +6,7 @@
 package posto.control;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
 import posto.modelo.Retirada;
 
 /**
@@ -65,5 +66,39 @@ public class RetiradaSql {
         conexao.atualizarBanco();
 
     }
-    
+        public synchronized ArrayList listarRetiradas() throws SQLException, ClassNotFoundException{
+        ArrayList<Retirada> listarRetiradas = new ArrayList();    
+        
+        OperarBd conexao = new OperarBd();
+        conexao.conectarBanco();
+        conexao.rs = conexao.stmt.executeQuery("select * from retirada;");
+        //
+                //
+        while(conexao.rs.next()){
+            Retirada retirada = new Retirada();
+            retirada.setData(conexao.rs.getString("dataRetirada"));
+            retirada.setHora(conexao.rs.getString("horaRetirada"));
+            retirada.setId_Retirada(conexao.rs.getInt("id_retirada")); 
+            retirada.setQtdRetirada(conexao.rs.getInt("qtd_retirada"));
+            int idMedicamento = conexao.rs.getInt("fk_id_medicamento");
+            MedicamentoSql medicamento = new MedicamentoSql();
+            retirada.setMedicamento(medicamento.selecionarMedicamentoId(idMedicamento));
+            int idFuncionario = conexao.rs.getInt("fk_id_funcionario");
+            FuncionarioSql funcionario = new FuncionarioSql();
+            retirada.setFuncionarioRetirada(funcionario.selecionarFuncionarioId(idFuncionario));
+            int idCliente = conexao.rs.getInt("fk_id_cliente");
+            ClienteSql cliente = new ClienteSql();
+            retirada.setClienteRetirada(cliente.selecionarClienteId(idMedicamento));
+            
+            listarRetiradas.add(retirada);
+        }
+          
+        conexao.fecharBanco();
+
+        conexao.fecharBanco();
+
+        return listarRetiradas;        
+
+    }
+
 }
