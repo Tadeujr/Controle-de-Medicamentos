@@ -11,28 +11,22 @@ public class Main {
         //Variaveis teste.
 
         try{
-            
-        /*    // criando Funcionario
-            //Funcionario novoFuncionario = new Funcionario("tadeujunior","1234","gerente","Tadeu jr","tadeu_junior@outlook.com","3254331","rua 14 casa 35 Antonio Ferreira Borges","12345678900");
-           // FuncionarioSql cadFuncionario = new FuncionarioSql();
-           // Funcionario novo;
-            MedicamentoSql n = new MedicamentoSql();
-            //cadFuncionario.cadastrarFuncionario(novoFuncionario);
-            //novo = cadFuncionario.selecionarFuncionario("tadeujunior");
-            n.exibirMedicamentos();
-          */ 
-           
+           Funcionario novoFuncionario = new Funcionario("tadeujunior","1234","gerente","Tadeu jr","tadeu_junior@outlook.com","3254331","rua 14 casa 35 Antonio Ferreira Borges","12345678900");
+       
+           Cliente novoCliente = new Cliente("Ediane Andrade","tadeu_junior@outlook.com","32544433","Minha casa","123456789011","123456");
            // CRIANDO MEDICAMENTO / INSERINDO NO BANCO E BUSCANDO NO BANCO
+            Medicamento novoMedicamento = new Medicamento("DorFlex","Preciso de um","1989-11-05","172",50);
+            Retirada novaRetirada = new Retirada(1,novoCliente,novoFuncionario,novoMedicamento);
+            RetiradaSql n = new RetiradaSql();
+            n.cadastrarRetirada(novaRetirada);
+        //Medicamento saida;
+        //MedicamentoSql m  = new MedicamentoSql();
            
-        Medicamento nm = new Medicamento("DorFlex","Preciso de um","1989-11-05","172",50);
-        Medicamento saida;
-        MedicamentoSql m  = new MedicamentoSql();
+       // m.cadastrarMedicamento(nm);
            
-        m.cadastrarMedicamento(nm);
-           
-        m.exibirMedicamentos();
-        saida = m.selecionarMedicamento("DorFlex");
-        System.out.println("Esse Medicamento vem do banco de dados: " + saida.getValidade());
+        //m.exibirMedicamentos();
+       // saida = m.selecionarMedicamento("DorFlex");
+       // System.out.println("Esse Medicamento vem do banco de dados: " + saida.getValidade());
           
             
             
@@ -40,6 +34,16 @@ public class Main {
             System.err.println(e.getClass().getName() + ": " + e.getMessage());            
         }
 
+                    
+        /*    // criando Funcionario
+            Funcionario novoFuncionario = new Funcionario("tadeujunior","1234","gerente","Tadeu jr","tadeu_junior@outlook.com","3254331","rua 14 casa 35 Antonio Ferreira Borges","12345678900");
+           // FuncionarioSql cadFuncionario = new FuncionarioSql();
+           // Funcionario novo;
+            MedicamentoSql n = new MedicamentoSql();
+            //cadFuncionario.cadastrarFuncionario(novoFuncionario);
+            //novo = cadFuncionario.selecionarFuncionario("tadeujunior");
+            n.exibirMedicamentos();
+          */
        
         //exemplo inserção Cliente
         //CadastrarCliente pessoa = new CadastrarCliente();

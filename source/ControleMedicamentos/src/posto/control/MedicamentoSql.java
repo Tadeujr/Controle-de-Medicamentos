@@ -136,9 +136,6 @@ public class MedicamentoSql {
         conexao.conectarBanco();
         
         conexao.rs = conexao.stmt.executeQuery("select * from Medicamento where nome = '" + nomeMedicamento +"'");
-       // Medicamento drugs = new Medicamento(conexao.rs.getString("NOME"),conexao.rs.getString("DESCRICAO"),conexao.rs.getString("LOTE"),conexao.rs.getInt("QTD_DISPONIVEL"));
-        
-         
         Medicamento drugs = new Medicamento(conexao.rs.getString("NOME"),conexao.rs.getString("DESCRICAO"),conexao.rs.getString("VALIDADE"),conexao.rs.getString("LOTE"),conexao.rs.getInt("QTD_DISPONIVEL"));
         drugs.setId_medicamento(conexao.rs.getInt("id_medicamento"));
         conexao.fecharBanco();
@@ -152,13 +149,7 @@ public class MedicamentoSql {
         OperarBd conexao = new OperarBd();
         conexao.conectarBanco();
         conexao.rs = conexao.stmt.executeQuery("select * from Medicamento where id_medicamento ='" + idMedicamento+"'");
-        //
-        Medicamento drugs = new Medicamento();
-        drugs.setNome(conexao.rs.getString("NOME"));
-        drugs.setDescricao(conexao.rs.getString("DESCRICAO"));
-        drugs.setQtdDisponivel(conexao.rs.getInt("QTD_DISPONIVEL")); 
-        drugs.setValidade(conexao.rs.getString("VALIDADE"));
-        drugs.setLote(conexao.rs.getString("LOTE"));
+        Medicamento drugs = new Medicamento(conexao.rs.getString("NOME"),conexao.rs.getString("DESCRICAO"),conexao.rs.getString("VALIDADE"),conexao.rs.getString("LOTE"),conexao.rs.getInt("QTD_DISPONIVEL"));
         drugs.setId_medicamento(conexao.rs.getInt("id_medicamento"));          
         conexao.fecharBanco();
         return drugs;        

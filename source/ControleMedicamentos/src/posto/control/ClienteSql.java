@@ -19,19 +19,19 @@ public class ClienteSql {
     public  void cadastrarCliente(Cliente cliente) {
           
         try {
-            
+ 
             Pessoa nPessoa = new Pessoa(cliente.getNome(),cliente.getEmail(),cliente.getTelefone(),cliente.getEndereco(),cliente.getCpf());
             PessoaSql cadPessoa = new PessoaSql();
             cadPessoa.cadastrarPessoa(nPessoa);
             
-            int idPessoa = cadPessoa.buscarIdPessoa(cliente.getCpf());
             OperarBd conexao = new OperarBd();
-            conexao.sql = "INSERT INTO Cliente (cartao_sus,fk_id_pessoa)"
-                    + "VALUES ('" + cliente.getCartaoSUS() + 
-                    "','" +
-                                    idPessoa + 
-                    "');";                        
             conexao.conectarBanco();
+            
+            conexao.sql = "INSERT INTO CLIENTE (cartao_sus,fk_id_pessoa)"
+                    + "VALUES ('" + cliente.getCartaoSUS() + 
+                    "'," + cadPessoa.buscarIdPessoa(cliente.getCpf()) + 
+                    ")";                        
+            conexao.atualizarBanco();
             
         } catch (Exception e) {
             System.err.println(e.getClass().getName() + ": " + e.getMessage());            
@@ -39,23 +39,6 @@ public class ClienteSql {
         
     }
     
-    /* ALTERAR  acho qe esse metodo e inutil*/
-    public void alteraClienteCartaoSUS(int SUSatual,String SUSantigo){
-
-        try {
-            
-            OperarBd conexao = new OperarBd();
-            conexao.conectarBanco();
-            conexao.sql = "UPDATE Funcionario "+
-                         "SET tipo = '"+SUSatual+"' "+
-                         "Where login='"+SUSantigo+"';";
-            conexao.atualizarBanco();
-            
-        } catch (Exception e) {
-            System.err.println(e.getClass().getName() + ": " + e.getMessage());            
-        }
-
-    }
     
     /* DELETAR acho que tambem nao tem necessidade */
     public  void deleteId(int id_cliente) {
@@ -91,16 +74,17 @@ public class ClienteSql {
     
 
     public Cliente selecionarCliente(String cpf) throws SQLException, ClassNotFoundException{
-
         
         OperarBd conexao = new OperarBd();
         conexao.conectarBanco();
+        conexao.rs = conexao.stmt.executeQuery("select * from PESSOA inner join CLIENTE on (CLIENTE.fk_id_pessoa = PESSOA.id_pessoa) where cpf = '" + cpf +"'");
         
-        conexao.rs = conexao.stmt.executeQuery("select * from CLIENTE inner join PESSOA on (CLIENTE.fk_id_pessoa = PESSOA.id_pessoa) where cpf ='" + cpf +"'");
-        Cliente cliente = new Cliente(conexao.rs.getNString("NOME"),conexao.rs.getNString("EMAIL"),
-        conexao.rs.getNString("TELEFONE"),conexao.rs.getNString("ENDERECO"),conexao.rs.getNString("CPF"),
-        conexao.rs.getNString("CARTAO_SUS"));
-
+        Cliente cliente = new Cliente(conexao.rs.getString("NOME"),conexao.rs.getString("EMAIL"),
+        conexao.rs.getString("TELEFONE"),conexao.rs.getString("ENDERECO"),conexao.rs.getString("CPF"),
+        conexao.rs.getString("CARTAO_SUS"));
+        cliente.setId_cliente(conexao.rs.getInt("ID_CLIENTE"));
+        conexao.fecharBanco();
+        
         return cliente;        
 
     }
@@ -112,9 +96,9 @@ public class ClienteSql {
         conexao.conectarBanco();
         
         conexao.rs = conexao.stmt.executeQuery("select * from CLIENTE inner join PESSOA on (CLIENTE.fk_id_pessoa = PESSOA.id_pessoa) where id_cliente ='" + idCliente +"'");
-        Cliente cliente = new Cliente(conexao.rs.getNString("NOME"),conexao.rs.getNString("EMAIL"),
-        conexao.rs.getNString("TELEFONE"),conexao.rs.getNString("ENDERECO"),conexao.rs.getNString("CPF"),
-        conexao.rs.getNString("CARTAO_SUS"));
+        Cliente cliente = new Cliente(conexao.rs.getString("NOME"),conexao.rs.getString("EMAIL"),
+        conexao.rs.getString("TELEFONE"),conexao.rs.getString("ENDERECO"),conexao.rs.getString("CPF"),
+        conexao.rs.getString("CARTAO_SUS"));
         
         conexao.fecharBanco();
         return cliente;        

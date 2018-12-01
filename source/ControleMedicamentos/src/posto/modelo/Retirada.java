@@ -1,34 +1,31 @@
-
 package posto.modelo;
 
 import java.text.SimpleDateFormat;
 
-
-
 public class Retirada {
+
     protected String data;
-    protected int id_Retirada; 
+    protected int id_Retirada;
     protected String hora;
     protected int qtdRetirada;
     Cliente clienteRetirada;
     Funcionario funcionarioRetirada;
     Medicamento medicamento;
-    
-    public Retirada(int qtdRetirada, Cliente clienteRetirada, Funcionario funcionarioRetirada, Medicamento medicamento){
+
+    public Retirada(int qtdRetirada, Cliente clienteRetirada, Funcionario funcionarioRetirada, Medicamento medicamento) {
         String dataFormatada = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss")
-                                        .format(System.currentTimeMillis());
+                .format(System.currentTimeMillis());
 
+        String dataAtual = dataFormatada.substring(0, 10);
 
-        String dataAtual = dataFormatada.substring(0,10);
+        String horarioAtual = dataFormatada.substring(11, 19);
 
-        String horarioAtual = dataFormatada.substring(11,19);    
-        
         this.data = dataAtual; // Arrumar um jeito de pegar automaticamente e armazenar separadamente.
         this.hora = horarioAtual;
         this.qtdRetirada = qtdRetirada;
         this.clienteRetirada = clienteRetirada;
         this.funcionarioRetirada = funcionarioRetirada;
-        this.medicamento = medicamento;        
+        this.medicamento = medicamento;
     }
 
     public String getData() {
@@ -86,8 +83,5 @@ public class Retirada {
     public void setMedicamento(Medicamento medicamento) {
         this.medicamento = medicamento;
     }
-    
 
-    
-    
 }
