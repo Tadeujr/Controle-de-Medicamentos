@@ -104,6 +104,20 @@ public class ClienteSql {
         return cliente;        
 
     }
+ 
+    public Cliente selecionarClienteId(int idCliente) throws SQLException, ClassNotFoundException{
 
+        
+        OperarBd conexao = new OperarBd();
+        conexao.conectarBanco();
+        
+        conexao.rs = conexao.stmt.executeQuery("select * from CLIENTE inner join PESSOA on (CLIENTE.fk_id_pessoa = PESSOA.id_pessoa) where id_cliente ='" + idCliente +"'");
+        Cliente cliente = new Cliente(conexao.rs.getNString("NOME"),conexao.rs.getNString("EMAIL"),
+        conexao.rs.getNString("TELEFONE"),conexao.rs.getNString("ENDERECO"),conexao.rs.getNString("CPF"),
+        conexao.rs.getNString("CARTAO_SUS"));
+        
+        conexao.fecharBanco();
+        return cliente;        
+    }
      
 }
