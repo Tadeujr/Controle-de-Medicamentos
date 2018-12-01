@@ -20,7 +20,7 @@ public class OperarBd {
     public Connection c;
     public Statement stmt;
     public ResultSet rs; 
-    String sql;
+    public String sql;
 
     public void OperarBd(String sql){
         this.sql = sql;
@@ -30,7 +30,6 @@ public class OperarBd {
         
         Class.forName("org.sqlite.JDBC");
         this.c = DriverManager.getConnection("jdbc:sqlite:controlePosto.db");            
-        System.out.println("Conexão aberta");
         this.stmt = c.createStatement();
         
         
@@ -49,7 +48,7 @@ public class OperarBd {
     public void fecharBanco() throws SQLException{
         this.stmt.close();
         this.c.close();
-        System.out.println("Operação realizada com sucesso.");
+        
     }
     
 }

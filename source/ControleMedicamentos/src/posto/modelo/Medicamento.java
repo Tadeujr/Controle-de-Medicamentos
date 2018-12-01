@@ -9,13 +9,14 @@ public class Medicamento {
     protected int qtdDisponivel;
     protected int id_medicamento;
     
-    public Medicamento(String descricao,String nome,String validade,String lote,int qtdDisponivel){
+    public Medicamento(String nome,String descricao,String validade,String lote,int qtdDisponivel){
         this.descricao = descricao;
         this.nome = nome;
         this.validade = validade;
         this.lote = lote;
         this.qtdDisponivel = qtdDisponivel;
     }
+
     
     public String getDescricao() {
         return descricao;
@@ -40,6 +41,7 @@ public class Medicamento {
     public void setValidade(String validade) {
         this.validade = validade;
     }
+
 
     public String getLote() {
         return lote;

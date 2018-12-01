@@ -12,42 +12,28 @@ public class Main {
 
         try{
             
-            // criando Funcionario
+        /*    // criando Funcionario
             //Funcionario novoFuncionario = new Funcionario("tadeujunior","1234","gerente","Tadeu jr","tadeu_junior@outlook.com","3254331","rua 14 casa 35 Antonio Ferreira Borges","12345678900");
-            FuncionarioSql cadFuncionario = new FuncionarioSql();
-            Funcionario novo;
+           // FuncionarioSql cadFuncionario = new FuncionarioSql();
+           // Funcionario novo;
+            MedicamentoSql n = new MedicamentoSql();
             //cadFuncionario.cadastrarFuncionario(novoFuncionario);
-            novo = cadFuncionario.selecionarFuncionario("tadeujunior");
-            
-            System.out.println(novo.getCpf());
-            System.out.println(novo.getEmail());
-            System.out.println(novo.getEndereco());
-            System.out.println(novo.getId_Funcionario());
-            System.out.println(novo.getId_pessoa());
-            System.out.println(novo.getLogin());
-            System.out.println(novo.getNome());
-            System.out.println(novo.getSenha());
-            System.out.println(novo.getTelefone());
-            System.out.println(novo.getTipo());
-           /*
+            //novo = cadFuncionario.selecionarFuncionario("tadeujunior");
+            n.exibirMedicamentos();
+          */ 
            
            // CRIANDO MEDICAMENTO / INSERINDO NO BANCO E BUSCANDO NO BANCO
-           Medicamento nm = new Medicamento();
-           MedicamentoSql m  = new MedicamentoSql();
-           nm.setNome("Rivotril");
-           nm.setDescricao("Remedio de Jadson");
-           nm.setLote("10/02/1989");
-           nm.setValidade("00014");
-           nm.setQtdDisponivel(16);
            
+        Medicamento nm = new Medicamento("DorFlex","Preciso de um","1989-11-05","172",50);
+        Medicamento saida;
+        MedicamentoSql m  = new MedicamentoSql();
            
+        m.cadastrarMedicamento(nm);
            
-           m.cadastrarMedicamento(nm);
-           
-           m.exibirMedicamento();
-            nm = m.selecionarMedicamento("Rivotril");
-            System.out.println("Esse Medicamento vem do banco de dados: " + nm.getValidade());
-           */
+        m.exibirMedicamentos();
+        saida = m.selecionarMedicamento("DorFlex");
+        System.out.println("Esse Medicamento vem do banco de dados: " + saida.getValidade());
+          
             
             
         }catch(Exception  e){
