@@ -66,7 +66,9 @@ public class RetiradaSql {
         conexao.atualizarBanco();
 
     }
-        public synchronized ArrayList listarRetiradas() throws SQLException, ClassNotFoundException{
+    
+    
+    public synchronized ArrayList listarRetiradas() throws SQLException, ClassNotFoundException{
         ArrayList<Retirada> listarRetiradas = new ArrayList();    
         
         OperarBd conexao = new OperarBd();
