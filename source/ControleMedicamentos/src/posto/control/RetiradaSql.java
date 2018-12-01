@@ -105,5 +105,19 @@ public class RetiradaSql {
         return listarRetiradas;
 
     }
+    
+    
+    public void ExibirRetirada(ArrayList<Retirada> lstRetirada){
+        
+        for(int i=0;i<lstRetirada.size();i++){
+            System.out.println("id:"+lstRetirada.get(i).getId_Retirada());
+            System.out.println("Data da Retirada:"+lstRetirada.get(i).getData());
+            System.out.println("Hora da Retirada:"+lstRetirada.get(i).getHora());
+            System.out.println("Quantidade retirada:"+lstRetirada.get(i).getQtdRetirada());
+            System.out.println("Medicamento:"+lstRetirada.get(i).getMedicamento().getNome());
+            System.out.println("Cliente:"+lstRetirada.get(i).getClienteRetirada().getNome());
+            System.out.println("Funcionario:"+lstRetirada.get(i).getFuncionarioRetirada().getNome());
+        }
+    }
 
 }
