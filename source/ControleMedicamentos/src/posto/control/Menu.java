@@ -6,7 +6,6 @@ package posto.control;
 import java.io.IOException;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
-import javax.swing.JPanel;
 import posto.modelo.Cliente;
 import posto.modelo.Funcionario;
 import posto.modelo.Medicamento;
@@ -50,11 +49,8 @@ public class Menu {
         if (opcao == 2) {//Cadastrar Medicamento FUNCIONANDO
 
             String opCrud = JOptionPane.showInputDialog("Cadastra Medicamento: 1 "
-                    + "\nCadastrar Medicamento: 2"
-                    + "\nMostrar Medicamentos: 3"
-                    + "\nMostrar Funcionário: 4"
-                    + "\nSair: 0");
-            
+                    + "\nExibir Medicamento: 2");
+
             int opcCrud = Integer.parseInt(opCrud);
 
             if (opcCrud == 1) {
@@ -70,6 +66,15 @@ public class Menu {
 
                 /*enviando objeto para cadastrar*/
                 controleMedicamento.cadastrarMedicamento(nMedicamento);
+            }
+
+            if (opcCrud == 2) {//MOSTRA MEDICAMENTO
+                controleMedicamento.exibirMedicamentos();
+            }
+
+            if (opcCrud == 3) {
+                String nomeMedicamento = JOptionPane.showInputDialog("Medicamento");
+                controleMedicamento.deleteMedicamento(nomeMedicamento);
             }
 
         }
@@ -91,19 +96,20 @@ public class Menu {
         }
 
         if (opcao == 4) {// LISTA FUNCIONADO
-            controleMedicamento.exibirMedicamentos();
+
         }
 
         if (opcao == 5) {//CRUD MEDICAMENTO
 
         }
-        menu = JOptionPane.showInputDialog("Cadastra Fucionário: 1 "
+
+        /* menu = JOptionPane.showInputDialog("Cadastra Fucionário: 1 "
                 + "\nCadastrar Medicamento: 2"
                 + "\nMostrar Medicamentos: 3"
                 + "\nMostrar Funcionário: 4"
                 + "\nSair: 0");
 
-        opcao = Integer.parseInt(menu);
+        opcao = Integer.parseInt(menu);*/
     }
 
     //}
