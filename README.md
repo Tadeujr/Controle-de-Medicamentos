@@ -27,7 +27,7 @@ O sistema gera relatório de produtos mais procurados. Para fins de controle, ap
 Mockup: Balsamiq <br>
 Gerenciamento de projeto e controle de versão: GitHub <br>
 Modelos do banco de dados: brModelo <br>
-Banco de dados: PostgreSQL, utilizando pgAdmin <br>
+Banco de dados: Sqlite <br>
 Software: desenvolvido em Java, utilizando NetBeans <br>
 
 
