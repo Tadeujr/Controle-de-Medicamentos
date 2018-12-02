@@ -13,11 +13,11 @@ public class Cliente extends Pessoa{
         this.cartaoSUS = cartaoSUS;
     }
 
-    public int getId_cliente() {
+    public int getIdCliente() {
         return id_cliente;
     }
 
-    public void setId_cliente(int id_cliente) {
+    public void setIdCliente(int id_cliente) {
         this.id_cliente = id_cliente;
     }
 

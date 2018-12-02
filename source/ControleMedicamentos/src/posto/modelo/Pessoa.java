@@ -59,11 +59,11 @@ public class Pessoa {
         this.cpf = cpf;
     }
 
-    public int getId_pessoa() {
+    public int getIdPessoa() {
         return id_pessoa;
     }
 
-    public void setId_pessoa(int id_pessoa) {
+    public void setIdPessoa(int id_pessoa) {
         this.id_pessoa = id_pessoa;
     }
     

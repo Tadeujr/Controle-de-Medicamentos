@@ -27,7 +27,7 @@ O sistema gera relatório de produtos mais procurados. Para fins de controle, ap
 Mockup: Balsamiq <br>
 Gerenciamento de projeto e controle de versão: GitHub <br>
 Modelos do banco de dados: brModelo <br>
-Banco de dados: PostgreSQL, utilizando pgAdmin <br>
+Banco de dados: Sqlite <br>
 Software: desenvolvido em Java, utilizando NetBeans <br>
 
 
@@ -43,5 +43,8 @@ https://github.com/Tadeujr/Controle-de-Medicamentos/blob/master/Controle%20de%20
 ### 8. Kanban <br>
 https://github.com/Tadeujr/Controle-de-Medicamentos/projects
 
-### 9. Diagrama de Classe <br>
+### 9. Modelo conceitual <br>
+![alt text](https://raw.githubusercontent.com/Tadeujr/Controle-de-Medicamentos/master/Banco%20de%20dados/conceitual_postoSaude.png)
+
+### 10. Diagrama de Classe <br>
 https://github.com/Tadeujr/Controle-de-Medicamentos/blob/master/Modelagem%20de%20classe/Diagrama%20de%20Classe.pdf

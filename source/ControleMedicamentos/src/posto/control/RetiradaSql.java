@@ -37,10 +37,17 @@ public class RetiradaSql {
                     + "VALUES ('"
                     + retirada.getData() + "','"
                     + retirada.getHora() + "',"
+<<<<<<< HEAD
                     + retirada.getQtdRetirada() + ","
                     + nm.selecionarMedicamento(retirada.getMedicamento().getNome()).getId_medicamento() + ","
                     + nc.selecionarCliente(retirada.getClienteRetirada().getCpf()).getId_cliente() + ","
                     + nf.selecionarFuncionario(retirada.getFuncionarioRetirada().getLogin()).getId_Funcionario()
+=======
+                    + retirada.getQtdRetirada()+","
+                    + nm.selecionarMedicamento(retirada.getMedicamento().getNome()).getIdMedicamento() + ","
+                    + nc.selecionarCliente(retirada.getClienteRetirada().getCpf()).getIdCliente()+ ","
+                    + nf.selecionarFuncionario(retirada.getFuncionarioRetirada().getLogin()).getIdFuncionario()
+>>>>>>> a53c461ecc1eac8cab64b157bbd13c1481263b5f
                     + ");";
             conexao.atualizarBanco();
         } catch (Exception e) {
@@ -87,7 +94,7 @@ public class RetiradaSql {
             Retirada retirada = new Retirada(qtdRetirada, clienteRetirada, funcionarioRetirada, medicamento);
             retirada.setData(conexao.rs.getString("dataRetirada"));
             retirada.setHora(conexao.rs.getString("horaRetirada"));
-            retirada.setId_Retirada(conexao.rs.getInt("id_retirada"));
+            retirada.setIdRetirada(conexao.rs.getInt("id_retirada"));
             retirada.setQtdRetirada(conexao.rs.getInt("qtd_retirada"));
             int idMedicamento = conexao.rs.getInt("fk_id_medicamento");
             MedicamentoSql registro = new MedicamentoSql();
@@ -108,6 +115,7 @@ public class RetiradaSql {
     }
 
     
+<<<<<<< HEAD
     public void exibirRetiradas(ArrayList<Retirada> lstRetirada) {
         if (lstRetirada.size() != 0) {
             for (int i = 0; i < lstRetirada.size(); i++) {
@@ -118,6 +126,19 @@ public class RetiradaSql {
                 System.out.println("Medicamento:" + lstRetirada.get(i).getMedicamento().getNome());
                 System.out.println("Cliente:" + lstRetirada.get(i).getClienteRetirada().getNome());
                 System.out.println("Funcionario:" + lstRetirada.get(i).getFuncionarioRetirada().getNome());
+=======
+    
+    public void exibirRetiradas(ArrayList<Retirada> lstRetirada){
+        if(lstRetirada.size() != 0){
+            for(int i=0;i<lstRetirada.size();i++){
+                System.out.println("id:"+lstRetirada.get(i).getIdRetirada());
+                System.out.println("Data da Retirada:"+lstRetirada.get(i).getData());
+                System.out.println("Hora da Retirada:"+lstRetirada.get(i).getHora());
+                System.out.println("Quantidade retirada:"+lstRetirada.get(i).getQtdRetirada());
+                System.out.println("Medicamento:"+lstRetirada.get(i).getMedicamento().getNome());
+                System.out.println("Cliente:"+lstRetirada.get(i).getClienteRetirada().getNome());
+                System.out.println("Funcionario:"+lstRetirada.get(i).getFuncionarioRetirada().getNome());
+>>>>>>> a53c461ecc1eac8cab64b157bbd13c1481263b5f
             }
         } else {
             System.out.println("Lista Vazia.");

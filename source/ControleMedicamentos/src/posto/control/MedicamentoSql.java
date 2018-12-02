@@ -131,17 +131,28 @@ public class MedicamentoSql {
         }
 
     }
+<<<<<<< HEAD
 
 
+=======
+    
+>>>>>>> a53c461ecc1eac8cab64b157bbd13c1481263b5f
     // selecionar Medicamento escolhido 
     public Medicamento selecionarMedicamento(String nomeMedicamento) throws SQLException, ClassNotFoundException {
 
         OperarBd conexao = new OperarBd();
         conexao.conectarBanco();
+<<<<<<< HEAD
 
         conexao.rs = conexao.stmt.executeQuery("select * from Medicamento where nome = '" + nomeMedicamento + "'");
         Medicamento drugs = new Medicamento(conexao.rs.getString("NOME"), conexao.rs.getString("DESCRICAO"), conexao.rs.getString("VALIDADE"), conexao.rs.getString("LOTE"), conexao.rs.getInt("QTD_DISPONIVEL"));
         drugs.setId_medicamento(conexao.rs.getInt("id_medicamento"));
+=======
+        
+        conexao.rs = conexao.stmt.executeQuery("select * from Medicamento where nome = '" + nomeMedicamento +"'");
+        Medicamento drugs = new Medicamento(conexao.rs.getString("NOME"),conexao.rs.getString("DESCRICAO"),conexao.rs.getString("VALIDADE"),conexao.rs.getString("LOTE"),conexao.rs.getInt("QTD_DISPONIVEL"));
+        drugs.setIdMedicamento(conexao.rs.getInt("id_medicamento"));
+>>>>>>> a53c461ecc1eac8cab64b157bbd13c1481263b5f
         conexao.fecharBanco();
         return drugs;
 
@@ -151,9 +162,15 @@ public class MedicamentoSql {
 
         OperarBd conexao = new OperarBd();
         conexao.conectarBanco();
+<<<<<<< HEAD
         conexao.rs = conexao.stmt.executeQuery("select * from Medicamento where id_medicamento ='" + idMedicamento + "'");
         Medicamento drugs = new Medicamento(conexao.rs.getString("NOME"), conexao.rs.getString("DESCRICAO"), conexao.rs.getString("VALIDADE"), conexao.rs.getString("LOTE"), conexao.rs.getInt("QTD_DISPONIVEL"));
         drugs.setId_medicamento(conexao.rs.getInt("id_medicamento"));
+=======
+        conexao.rs = conexao.stmt.executeQuery("select * from Medicamento where id_medicamento ='" + idMedicamento+"'");
+        Medicamento drugs = new Medicamento(conexao.rs.getString("NOME"),conexao.rs.getString("DESCRICAO"),conexao.rs.getString("VALIDADE"),conexao.rs.getString("LOTE"),conexao.rs.getInt("QTD_DISPONIVEL"));
+        drugs.setIdMedicamento(conexao.rs.getInt("id_medicamento"));          
+>>>>>>> a53c461ecc1eac8cab64b157bbd13c1481263b5f
         conexao.fecharBanco();
         return drugs;
     }
@@ -171,6 +188,9 @@ public class MedicamentoSql {
                     + e.getMessage());
         }
     }
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> a53c461ecc1eac8cab64b157bbd13c1481263b5f
 }
