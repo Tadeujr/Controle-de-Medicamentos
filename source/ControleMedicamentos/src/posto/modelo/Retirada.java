@@ -36,11 +36,11 @@ public class Retirada {
         this.data = data;
     }
 
-    public int getId_Retirada() {
+    public int getIdRetirada() {
         return id_Retirada;
     }
 
-    public void setId_Retirada(int id_Retirada) {
+    public void setIdRetirada(int id_Retirada) {
         this.id_Retirada = id_Retirada;
     }
 

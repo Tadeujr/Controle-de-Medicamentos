@@ -80,7 +80,7 @@ public class RetiradaSql {
             Retirada retirada = new Retirada(qtdRetirada, clienteRetirada, funcionarioRetirada, medicamento);
             retirada.setData(conexao.rs.getString("dataRetirada"));
             retirada.setHora(conexao.rs.getString("horaRetirada"));
-            retirada.setId_Retirada(conexao.rs.getInt("id_retirada"));
+            retirada.setIdRetirada(conexao.rs.getInt("id_retirada"));
             retirada.setQtdRetirada(conexao.rs.getInt("qtd_retirada"));
             int idMedicamento = conexao.rs.getInt("fk_id_medicamento");
             MedicamentoSql registro = new MedicamentoSql();
@@ -105,7 +105,7 @@ public class RetiradaSql {
     public void ExibirRetirada(ArrayList<Retirada> lstRetirada){
         if(lstRetirada.size() != 0){
             for(int i=0;i<lstRetirada.size();i++){
-                System.out.println("id:"+lstRetirada.get(i).getId_Retirada());
+                System.out.println("id:"+lstRetirada.get(i).getIdRetirada());
                 System.out.println("Data da Retirada:"+lstRetirada.get(i).getData());
                 System.out.println("Hora da Retirada:"+lstRetirada.get(i).getHora());
                 System.out.println("Quantidade retirada:"+lstRetirada.get(i).getQtdRetirada());

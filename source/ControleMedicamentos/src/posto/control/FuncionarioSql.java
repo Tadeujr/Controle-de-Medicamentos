@@ -27,7 +27,7 @@ public class FuncionarioSql {
         try{
             nPessoaSql.cadastrarPessoa(nPessoa);
 
-            int idPessoa =  nPessoa.getId_pessoa();
+            int idPessoa =  nPessoa.getIdPessoa();
             OperarBd conexao = new OperarBd();
             conexao.conectarBanco();
             conexao.sql = "INSERT INTO Funcionario (login,senha,tipo,fk_id_pessoa)"

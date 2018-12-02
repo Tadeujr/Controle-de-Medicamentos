@@ -22,7 +22,7 @@ public class OperarBd {
     public ResultSet rs; 
     public String sql;
 
-    public void OperarBd(String sql){
+    public void operarBd(String sql){
         this.sql = sql;
     }
     
