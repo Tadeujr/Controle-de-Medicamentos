@@ -109,7 +109,6 @@ public class RetiradaSql {
     
     public void ExibirRetirada(ArrayList<Retirada> lstRetirada){
         if(lstRetirada.size() != 0){
-            
             for(int i=0;i<lstRetirada.size();i++){
                 System.out.println("id:"+lstRetirada.get(i).getId_Retirada());
                 System.out.println("Data da Retirada:"+lstRetirada.get(i).getData());
@@ -119,8 +118,9 @@ public class RetiradaSql {
                 System.out.println("Cliente:"+lstRetirada.get(i).getClienteRetirada().getNome());
                 System.out.println("Funcionario:"+lstRetirada.get(i).getFuncionarioRetirada().getNome());
             }
-        }else{
+        }else{  
             System.out.println("Lista Vazia.");
+        }
     }
 
 }
