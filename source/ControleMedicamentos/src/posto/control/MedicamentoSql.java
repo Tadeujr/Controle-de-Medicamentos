@@ -1,5 +1,6 @@
 package posto.control;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import posto.modelo.Medicamento;
 /**
  *
@@ -111,16 +112,17 @@ public class MedicamentoSql {
         OperarBd conexao = new OperarBd();
         conexao.conectarBanco();
         conexao.rs = conexao.stmt.executeQuery("select * from Medicamento;");
-        
         System.out.println("Nome \t\t Descricao \t\tLote \t\t Quantidade");
+        
         while(conexao.rs.next()){
+        
             Medicamento drugs = new Medicamento(conexao.rs.getString("NOME"),conexao.rs.getString("DESCRICAO"),conexao.rs.getString("VALIDADE"),conexao.rs.getString("LOTE"),conexao.rs.getInt("QTD_DISPONIVEL"));
             System.out.println(drugs.getNome()+"\t\t"+ drugs.getDescricao() +" \t\t"+  drugs.getLote() +"\t\t\t"+ drugs.getQtdDisponivel());
         }
           
         conexao.fecharBanco();       
     }
-    
+    /*
     public void buscarMedicamento (String nome) throws SQLException, ClassNotFoundException{
         OperarBd conexao = new OperarBd();
         conexao.conectarBanco();
@@ -128,7 +130,9 @@ public class MedicamentoSql {
         Medicamento medicamento = new Medicamento(conexao.rs.getString("NOME"),conexao.rs.getString("DESCRICAO"),conexao.rs.getString("VALIDADE"),conexao.rs.getString("LOTE"),conexao.rs.getInt("QTD_DISPONIVEL"));
         System.out.println(medicamento.getNome());
         
-    }
+    }*/
+    
+    
     // selecionar Medicamento escolhido 
     public Medicamento selecionarMedicamento(String nomeMedicamento) throws SQLException, ClassNotFoundException {
         
@@ -155,8 +159,23 @@ public class MedicamentoSql {
         return drugs;        
     }    
  
-    public void exibirMedicamento(ArrayList<Medicamento> lstMedicamento){
-        if(lstMedicamento.size() != 0){
+    
+    public void entregarMedicamento(String nome, int quantidade){
+        try {
+            
+            OperarBd conexao = new OperarBd();
+            conexao.conectarBanco();
+            conexao.sql = "UPDATE Medicamento SET QTD_DISPONIVEL = QTD_DISPONIVEL-" + quantidade+ " WHERE nome ='" + nome +"'";
+            conexao.atualizarBanco();
+            
+        } catch (Exception e) {
+            System.err.println(e.getClass().getName() + ": " + 
+                    e.getMessage());            
+        }
+    }
+    
+    public void exibirMedicamento( ArrayList<Medicamento> lstMedicamento){
+        if(!lstMedicamento.isEmpty()){
             for(int i=0;i<lstMedicamento.size();i++){
                 System.out.println("Nome:"+lstMedicamento.get(i).getNome());
                 System.out.println("Descrição:"+lstMedicamento.get(i).getDescricao());
