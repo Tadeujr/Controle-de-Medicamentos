@@ -154,5 +154,18 @@ public class MedicamentoSql {
         conexao.fecharBanco();
         return drugs;        
     }    
-    
+ 
+    public void ExibirMedicamento(ArrayList<Medicamento> lstMedicamento){
+        if(lstMedicamento.size() != 0){
+            for(int i=0;i<lstMedicamento.size();i++){
+                System.out.println("Nome:"+lstMedicamento.get(i).getNome());
+                System.out.println("Descrição:"+lstMedicamento.get(i).getDescricao());
+                System.out.println("Lote:"+lstMedicamento.get(i).getLote());
+                System.out.println("Validade:"+lstMedicamento.get(i).getValidade());
+                System.out.println("Quantidade Disponivel:"+lstMedicamento.get(i).getQtdDisponivel());
+            }
+        }else{  
+            System.out.println("Lista Vazia.");
+        }
+    }  
 }
