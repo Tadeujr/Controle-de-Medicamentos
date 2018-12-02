@@ -102,7 +102,7 @@ public class RetiradaSql {
     }
     
     
-    public void ExibirRetirada(ArrayList<Retirada> lstRetirada){
+    public void exibirRetiradas(ArrayList<Retirada> lstRetirada){
         if(lstRetirada.size() != 0){
             for(int i=0;i<lstRetirada.size();i++){
                 System.out.println("id:"+lstRetirada.get(i).getIdRetirada());
