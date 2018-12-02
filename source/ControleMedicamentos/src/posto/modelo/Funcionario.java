@@ -15,10 +15,6 @@ public class Funcionario extends Pessoa {
         this.tipo = tipo;
         
     }
-    
-    
-    
-
 
     public String getLogin() {
         return login;
@@ -44,11 +40,11 @@ public class Funcionario extends Pessoa {
         this.tipo = tipo;
     }
 
-    public int getId_Funcionario() {
+    public int getIdFuncionario() {
         return id_Funcionario;
     }
 
-    public void setId_Funcionario(int id_Funcionario) {
+    public void setIdFuncionario(int id_Funcionario) {
         this.id_Funcionario = id_Funcionario;
     }
 

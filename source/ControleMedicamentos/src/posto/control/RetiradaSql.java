@@ -35,9 +35,9 @@ public class RetiradaSql {
                     + retirada.getData() + "','"
                     + retirada.getHora() + "',"
                     + retirada.getQtdRetirada()+","
-                    + nm.selecionarMedicamento(retirada.getMedicamento().getNome()).getId_medicamento() + ","
-                    + nc.selecionarCliente(retirada.getClienteRetirada().getCpf()).getId_cliente()+ ","
-                    + nf.selecionarFuncionario(retirada.getFuncionarioRetirada().getLogin()).getId_Funcionario()
+                    + nm.selecionarMedicamento(retirada.getMedicamento().getNome()).getIdMedicamento() + ","
+                    + nc.selecionarCliente(retirada.getClienteRetirada().getCpf()).getIdCliente()+ ","
+                    + nf.selecionarFuncionario(retirada.getFuncionarioRetirada().getLogin()).getIdFuncionario()
                     + ");";
             conexao.atualizarBanco();
         } catch (Exception e) {
@@ -102,7 +102,7 @@ public class RetiradaSql {
     }
     
     
-    public void ExibirRetirada(ArrayList<Retirada> lstRetirada){
+    public void exibirRetiradas(ArrayList<Retirada> lstRetirada){
         if(lstRetirada.size() != 0){
             for(int i=0;i<lstRetirada.size();i++){
                 System.out.println("id:"+lstRetirada.get(i).getIdRetirada());

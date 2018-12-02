@@ -82,7 +82,7 @@ public class ClienteSql {
         Cliente cliente = new Cliente(conexao.rs.getString("NOME"),conexao.rs.getString("EMAIL"),
         conexao.rs.getString("TELEFONE"),conexao.rs.getString("ENDERECO"),conexao.rs.getString("CPF"),
         conexao.rs.getString("CARTAO_SUS"));
-        cliente.setId_cliente(conexao.rs.getInt("ID_CLIENTE"));
+        cliente.setIdCliente(conexao.rs.getInt("ID_CLIENTE"));
         conexao.fecharBanco();
         
         return cliente;        

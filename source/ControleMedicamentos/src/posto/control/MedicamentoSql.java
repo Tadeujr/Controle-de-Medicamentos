@@ -122,16 +122,6 @@ public class MedicamentoSql {
           
         conexao.fecharBanco();       
     }
-    /*
-    public void buscarMedicamento (String nome) throws SQLException, ClassNotFoundException{
-        OperarBd conexao = new OperarBd();
-        conexao.conectarBanco();
-        conexao.rs = conexao.stmt.executeQuery("SELECT * FROM MEDICAMENTO WHERE NOME = '" + nome + "'");
-        Medicamento medicamento = new Medicamento(conexao.rs.getString("NOME"),conexao.rs.getString("DESCRICAO"),conexao.rs.getString("VALIDADE"),conexao.rs.getString("LOTE"),conexao.rs.getInt("QTD_DISPONIVEL"));
-        System.out.println(medicamento.getNome());
-        
-    }*/
-    
     
     // selecionar Medicamento escolhido 
     public Medicamento selecionarMedicamento(String nomeMedicamento) throws SQLException, ClassNotFoundException {
@@ -141,7 +131,7 @@ public class MedicamentoSql {
         
         conexao.rs = conexao.stmt.executeQuery("select * from Medicamento where nome = '" + nomeMedicamento +"'");
         Medicamento drugs = new Medicamento(conexao.rs.getString("NOME"),conexao.rs.getString("DESCRICAO"),conexao.rs.getString("VALIDADE"),conexao.rs.getString("LOTE"),conexao.rs.getInt("QTD_DISPONIVEL"));
-        drugs.setId_medicamento(conexao.rs.getInt("id_medicamento"));
+        drugs.setIdMedicamento(conexao.rs.getInt("id_medicamento"));
         conexao.fecharBanco();
        return drugs;        
           
@@ -154,7 +144,7 @@ public class MedicamentoSql {
         conexao.conectarBanco();
         conexao.rs = conexao.stmt.executeQuery("select * from Medicamento where id_medicamento ='" + idMedicamento+"'");
         Medicamento drugs = new Medicamento(conexao.rs.getString("NOME"),conexao.rs.getString("DESCRICAO"),conexao.rs.getString("VALIDADE"),conexao.rs.getString("LOTE"),conexao.rs.getInt("QTD_DISPONIVEL"));
-        drugs.setId_medicamento(conexao.rs.getInt("id_medicamento"));          
+        drugs.setIdMedicamento(conexao.rs.getInt("id_medicamento"));          
         conexao.fecharBanco();
         return drugs;        
     }    
@@ -173,18 +163,4 @@ public class MedicamentoSql {
                     e.getMessage());            
         }
     }
-    
-    public void exibirMedicamento( ArrayList<Medicamento> lstMedicamento){
-        if(!lstMedicamento.isEmpty()){
-            for(int i=0;i<lstMedicamento.size();i++){
-                System.out.println("Nome:"+lstMedicamento.get(i).getNome());
-                System.out.println("Descrição:"+lstMedicamento.get(i).getDescricao());
-                System.out.println("Lote:"+lstMedicamento.get(i).getLote());
-                System.out.println("Validade:"+lstMedicamento.get(i).getValidade());
-                System.out.println("Quantidade Disponivel:"+lstMedicamento.get(i).getQtdDisponivel());
-            }
-        }else{  
-            System.out.println("Lista Vazia.");
-        }
-    }  
 }

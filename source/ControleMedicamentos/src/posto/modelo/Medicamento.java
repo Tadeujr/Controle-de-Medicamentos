@@ -17,7 +17,6 @@ public class Medicamento {
         this.qtdDisponivel = qtdDisponivel;
     }
 
-    
     public String getDescricao() {
         return descricao;
     }
@@ -59,11 +58,11 @@ public class Medicamento {
         this.qtdDisponivel = qtdDisponivel;
     }
 
-    public int getId_medicamento() {
+    public int getIdMedicamento() {
         return id_medicamento;
     }
 
-    public void setId_medicamento(int id_medicamento) {
+    public void setIdMedicamento(int id_medicamento) {
         this.id_medicamento = id_medicamento;
     }
 
