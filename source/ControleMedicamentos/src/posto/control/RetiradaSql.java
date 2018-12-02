@@ -7,6 +7,8 @@ package posto.control;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import posto.modelo.Cliente;
 import posto.modelo.Funcionario;
 import posto.modelo.Medicamento;
@@ -29,14 +31,15 @@ public class RetiradaSql {
             ClienteSql nc = new ClienteSql();
             FuncionarioSql nf = new FuncionarioSql();
             MedicamentoSql nm = new MedicamentoSql();
+            nm.entregarMedicamento(retirada.getMedicamento().getNome(), retirada.getQtdRetirada());
             conexao.conectarBanco();
             conexao.sql = "INSERT INTO retirada (dataRetirada, horaRetirada, qtd_retirada, fk_id_medicamento, fk_id_cliente, fk_id_funcionario)"
                     + "VALUES ('"
                     + retirada.getData() + "','"
                     + retirada.getHora() + "',"
-                    + retirada.getQtdRetirada()+","
+                    + retirada.getQtdRetirada() + ","
                     + nm.selecionarMedicamento(retirada.getMedicamento().getNome()).getId_medicamento() + ","
-                    + nc.selecionarCliente(retirada.getClienteRetirada().getCpf()).getId_cliente()+ ","
+                    + nc.selecionarCliente(retirada.getClienteRetirada().getCpf()).getId_cliente() + ","
                     + nf.selecionarFuncionario(retirada.getFuncionarioRetirada().getLogin()).getId_Funcionario()
                     + ");";
             conexao.atualizarBanco();
@@ -47,14 +50,18 @@ public class RetiradaSql {
     }
 
     /* ALTERAR Ta errado isso aqui */
-    public void alteraEditaRetiradaQtd(int idRetirada, int qtdNova) throws SQLException, ClassNotFoundException {
+    public void alteraEditaRetiradaQtd(int idRetirada, int qtdNova) {
 
-        OperarBd conexao = new OperarBd();
-        conexao.conectarBanco();
-        conexao.sql = "UPDATE Retirada "
-                + "SET qtd_retirada = '" + qtdNova + "' "
-                + "Where id_retirada='" + idRetirada + "';";
-        conexao.atualizarBanco();
+        try {
+            OperarBd conexao = new OperarBd();
+            conexao.conectarBanco();
+            conexao.sql = "UPDATE Retirada "
+                    + "SET qtd_retirada = '" + qtdNova + "' "
+                    + "Where id_retirada='" + idRetirada + "';";
+            conexao.atualizarBanco();
+        } catch (Exception ex) {
+            Logger.getLogger(FuncionarioSql.class.getName()).log(Level.SEVERE, null, ex);
+        }
 
     }
 
@@ -88,7 +95,6 @@ public class RetiradaSql {
             int idFuncionario = conexao.rs.getInt("fk_id_funcionario");
             FuncionarioSql funcionario = new FuncionarioSql();
             retirada.setFuncionarioRetirada(funcionario.selecionarFuncionarioId(idFuncionario));
-            int idCliente = conexao.rs.getInt("fk_id_cliente");
             ClienteSql cliente = new ClienteSql();
             retirada.setClienteRetirada(cliente.selecionarClienteId(idMedicamento));
 
@@ -100,20 +106,20 @@ public class RetiradaSql {
         return listarRetiradas;
 
     }
+
     
-    
-    public void ExibirRetirada(ArrayList<Retirada> lstRetirada){
-        if(lstRetirada.size() != 0){
-            for(int i=0;i<lstRetirada.size();i++){
-                System.out.println("id:"+lstRetirada.get(i).getId_Retirada());
-                System.out.println("Data da Retirada:"+lstRetirada.get(i).getData());
-                System.out.println("Hora da Retirada:"+lstRetirada.get(i).getHora());
-                System.out.println("Quantidade retirada:"+lstRetirada.get(i).getQtdRetirada());
-                System.out.println("Medicamento:"+lstRetirada.get(i).getMedicamento().getNome());
-                System.out.println("Cliente:"+lstRetirada.get(i).getClienteRetirada().getNome());
-                System.out.println("Funcionario:"+lstRetirada.get(i).getFuncionarioRetirada().getNome());
+    public void exibirRetiradas(ArrayList<Retirada> lstRetirada) {
+        if (lstRetirada.size() != 0) {
+            for (int i = 0; i < lstRetirada.size(); i++) {
+                System.out.println("id:" + lstRetirada.get(i).getId_Retirada());
+                System.out.println("Data da Retirada:" + lstRetirada.get(i).getData());
+                System.out.println("Hora da Retirada:" + lstRetirada.get(i).getHora());
+                System.out.println("Quantidade retirada:" + lstRetirada.get(i).getQtdRetirada());
+                System.out.println("Medicamento:" + lstRetirada.get(i).getMedicamento().getNome());
+                System.out.println("Cliente:" + lstRetirada.get(i).getClienteRetirada().getNome());
+                System.out.println("Funcionario:" + lstRetirada.get(i).getFuncionarioRetirada().getNome());
             }
-        }else{  
+        } else {
             System.out.println("Lista Vazia.");
         }
     }
