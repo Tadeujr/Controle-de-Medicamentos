@@ -6,7 +6,7 @@ public class Funcionario extends Pessoa {
     protected String login;
     protected String senha;
     protected String tipo;
-    protected int id_Funcionario;
+    public int id_Funcionario;
 
     public Funcionario(String login, String senha, String tipo, String nome, String email, String telefone, String endereco, String cpf) {
         super(nome, email, telefone, endereco, cpf);
@@ -48,35 +48,13 @@ public class Funcionario extends Pessoa {
         return id_Funcionario;
     }
 
-    @Override
-    public int getId_pessoa() {
-        return id_pessoa;
-    }
-    
-    @Override
-    public String getNome() {
-        return nome;
+    public void setId_Funcionario(int id_Funcionario) {
+        this.id_Funcionario = id_Funcionario;
     }
 
-    @Override
-    public String getEmail() {
-        return email;
-    }
 
-    @Override
-    public String getTelefone() {
-        return telefone;
-    }
 
-    @Override
-    public String getEndereco() {
-        return endereco;
-    }
 
-    @Override
-    public String getCpf() {
-        return cpf;
-    }
   
     
 }

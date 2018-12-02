@@ -108,7 +108,7 @@ public class FuncionarioSql {
         conexao.rs = conexao.stmt.executeQuery("select * from Funcionario inner join PESSOA on (FUNCIONARIO.fk_id_pessoa = PESSOA.id_pessoa) where fk_id_pessoa = " + buscarIdFuncionario(login));
         Funcionario funcionario = new Funcionario(conexao.rs.getString("LOGIN"),conexao.rs.getString("SENHA"),conexao.rs.getString("TIPO"),conexao.rs.getString("NOME"),
         conexao.rs.getString("EMAIL"),conexao.rs.getString("TELEFONE"),conexao.rs.getString("ENDERECO"),conexao.rs.getString("CPF"));
-        
+        funcionario.setId_Funcionario(conexao.rs.getInt("ID_FUNCIONARIO"));
         conexao.fecharBanco();
 
         return funcionario;        

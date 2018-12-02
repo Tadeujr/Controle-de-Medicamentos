@@ -28,23 +28,18 @@ public class RetiradaSql {
             OperarBd conexao = new OperarBd();
             ClienteSql nc = new ClienteSql();
             FuncionarioSql nf = new FuncionarioSql();
-            int id_cliente = nc.selecionarCliente(retirada.getClienteRetirada().getCpf()).getId_cliente();// retirada.getClienteRetirada().getCpf()
-            System.out.println(nf.selecionarFuncionario(retirada.getFuncionarioRetirada().getNome()));
-            /*conexao.conectarBanco();
+            MedicamentoSql nm = new MedicamentoSql();
+            conexao.conectarBanco();
             conexao.sql = "INSERT INTO retirada (dataRetirada, horaRetirada, qtd_retirada, fk_id_medicamento, fk_id_cliente, fk_id_funcionario)"
                     + "VALUES ('"
-                    + retirada.getData()
-                    + "','"
-                    + retirada.getHora()
-                    + "','"
-                    + retirada.getQtdRetirada()
-                    + retirada.getMedicamento().getId_medicamento()
-                    + "',"
-                    + nc.selecionarCliente(retirada.getClienteRetirada().getCpf())
-                    + ",'"
-                    + nf.selecionarFuncionario(retirada.getFuncionarioRetirada().getLogin())
-                    + "');";
-            conexao.atualizarBanco();*/
+                    + retirada.getData() + "','"
+                    + retirada.getHora() + "',"
+                    + retirada.getQtdRetirada()+","
+                    + nm.selecionarMedicamento(retirada.getMedicamento().getNome()).getId_medicamento() + ","
+                    + nc.selecionarCliente(retirada.getClienteRetirada().getCpf()).getId_cliente()+ ","
+                    + nf.selecionarFuncionario(retirada.getFuncionarioRetirada().getLogin()).getId_Funcionario()
+                    + ");";
+            conexao.atualizarBanco();
         } catch (Exception e) {
             System.err.println("ERRO: Método Cadastrar Retirada" + e.getClass().getName() + ": " + e.getMessage());
         }
