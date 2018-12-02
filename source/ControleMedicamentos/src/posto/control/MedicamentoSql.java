@@ -155,7 +155,7 @@ public class MedicamentoSql {
         return drugs;        
     }    
  
-    public void ExibirMedicamento(ArrayList<Medicamento> lstMedicamento){
+    public void exibirMedicamento(ArrayList<Medicamento> lstMedicamento){
         if(lstMedicamento.size() != 0){
             for(int i=0;i<lstMedicamento.size();i++){
                 System.out.println("Nome:"+lstMedicamento.get(i).getNome());
