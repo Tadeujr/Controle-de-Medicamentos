@@ -17,7 +17,7 @@ import posto.modelo.Medicamento;
  */
 public class Menu {
 
-    public void Apresentacao() throws IOException, ClassNotFoundException {
+    public void Apresentacao() throws IOException, ClassNotFoundException, SQLException {
         Medicamento medicamento;
         Funcionario fucionario;
 

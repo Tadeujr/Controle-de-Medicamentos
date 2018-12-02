@@ -41,7 +41,6 @@ public class Medicamento {
         this.validade = validade;
     }
 
-
     public String getLote() {
         return lote;
     }
