@@ -58,7 +58,7 @@ public class ClienteSql {
 
     } 
     
-    public  void deleteCliente(int cartao_sus) {
+    public  void deleteCliente(String cartao_sus) {
         
         try {
             OperarBd conexao = new OperarBd();
