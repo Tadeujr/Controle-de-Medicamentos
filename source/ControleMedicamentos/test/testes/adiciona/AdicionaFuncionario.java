@@ -12,7 +12,6 @@ import java.util.logging.*;
 import org.junit.Test;
 import static org.junit.Assert.*;
 import posto.control.FuncionarioSql;
-import posto.control.OperarBd;
 import posto.modelo.Funcionario;
 
 /**
@@ -25,18 +24,15 @@ public class AdicionaFuncionario {
     }
     
     @Test
-    public void adicionaFuncionario(){
-        
-        Funcionario funcionario = new Funcionario("vitoriaCC","coom6Koebo3","funcionario","Vitória Cunha","vitoriacccunha@superrito.com","(12)7677-8520","Rua Joaquim Pereira Costa 1910, Guaratinguetá, SP, 12514-070","429.810.087-14");
-        FuncionarioSql cadastra = new FuncionarioSql();
-        cadastra.cadastrarFuncionario(funcionario);
-        
-        OperarBd conexao = new OperarBd();
+    public void adicionaFuncionario() throws SQLException, ClassNotFoundException{
         try {
-            conexao.conectarBanco();
-            assertEquals(cadastra.selecionarFuncionario("vitoriaCC"),"vitoriaCC");
+            Funcionario novoFuncionario;
+            novoFuncionario = new Funcionario("vitoriaCC","Koebo3","funcionario","Vitoria Cunha","vitoriacc@superrito.com","76778520","Rua Joaquim Pereira Costa 1910 Guaratinguetá","42981008714");
+            FuncionarioSql cadFuncionario = new FuncionarioSql();
+            cadFuncionario.cadastrarFuncionario(novoFuncionario);
+            assertEquals("Vitoria Cunha",cadFuncionario.selecionarFuncionario("vitoriaCC").getNome());
         } catch (SQLException | ClassNotFoundException ex) {
-            Logger.getLogger(AdicionaFuncionario.class.getName()).log(Level.SEVERE, null, ex);
+          Logger.getLogger(AdicionaFuncionario.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 }

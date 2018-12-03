@@ -6,12 +6,13 @@ package testes.adiciona;
  * and open the template in the editor.
  */
 
-import org.junit.After;
-import org.junit.AfterClass;
-import org.junit.Before;
-import org.junit.BeforeClass;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import org.junit.Test;
 import static org.junit.Assert.*;
+import posto.control.MedicamentoSql;
+import posto.modelo.Medicamento;
 
 /**
  *
@@ -22,25 +23,17 @@ public class AdicionaMedicamento {
     public AdicionaMedicamento() {
     }
     
-    @BeforeClass
-    public static void setUpClass() {
+    @Test
+    public void adicionaMedicamento(){
+        try{
+            Medicamento novoMedicamento = new Medicamento("Aradois","Losartana Potassica","25/08/1999","00035",85);
+            MedicamentoSql cadMedicamento = new MedicamentoSql();
+            cadMedicamento.cadastrarMedicamento(novoMedicamento);
+            Medicamento testa = cadMedicamento.selecionarMedicamento("Aradois");
+            String nomeMedic = testa.getNome();
+            assertEquals("Aradois",nomeMedic);
+        }catch(SQLException | ClassNotFoundException ex) {
+          Logger.getLogger(AdicionaFuncionario.class.getName()).log(Level.SEVERE, null, ex);
+        }    
     }
-    
-    @AfterClass
-    public static void tearDownClass() {
-    }
-    
-    @Before
-    public void setUp() {
-    }
-    
-    @After
-    public void tearDown() {
-    }
-
-    // TODO add test methods here.
-    // The methods must be annotated with annotation @Test. For example:
-    //
-    // @Test
-    // public void hello() {}
 }

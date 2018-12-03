@@ -11,7 +11,6 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.junit.Test;
 import posto.control.ClienteSql;
-import posto.control.OperarBd;
 import posto.modelo.Cliente;
 import static org.junit.Assert.assertEquals;
 
@@ -27,14 +26,13 @@ public class AdicionaCliente {
     @Test
     public void adicionaCliente() {
         
-        Cliente cliente = new Cliente("Luiz Correia","luizoliveiracorreia@cuvox.de","(35)8053-7658","Rua Trinta e Um 644, Poços de Caldas, MG, 37704-252","225.618.339-41","781223877040003");
-        ClienteSql cadastra = new ClienteSql();
-        cadastra.cadastrarCliente(cliente);
-        
-        OperarBd conexao = new OperarBd();
         try {
-            conexao.conectarBanco();
-            assertEquals(cadastra.selecionarCliente("Luiz Correia"),"Luiz Correia");
+            Cliente cliente = new Cliente("Luiz Correia","luizoliveira@cuvox.de","80537658","Rua Trinta e Um 644 Poços de Caldas","22561833941","781223877040003");
+            ClienteSql cadastra = new ClienteSql();
+            cadastra.cadastrarCliente(cliente);
+            Cliente testa = cadastra.selecionarCliente("22561833941");
+            String nomeCliente = testa.getNome();
+            assertEquals("Luiz Correia",nomeCliente);
         } catch (SQLException | ClassNotFoundException ex) {
             Logger.getLogger(AdicionaCliente.class.getName()).log(Level.SEVERE, null, ex);
         }
