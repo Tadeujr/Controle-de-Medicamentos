@@ -54,7 +54,7 @@ public class MedicamentoSql {
             conexao.sql = "UPDATE Medicamento "+
                          "SET descricao = '"+descricaoAtual+"' "+
                          "Where nome='"+nomeAtual+"';";
-            
+            conexao.atualizarBanco();
             
         } catch (Exception e) {
             System.err.println(e.getClass().getName() + ": " + e.getMessage());            
@@ -97,7 +97,7 @@ public class MedicamentoSql {
             
             OperarBd conexao = new OperarBd();
             conexao.conectarBanco();
-            conexao.rs = conexao.stmt.executeQuery("DELETE FROM Medicamento where id_medicamento=" + id +";");
+            conexao.rs = conexao.stmt.executeQuery("DELETE FROM Medicamento where id_medicamento= '" + id +"' ;");
             conexao.atualizarBanco();
             
         } catch (Exception e) {
