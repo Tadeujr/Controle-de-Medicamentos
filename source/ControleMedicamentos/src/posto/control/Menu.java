@@ -103,16 +103,22 @@ public class Menu {
 
             if (opcao == 3) {//Cria Cliente FUNCIONANDO
 
-                String nome = JOptionPane.showInputDialog("Nome");
-                String cpf = JOptionPane.showInputDialog("CPF");
-                String senhaF = JOptionPane.showInputDialog("Senha");
-                String loginF = JOptionPane.showInputDialog("Login");
-                String tipo = JOptionPane.showInputDialog("Tipo:(Gerente ou Atendente");
-                String email = JOptionPane.showInputDialog("Email");
-                String telefone = JOptionPane.showInputDialog("Telefone");
-                String endereco = JOptionPane.showInputDialog("Endereço");
-                String cartaoSus = JOptionPane.showInputDialog("Cartão SUS");
-                Cliente cliente = new Cliente(nome, email, telefone, endereco, cpf, cartaoSus);
+                String nome = JOptionPane.showInputDialog("(1/6)\nNome");
+                String cpf = JOptionPane.showInputDialog("(2/6)\nCPF (apenas números)");
+                while ((cpf.length() != 11) || (!cpf.matches("[0-9]*"))) {
+                    cpf = JOptionPane.showInputDialog("(2/6)\nCPF (apenas números)\nCPF inválido");
+                }
+                String email = JOptionPane.showInputDialog("(3/6)\nEmail");
+                String telefone = JOptionPane.showInputDialog("(4/6)\nTelefone");
+                while (!telefone.matches("[0-9]*")) {
+                    telefone = JOptionPane.showInputDialog("(4/6)\nTelefone\nTelefone inválido");
+                }
+                String endereco = JOptionPane.showInputDialog("(5/6)\nEndereço");
+                String cartaoSus = JOptionPane.showInputDialog("(6/6)\nCartão SUS");
+                while (!cartaoSus.matches("[0-9]*")) {
+                    cartaoSus = JOptionPane.showInputDialog("(6/6)\nCartão SUS");
+                }
+                Cliente cliente = new Cliente(nome.toUpperCase(), email, telefone, endereco.toUpperCase(), cpf, cartaoSus);
                 controleCliente.cadastrarCliente(cliente);
 
             }
