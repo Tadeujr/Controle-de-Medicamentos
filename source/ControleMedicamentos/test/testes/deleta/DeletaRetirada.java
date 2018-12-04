@@ -7,6 +7,7 @@ package testes.deleta;
 
 
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.junit.Test;
@@ -45,8 +46,11 @@ public class DeletaRetirada {
             novaRetirada = new Retirada(1,cadastra.selecionarCliente("22561833941"),func.selecionarFuncionario("vitoriaCC"),medic.selecionarMedicamento("Aradois"));
             RetiradaSql cadRetirada = new RetiradaSql();
             cadRetirada.cadastrarRetirada(novaRetirada);
-            int id = cadRetirada.
-            cadRetirada.deleteRetirada();
+            ArrayList <Retirada> testa = cadRetirada.listarRetiradas(1,cadastra.selecionarCliente("22561833941"),func.selecionarFuncionario("vitoriaCC"),medic.selecionarMedicamento("Aradois"));
+            int id = testa.get(1).getIdRetirada();
+            cadRetirada.deleteRetirada(id);
+            int size = testa.size();
+            assertEquals(0, size);
         } catch (SQLException | ClassNotFoundException ex) {
             Logger.getLogger(DeletaRetirada.class.getName()).log(Level.SEVERE, null, ex);
         }
