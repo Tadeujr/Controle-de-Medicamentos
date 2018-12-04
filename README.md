@@ -41,7 +41,7 @@ https://docs.google.com/document/d/1tRgpuwlMPt-rgHhG-9kocRRMQQI815y7EecFsZM7lPc/
 https://github.com/Tadeujr/Controle-de-Medicamentos/blob/master/Controle%20de%20Medicamento.pdf
 
 ### 8. Kanban <br>
-https://github.com/Tadeujr/Controle-de-Medicamentos/projects
+https://github.com/Tadeujr/Controle-de-Medicamentos/projects/1
 
 ### 9. Modelo conceitual <br>
 ![alt text](https://raw.githubusercontent.com/Tadeujr/Controle-de-Medicamentos/master/Banco%20de%20dados/conceitual_postoSaude.png)
