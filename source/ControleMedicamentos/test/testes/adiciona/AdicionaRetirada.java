@@ -46,8 +46,9 @@ public class AdicionaRetirada {
             Retirada novaRetirada = new Retirada(1,cadastra.selecionarCliente("22561833941"),func.selecionarFuncionario("vitoriaCC"),medic.selecionarMedicamento("Aradois"));
             RetiradaSql cadRetirada = new RetiradaSql();
             cadRetirada.cadastrarRetirada(novaRetirada);
-            ArrayList testa = cadRetirada.listarRetiradas(1,cadastra.selecionarCliente("22561833941"),func.selecionarFuncionario("vitoriaCC"),medic.selecionarMedicamento("Aradois"));
-            //assertEquals("Aradois",nomeMedic);
+            ArrayList <Retirada> testa = cadRetirada.listarRetiradas(1,cadastra.selecionarCliente("22561833941"),func.selecionarFuncionario("vitoriaCC"),medic.selecionarMedicamento("Aradois"));
+            int size = testa.size();
+            assertEquals(1, size);
         }catch(SQLException | ClassNotFoundException ex) {
           Logger.getLogger(AdicionaFuncionario.class.getName()).log(Level.SEVERE, null, ex);
         }    
