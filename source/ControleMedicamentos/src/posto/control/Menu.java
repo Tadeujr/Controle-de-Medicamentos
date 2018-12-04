@@ -33,17 +33,32 @@ public class Menu {
         while (opcao != 0) {
 
             //Opções Menu
-            if (opcao == 1) {//Cadastrar Funcionario            
-                String nome = JOptionPane.showInputDialog("Nome");
-                String cpf = JOptionPane.showInputDialog("CPF");
-                String senhaF = JOptionPane.showInputDialog("Senha");
-                String loginF = JOptionPane.showInputDialog("Login");
-                String tipo = JOptionPane.showInputDialog("Tipo:(Gerente ou Atendente");
-                String email = JOptionPane.showInputDialog("Email");
-                String telefone = JOptionPane.showInputDialog("Telefone");
-                String endereco = JOptionPane.showInputDialog("Endereço");
+            if (opcao == 1) {//Cadastrar Funcionario FUNCIONANDO
+                String nome = JOptionPane.showInputDialog("(1/8)\nNome");
+                String cpf = JOptionPane.showInputDialog("(2/8)\nCPF (apenas números)");
+                while ((cpf.length() != 11) || (!cpf.matches("[0-9]*"))) {
+                    cpf = JOptionPane.showInputDialog("(2/8)\nCPF (apenas números)\nCPF inválido");
+                }
+                String senhaF = JOptionPane.showInputDialog("(3/8)\nSenha");
+                String loginF = JOptionPane.showInputDialog("(4/8)\nLogin");
+                String tipo = JOptionPane.showInputDialog("(5/8)\nTipo:Gerente [1] ou Atendente [2]");
+                while ((!"1".equals(tipo)) && (!"2".equals(tipo))) {
+                    tipo = JOptionPane.showInputDialog("(5/8)\nTipo:Gerente [1] ou Atendente [2]\nTipo inválido");
+                }
+                if ("1".equals(tipo)){
+                    tipo = "GERENTE";
+                }
+                else{
+                    tipo = "ATENDENTE";
+                }
+                String email = JOptionPane.showInputDialog("(6/8)\nEmail");
+                String telefone = JOptionPane.showInputDialog("(7/8)\nTelefone");
+                while (!telefone.matches("[0-9]*")) {
+                    telefone = JOptionPane.showInputDialog("(7/8)\nTelefone\nTelefone inválido");
+                }
+                String endereco = JOptionPane.showInputDialog("(8/8)\nEndereço");
 
-                Funcionario nFuncionario = new Funcionario(loginF, senhaF, tipo, nome, email, telefone, endereco, cpf); // pesquisa metodo de crptografia
+                Funcionario nFuncionario = new Funcionario(loginF, senhaF, tipo, nome.toUpperCase(), email, telefone, endereco.toUpperCase(), cpf); // pesquisa metodo de crptografia
                 controleFuncionario.cadastrarFuncionario(nFuncionario);
 
             }
@@ -52,7 +67,7 @@ public class Menu {
 
                 String opCrud = JOptionPane.showInputDialog("Cadastra Medicamento: 1 "
                         + "\nExibir Medicamento: 2"
-                        + "\nCadastrar Cliente: 3" + "\nSair: 4");
+                        + "\nCadastrar Cliente: 3" + "\nSair: 0");
 
                 int opcCrud = Integer.parseInt(opCrud);
 
@@ -112,7 +127,7 @@ public class Menu {
 
                 menu = JOptionPane.showInputDialog("Cadastra Medicamento: 1 "
                         + "\nExibir Medicamento: 2"
-                        + "\nCadastrar Cliente: 3" + "\nSair: 4");
+                        + "\nCadastrar Cliente: 3" + "\nSair: 0");
 
                 opcao = Integer.parseInt(menu);
         }
