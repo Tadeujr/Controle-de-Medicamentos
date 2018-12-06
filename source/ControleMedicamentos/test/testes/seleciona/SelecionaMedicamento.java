@@ -24,9 +24,9 @@ public class SelecionaMedicamento {
     @Test
      public void selecionaNome() throws SQLException, ClassNotFoundException{
         MedicamentoSql func = new MedicamentoSql();
-        Medicamento testa = func.selecionarMedicamento("Aradois");
+        Medicamento testa = func.selecionarMedicamento("Viagra");
         String lote = testa.getLote();
-        assertEquals("00035", lote);
+        assertEquals("abc/001", lote);
     }
      
     @Test

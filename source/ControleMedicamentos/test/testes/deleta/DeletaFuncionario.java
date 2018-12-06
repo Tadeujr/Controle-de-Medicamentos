@@ -27,11 +27,14 @@ public class DeletaFuncionario {
         try {
             Funcionario novoFuncionario = new Funcionario("vitoriaCC","Koebo3","funcionario","Vitoria Cunha","vitoriacc@superrito.com","76778520","Rua Joaquim Pereira Costa 1910 Guaratinguetá","42981008714");
             FuncionarioSql func = new FuncionarioSql();
+            System.out.println("31");
             func.cadastrarFuncionario(novoFuncionario);
+            System.out.println("32");
             func.deleteLogin("vitoriaCC");
             Funcionario testa = func.selecionarFuncionario("vitoriaCC");
+            System.out.println("33");
             String nomeFunc = testa.getNome();
-            assertEquals(null,nomeFunc);
+            assertEquals(null,func.selecionarFuncionario("vitoriaCC"));
         } catch (SQLException | ClassNotFoundException ex) {
             Logger.getLogger(DeletaCliente.class.getName()).log(Level.SEVERE, null, ex);
         }

@@ -23,16 +23,16 @@ public class SelecionaCliente {
     @Test
     public void selecionaCpf() throws SQLException, ClassNotFoundException{
         ClienteSql cliente = new ClienteSql();
-        Cliente testa = cliente.selecionarCliente("22561833941");
+        Cliente testa = cliente.selecionarCliente("2424242425");
         String cartaoSus = testa.getCartaoSUS();
-        assertEquals("781223877040003", cartaoSus);
+        assertEquals("123445678907", cartaoSus);
     }
     
     @Test
      public void selecionaId() throws SQLException, ClassNotFoundException{
         ClienteSql cliente = new ClienteSql();
-        Cliente testa = cliente.selecionarClienteId(8);
+        Cliente testa = cliente.selecionarClienteId(2);
         String cartaoSus = testa.getCartaoSUS();
-        assertEquals("781223877040003", cartaoSus);
+        assertEquals("123456", cartaoSus);
     }
 }
