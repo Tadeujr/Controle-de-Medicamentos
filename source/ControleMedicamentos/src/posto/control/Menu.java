@@ -9,6 +9,7 @@ import javax.swing.JOptionPane;
 import posto.modelo.Cliente;
 import posto.modelo.Funcionario;
 import posto.modelo.Medicamento;
+import posto.modelo.Retirada;
 
 /**
  *
@@ -23,11 +24,13 @@ public class Menu {
         MedicamentoSql controleMedicamento = new MedicamentoSql();
         ClienteSql controleCliente = new ClienteSql();
         FuncionarioSql controleFuncionario = new FuncionarioSql();
+        RetiradaSql controleRetirada = new RetiradaSql();
 
         // String login = JOptionPane.showInputDialog("Login");
         String menu = JOptionPane.showInputDialog("\t\t           Menu Principal"+ "\nCadastra Funcionario: 1 "
                         + "\nOpções Medicamento: 2"
-                        + "\nDeletar Medicamento: 3" + "\nSair: 0");
+                        + "\nCadastrar Cliente: 3" 
+                        + "\nCadastrar Retirada: 4" + "\nSair: 0");
         int opcao = Integer.parseInt(menu);
         //verificar login
         while (opcao != 0) {
@@ -53,7 +56,7 @@ public class Menu {
                 }
                 String email = JOptionPane.showInputDialog("(6/8)\nEmail");
                 String telefone = JOptionPane.showInputDialog("(7/8)\nTelefone");
-                while ((telefone.length() != 9) || (!telefone.matches("[0-9]*"))) {
+                while (!telefone.matches("[0-9]*")) {
                     telefone = JOptionPane.showInputDialog("(7/8)\nTelefone\nTelefone inválido");
                 }
                 String endereco = JOptionPane.showInputDialog("(8/8)\nEndereço");
@@ -63,15 +66,15 @@ public class Menu {
 
             }
 
-            if (opcao == 2) {//Cadastrar Medicamento FUNCIONANDO
+            if (opcao == 2) {//Opções Medicamento FUNCIONANDO
 
                 String opCrud = JOptionPane.showInputDialog("Cadastra Medicamento: 1 "
                         + "\nExibir Medicamento: 2"
-                        + "\nCadastrar Cliente: 3" + "\nSair: 0");
+                        + "\nDeletar Medicamento: 3" + "\nSair: 0");
 
                 int opcCrud = Integer.parseInt(opCrud);
 
-                if (opcCrud == 1) {
+                if (opcCrud == 1) { //Cadastrar Medicamento FUNCIONANDO
                     String nomeMedicamento = JOptionPane.showInputDialog("Medicamento");
                     String validade = JOptionPane.showInputDialog("validade");
                     String lote = JOptionPane.showInputDialog("lote");
@@ -123,20 +126,70 @@ public class Menu {
 
             }
 
-            if (opcao == 4) {// LISTA FUNCIONADO
-
-            }
+            if (opcao == 4) {// Retirada
+                    int verificador = 0;
+                    String funcLogin = JOptionPane.showInputDialog("(1/4)\nLogin Funcionario");
+                        while(verificador == 0 ){
+                            if (funcLogin != null){
+                                try{
+                                    Funcionario func = controleFuncionario.selecionarFuncionario(funcLogin);
+                                    verificador = 1;
+                                }catch(ClassNotFoundException | SQLException e){
+                                    funcLogin = JOptionPane.showInputDialog("(1/4)\nLogin Inválido \nLogin Funcionario");
+                                }
+                            }
+                        }
+                    String cpf = JOptionPane.showInputDialog("(2/4)\nCPF (apenas números)");
+                    while ((cpf.length() != 11) || (!cpf.matches("[0-9]*"))) {
+                        cpf = JOptionPane.showInputDialog("(2/4)\nCPF (apenas números)\nCPF inválido");
+                    }
+                    while(verificador == 1 ){
+                        if (cpf != null){
+                            try{
+                                Cliente cliente = controleCliente.selecionarCliente(cpf);
+                                verificador = 2;
+                            }catch(ClassNotFoundException | SQLException e){
+                                cpf = JOptionPane.showInputDialog("(2/4)\nCliente Inexistente\n Insira CPF válido");
+                                while ((cpf.length() != 11) || (!cpf.matches("[0-9]*"))) {
+                                    cpf = JOptionPane.showInputDialog("(2/4)\nCPF (apenas números)\nCPF inválido");
+                                }
+                            }
+                        }
+                    }
+                    String nomeMedicamento = JOptionPane.showInputDialog("(3/4)\nNome Medicamento");
+                    while(verificador == 2 ){
+                        if (nomeMedicamento != null){
+                            try{
+                                Medicamento medic = controleMedicamento.selecionarMedicamento(nomeMedicamento);
+                                verificador = 3;
+                            }catch(ClassNotFoundException | SQLException e){
+                                nomeMedicamento = JOptionPane.showInputDialog("(3/4)\nNome Inválido \nNome Medicamento");
+                            }
+                        }    
+                    }
+                    int qtdDisponivel = controleMedicamento.selecionarMedicamento(nomeMedicamento).getQtdDisponivel();
+                    String qtd = JOptionPane.showInputDialog("(4/4)\nQuantidade Retirada");
+                    int qtdRetirada = Integer.parseInt(qtd);
+                    while(qtdDisponivel < qtdRetirada ){
+                        qtd = JOptionPane.showInputDialog("(4/4)\nQuantidade Inválida \nQuantidade no Sistema :" + qtdDisponivel + "\nQuantidade Retirada");
+                        qtdRetirada = Integer.parseInt(qtd);
+                    }
+                    if (qtdRetirada == qtdDisponivel){
+                        JOptionPane.showMessageDialog(null, "Medicamento agora possui 0 em estoque.");
+                    }
+                    Retirada nRetirada = new Retirada(qtdRetirada, controleCliente.selecionarCliente(cpf), controleFuncionario.selecionarFuncionario(funcLogin), controleMedicamento.selecionarMedicamento(nomeMedicamento));
+                    controleRetirada.cadastrarRetirada(nRetirada);
+                }
 
             if (opcao == 5) {//CRUD MEDICAMENTO
 
             }
-
-                menu = JOptionPane.showInputDialog("Cadastra Medicamento: 1 "
-                        + "\nExibir Medicamento: 2"
-                        + "\nCadastrar Cliente: 3" + "\nSair: 0");
-
+                menu = JOptionPane.showInputDialog("\t\t           Menu Principal"+ "\nCadastra Funcionario: 1 "
+                        + "\nOpções Medicamento: 2"
+                        + "\nCadastrar Cliente: 3" 
+                        + "\nCadastrar Retirada: 4" + "\nSair: 0");
                 opcao = Integer.parseInt(menu);
         }
-            
-    }
+    }      
 }
+
