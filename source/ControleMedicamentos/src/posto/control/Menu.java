@@ -53,7 +53,7 @@ public class Menu {
                 }
                 String email = JOptionPane.showInputDialog("(6/8)\nEmail");
                 String telefone = JOptionPane.showInputDialog("(7/8)\nTelefone");
-                while (!telefone.matches("[0-9]*")) {
+                while ((telefone.length() != 9) || (!telefone.matches("[0-9]*"))) {
                     telefone = JOptionPane.showInputDialog("(7/8)\nTelefone\nTelefone inválido");
                 }
                 String endereco = JOptionPane.showInputDialog("(8/8)\nEndereço");
@@ -110,12 +110,12 @@ public class Menu {
                 }
                 String email = JOptionPane.showInputDialog("(3/6)\nEmail");
                 String telefone = JOptionPane.showInputDialog("(4/6)\nTelefone");
-                while (!telefone.matches("[0-9]*")) {
+                while ((telefone.length() != 9) || (!telefone.matches("[0-9]*"))) {
                     telefone = JOptionPane.showInputDialog("(4/6)\nTelefone\nTelefone inválido");
                 }
                 String endereco = JOptionPane.showInputDialog("(5/6)\nEndereço");
                 String cartaoSus = JOptionPane.showInputDialog("(6/6)\nCartão SUS");
-                while (!cartaoSus.matches("[0-9]*")) {
+                while ((cartaoSus.length() != 15) || (!cartaoSus.matches("[0-9]*"))) {
                     cartaoSus = JOptionPane.showInputDialog("(6/6)\nCartão SUS");
                 }
                 Cliente cliente = new Cliente(nome.toUpperCase(), email, telefone, endereco.toUpperCase(), cpf, cartaoSus);
