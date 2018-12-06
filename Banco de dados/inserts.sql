@@ -39,8 +39,7 @@ INSERT INTO Retirada (dataRetirada, horaRetirada, id_retirada, qtd_retirada, fk_
     ('13/12/2018', '16:02:36', 10, 2, 4, 5, 4);
 
 INSERT INTO Medicamento (id_medicamento, nome, descricao, validade, qtd_disponivel, lote)
-    VALUES (1, 'DorFlex', 'Medicamento para dor', '21/12/2019', '100', 'L12345'),
-    (2, 'Viagra', 'Usado para aumento de libido', '10/10/2020', '20', 'L98949'),
-    (3, 'Multigripe', 'Medicamento eficaz contra gripe', '13/05/2019', 'L23120', 'lote'),
-    (4, 'Tylenol', 'Eficaz contra febre', '17/08/2019', '32', 'L01072'),
-    (5, 'Marevan', 'Anticoagulante eficaz contra trombose', '26/01/2021', '14', 'L31106');
+    VALUES (1, 'DorFlex', 'Medicamento para dor', '21/12/2019', 100, 'L12345'),
+    (2, 'Viagra', 'Usado para aumento de libido', '10/10/2020', 20, 'L98949'),
+    (3, 'Multigripe', 'Medicamento eficaz contra gripe', '13/05/2019',35, 'L23120'),
+    (5, 'Marevan', 'Anticoagulante eficaz contra trombose', '26/01/2021', 14, 'L31106');
