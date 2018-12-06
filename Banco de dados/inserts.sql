@@ -36,7 +36,7 @@ INSERT INTO Retirada (dataRetirada, horaRetirada, id_retirada, qtd_retirada, fk_
     ('28/12/2018', '11:48:19', 7, 3, 3, 3, 5),
     ('03/12/2018', '15:32:07', 8, 4, 5, 1, 5),
     ('07/12/2018', '13:12:09', 9, 2, 1, 4, 2),
-    ('13/12/2018', '16:02:36', 10, 2, 4, 5, 4),
+    ('13/12/2018', '16:02:36', 10, 2, 4, 5, 4);
 
 INSERT INTO Medicamento (id_medicamento, nome, descricao, validade, qtd_disponivel, lote)
     VALUES (1, 'DorFlex', 'Medicamento para dor', '21/12/2019', '100', 'L12345'),
