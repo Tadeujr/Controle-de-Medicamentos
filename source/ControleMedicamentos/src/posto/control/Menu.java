@@ -181,9 +181,7 @@ public class Menu {
                     controleRetirada.cadastrarRetirada(nRetirada);
                 }
 
-            if (opcao == 5) {//CRUD MEDICAMENTO
 
-            }
                 menu = JOptionPane.showInputDialog("\t\t           Menu Principal"+ "\nCadastra Funcionario: 1 "
                         + "\nOpções Medicamento: 2"
                         + "\nCadastrar Cliente: 3" 
